@@ -1,0 +1,122 @@
+{
+  // workbench
+  "workbench.colorTheme": "Default Dark+",
+  "workbench.editor.enablePreview": false,
+  "workbench.editorLargeFileConfirmation": 3072,
+  "workbench.startupEditor": "none",
+
+  // terminal
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Ubuntu (WSL)": {
+      "path": "C:\\windows\\System32\\wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.scrollback": 5000,
+
+  // editor
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.formatOnSave": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+
+  // remote
+  "remote.autoForwardPortsSource": "hybrid",
+
+  // json
+  "[json][jsonc]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
+	"json.schemas": [
+    {
+      "fileMatch": ["*.json"],
+		  "schema": {
+			  "allowTrailingCommas": true
+		  }
+	  }
+  ],
+
+  // yaml
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
+
+  // markdown
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+
+  // shellscript
+  "[shellscript]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true,
+  },
+
+  // makefile
+  "[makefile]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+  },
+
+  ////////////////////////////////////////////
+  // extensions
+  ////////////////////////////////////////////
+
+  // cSpell
+  "cSpell.enabled": true,
+  "cSpell.customDictionaries": {
+    "common": {
+      "name": "common",
+      "path": "~/dotfiles/configs/.cspell/common.txt",
+      "addWords": true,
+    },
+    "cloud-init": {
+      "name": "cloud-init",
+      "path": "~/dotfiles/configs/.cspell/cloud-init.txt",
+      "addWords": true,
+    },
+    "custom": true,
+    "internal-terms": true,
+  },
+
+  // makefile
+  "makefile.makePath": "/usr/bin/make",
+  "makefile.launchConfigurations": [],
+
+  // shellcheck
+  "shellcheck.enable": true,
+  "shellcheck.enableQuickFix": true,
+  "shellcheck.run": "onSave",
+  "shellcheck.executablePath": "", // Priority: user defined > bundled shellcheck binary > "shellcheck"
+  "shellcheck.exclude": [],
+  "shellcheck.customArgs": [],
+  "shellcheck.ignorePatterns": {
+    "**/.bashrc": true,
+    "**/.profile": true,
+  },
+
+  "redhat.telemetry.enabled": false,
+}

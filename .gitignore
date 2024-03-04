@@ -1,0 +1,13 @@
+### all ignore
+/*
+/.**
+
+### not ignore
+!.gitignore
+!*.code-workspace
+!/dotfiles
+!/configs
+!/scripts
+!Makefile
+!README.md
+

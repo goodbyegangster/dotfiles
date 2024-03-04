@@ -1,0 +1,31 @@
+# dotfiles
+dotfiles
+windir
+Sysnative
+scrollback
+
+# githistory
+donjayamanne
+githistory
+
+# shellcheck
+timonwong
+shellcheck
+
+# prettier
+esbenp
+
+# rainbow-csv
+mechatroner
+
+# markdown-pdf
+yzane
+
+# markdown-all-in-one
+yzhang
+
+# shell-format
+foxundermoon
+
+# vscode-language-pack-ja
+ceintl
