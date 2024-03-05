@@ -81,6 +81,14 @@
     "editor.insertSpaces": false,
   },
 
+  // typescript
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+
   ////////////////////////////////////////////
   // extensions
   ////////////////////////////////////////////
