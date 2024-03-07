@@ -126,5 +126,16 @@
     "**/.profile": true,
   },
 
+  // eslint
+  "eslint.enable": true,
+  "eslint.validate": [
+    "typescript",
+  ],
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "always",
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit",
+  },
+
   "redhat.telemetry.enabled": false,
 }

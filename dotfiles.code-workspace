@@ -15,6 +15,10 @@
       "mads-hartmann.bash-ide-vscode", // https://github.com/bash-lsp/bash-language-server
       "timonwong.shellcheck", // https://github.com/vscode-shellcheck/vscode-shellcheck
       "foxundermoon.shell-format", // https://github.com/foxundermoon/vs-shell-format
+      // eslint
+      "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
+      // terraform
+      "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
       // formatter
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       // other

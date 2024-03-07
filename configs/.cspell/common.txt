@@ -29,3 +29,7 @@ foxundermoon
 
 # vscode-language-pack-ja
 ceintl
+
+# vscode-eslint
+dbaeumer
+
