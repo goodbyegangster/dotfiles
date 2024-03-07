@@ -81,6 +81,18 @@
     "editor.insertSpaces": false,
   },
 
+  // terraform
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+
   // typescript
   "[typescript]": {
     "editor.tabSize": 2,
@@ -88,7 +100,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
   },
-
+  
   ////////////////////////////////////////////
   // extensions
   ////////////////////////////////////////////

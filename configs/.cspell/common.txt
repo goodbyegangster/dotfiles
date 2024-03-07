@@ -33,3 +33,5 @@ ceintl
 # vscode-eslint
 dbaeumer
 
+# template password string
+Passw
