@@ -59,6 +59,34 @@
   "[yaml]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true,
+    "format.enable": true,
+    "schemas": {
+      //////////////
+      // dbt
+      //////////////
+      "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/dbt_yml_files.json": [
+        "/**/models/**/*.yml",
+        "!profiles.yml",
+        "!dbt_project.yml",
+        "!packages.yml",
+        "!package-lock.yml",
+        "!selectors.yml",
+        "!profile_template.yml",
+        "!deployment.yml",
+      ],
+      // add: $defs.model_configs.properties.+snowflake_warehouse
+      "~/dotfiles/.configs/.json-schemas/dbt_project.json": [
+        "dbt_project.yml"
+      ],
+      "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/selectors.json": [
+        "selectors.yml"
+      ],
+      "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/packages.json": [
+        "packages.yml"
+      ],
+    },
   },
 
   // markdown

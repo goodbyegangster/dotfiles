@@ -23,6 +23,7 @@
       "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
       // formatter
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
+      "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml
       // other
       "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
       "streetsidesoftware.code-spell-checker",  // https://github.com/streetsidesoftware/vscode-spell-checker
