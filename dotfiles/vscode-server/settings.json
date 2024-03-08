@@ -117,7 +117,7 @@
     "editor.formatOnSave": true,
   },
 
-  // makefile
+  // Makefile
   "[makefile]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
@@ -126,12 +126,12 @@
   // Docker Compose
   "[Compose]": {
     "editor.tabSize": 2,
-    "editor.insertSpaces": false,
+    "editor.insertSpaces": true,
     "editor.defaultFormatter": "ms-azuretools.vscode-docker",
     "editor.formatOnSave": true,
   },
 
-  // terraform
+  // Terraform
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
     "editor.formatOnSave": true,
