@@ -41,6 +41,14 @@
   // remote
   "remote.autoForwardPortsSource": "hybrid",
 
+  // files.associations 
+  "files.associations": {
+    // sql
+    "*.sql": "jinja-sql",
+    // dbt - don't format models in `target/` dir
+    "**/target/**": "",
+  },
+
   // json
   "[json][jsonc]": {
     "editor.tabSize": 2,
@@ -93,6 +101,12 @@
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
+  },
+
+  // sql
+  "[sql]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
   },
 
   // shellscript
@@ -188,6 +202,20 @@
     "source.addMissingImports": "always",
     "source.fixAll": "never",
     "source.fixAll.eslint": "explicit",
+  },
+
+  // sqlfluff
+  "[sqlfluff]": {
+    "executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
+    "config": "${workspaceFolder}/.configs/.sqlfluff/.sqlfluff",
+    "linter.run": "onSave",
+  },
+
+  // dbt Power User
+  "[dbt]": {
+    "queryLimit": 5,
+    "enableNewDocsPanel": false,
+    "enableNewLineagePanel": false,
   },
 
   "redhat.telemetry.enabled": false,

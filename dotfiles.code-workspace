@@ -15,6 +15,9 @@
       "mads-hartmann.bash-ide-vscode", // https://github.com/bash-lsp/bash-language-server
       "timonwong.shellcheck", // https://github.com/vscode-shellcheck/vscode-shellcheck
       "foxundermoon.shell-format", // https://github.com/foxundermoon/vs-shell-format
+      // sql
+      "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
+      "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
       // eslint
       "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // terraform

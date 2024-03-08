@@ -1,0 +1,44 @@
+# Rules Reference
+# https://docs.sqlfluff.com/en/stable/rules.html
+
+[sqlfluff]
+# Use jinja templater instead of dbt templater.
+# https://docs.sqlfluff.com/en/stable/configuration.html#dbt-templater
+templater = jinja
+dialect = snowflake
+sql_file_exts = .sql
+# 80 characters may be too short, so set it to 150 characters.
+max_line_length = 150
+
+[sqlfluff:indentation]
+tab_space_size = 4
+indent_unit = space
+
+[sqlfluff:templater:jinja]
+# To use builtin dbt Jinja functions
+apply_dbt_builtins = True
+load_macros_from_path = macros
+
+[sqlfluff:layout:type:comma]
+line_position = trailing
+
+[sqlfluff:layout.long_lines]
+ignore_comment_lines = True
+
+[sqlfluff:rules:capitalisation.keywords]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.identifiers]
+capitalisation_policy = lower
+
+[sqlfluff:rules:capitalisation.functions]
+extended_capitalisation_policy = lower
+
+[sqlfluff:rules:aliasing.table]
+aliasing = explicit
+
+[sqlfluff:rules:aliasing.column]
+aliasing = explicit
+
+[sqlfluff:rules:aliasing.expression]
+aliasing = explicit
