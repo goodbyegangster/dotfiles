@@ -35,3 +35,11 @@ dbaeumer
 
 # template password string
 Passw
+
+# other
+pyspark
+DATALAKE
+hudi
+azuretools
+pylance
+debugpy

@@ -19,6 +19,8 @@
       "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // terraform
       "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
+      // Docker
+      "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
       // formatter
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       // other

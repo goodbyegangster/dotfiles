@@ -81,6 +81,14 @@
     "editor.insertSpaces": false,
   },
 
+  // Docker Compose
+  "[Compose]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": false,
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
+    "editor.formatOnSave": true,
+  },
+
   // terraform
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
