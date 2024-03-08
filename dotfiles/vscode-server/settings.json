@@ -218,5 +218,12 @@
     "enableNewLineagePanel": false,
   },
 
+  // AWS Toolkit
+  "[aws]": {
+    "codeWhisperer.importRecommendation": false,
+    "codeWhisperer.includeSuggestionsWithCodeReferences": false,
+    "telemetry": false,
+  },
+
   "redhat.telemetry.enabled": false,
 }
