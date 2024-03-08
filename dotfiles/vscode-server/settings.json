@@ -165,12 +165,12 @@
   "cSpell.customDictionaries": {
     "common": {
       "name": "common",
-      "path": "~/dotfiles/configs/.cspell/common.txt",
+      "path": "~/dotfiles/.configs/.cspell/common.txt",
       "addWords": true,
     },
     "cloud-init": {
       "name": "cloud-init",
-      "path": "~/dotfiles/configs/.cspell/cloud-init.txt",
+      "path": "~/dotfiles/.configs/.cspell/cloud-init.txt",
       "addWords": true,
     },
     "custom": true,

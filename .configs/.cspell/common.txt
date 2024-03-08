@@ -43,3 +43,7 @@ hudi
 azuretools
 pylance
 debugpy
+sqlfluff
+venv
+innoverio
+dorzey

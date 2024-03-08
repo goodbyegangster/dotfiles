@@ -1,12 +1,11 @@
 ### all ignore
 /*
-/.**
 
 ### not ignore
 !.gitignore
 !*.code-workspace
 !/dotfiles
-!/configs
+!/.configs
 !/scripts
 !Makefile
 !README.md
