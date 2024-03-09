@@ -205,25 +205,17 @@
   },
 
   // sqlfluff
-  "[sqlfluff]": {
-    "executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
-    "config": "${workspaceFolder}/.configs/.sqlfluff/.sqlfluff",
-    "linter.run": "onSave",
-  },
+  "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
+  "sqlfluff.config": "${workspaceFolder}/.configs/.sqlfluff/.sqlfluff",
+  "sqlfluff.linter.run": "onSave",
 
   // dbt Power User
-  "[dbt]": {
-    "queryLimit": 5,
-    "enableNewDocsPanel": false,
-    "enableNewLineagePanel": false,
-  },
+  "dbt.queryLimit": 5,
 
   // AWS Toolkit
-  "[aws]": {
-    "codeWhisperer.importRecommendation": false,
-    "codeWhisperer.includeSuggestionsWithCodeReferences": false,
-    "telemetry": false,
-  },
+  "aws.codeWhisperer.importRecommendation": false,
+  "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
+  "aws.telemetry": false,
 
   "redhat.telemetry.enabled": false,
 }
