@@ -96,6 +96,29 @@
       ],
     },
   },
+  "yaml.customTags": [
+    // Cloud Formation
+    // https://github.com/redhat-developer/vscode-yaml/issues/669
+    "!Base64 scalar",
+    "!Cidr scalar",
+    "!And sequence",
+    "!Equals sequence",
+    "!If sequence",
+    "!Not sequence",
+    "!Or sequence",
+    "!Condition scalar",
+    "!FindInMap sequence",
+    "!GetAtt sequence",
+    "!GetAtt scalar",
+    "!GetAZs scalar",
+    "!ImportValue scalar",
+    "!Join sequence",
+    "!Select sequence",
+    "!Split sequence",
+    "!Sub scalar",
+    "!Transform mapping",
+    "!Ref scalar",
+  ],
 
   // markdown
   "[markdown]": {
