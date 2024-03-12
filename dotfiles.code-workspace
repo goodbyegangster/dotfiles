@@ -20,6 +20,8 @@
       // sql
       "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
       "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
+      // python
+      "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
       // eslint
       "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // terraform
