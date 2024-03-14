@@ -234,7 +234,7 @@
 
   // sqlfluff
   "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
-  "sqlfluff.config": "${workspaceFolder}/.configs/.sqlfluff/.sqlfluff",
+  "sqlfluff.config": "~/dotfiles/.configs/.sqlfluff/.sqlfluff",
   "sqlfluff.linter.run": "onSave",
 
   // dbt Power User

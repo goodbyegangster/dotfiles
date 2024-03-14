@@ -50,3 +50,6 @@ dorzey
 amazonwebservices
 Quickstart
 charliermarsh
+
+NOAA
+GHCN
