@@ -196,6 +196,11 @@
       "path": "~/dotfiles/.configs/.cspell/common.txt",
       "addWords": true,
     },
+    "aws": {
+      "name": "aws",
+      "path": "~/dotfiles/.configs/.cspell/aws.txt",
+      "addWords": true,
+    },
     "cloud-init": {
       "name": "cloud-init",
       "path": "~/dotfiles/.configs/.cspell/cloud-init.txt",

@@ -1,0 +1,6 @@
+# Athena
+TBLPROPERTIES
+
+# Step Functions
+stepfunctions
+statemachine
