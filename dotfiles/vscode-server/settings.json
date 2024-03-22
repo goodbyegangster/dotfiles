@@ -146,6 +146,12 @@
     "editor.insertSpaces": false,
   },
 
+  // hadolint
+  "hadolint.hadolintPath": "hadolint",
+  "hadolint.cliOptions": [],
+  "hadolint.maxNumberOfProblems": 100,
+  "hadolint.outputLevel": "warning",
+
   // Docker Compose
   "[Compose]": {
     "editor.tabSize": 2,

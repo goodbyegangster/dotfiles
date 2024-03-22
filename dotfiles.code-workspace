@@ -28,6 +28,8 @@
       "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
       // Docker
       "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
+      // hadolint
+      "exiasr.hadolint", // https://github.com/michaellzc/vscode-hadolint
       // formatter
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml
