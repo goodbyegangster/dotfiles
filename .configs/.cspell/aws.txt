@@ -4,3 +4,6 @@ TBLPROPERTIES
 # Step Functions
 stepfunctions
 statemachine
+
+# CodeCommit
+codecommit
