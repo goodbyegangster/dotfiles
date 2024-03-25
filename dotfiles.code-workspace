@@ -22,6 +22,7 @@
       "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
       // python
       "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
+      "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
       // eslint
       "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // terraform

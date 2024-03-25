@@ -58,3 +58,6 @@ errorhandling
 
 exiasr
 hadolint
+
+njpwerner
+autodocstring
