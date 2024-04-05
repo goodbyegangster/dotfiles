@@ -1,0 +1,4 @@
+miniconda
+pyenv
+pyproject
+virtualenvs

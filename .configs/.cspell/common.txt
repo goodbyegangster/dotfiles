@@ -1,3 +1,6 @@
+# love
+zunda
+
 # dotfiles
 dotfiles
 windir
