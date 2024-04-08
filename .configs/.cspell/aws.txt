@@ -1,3 +1,5 @@
+amazonaws
+
 # Athena
 TBLPROPERTIES
 
@@ -9,3 +11,6 @@ statemachine
 codecommit
 
 cloudfront
+userdata
+cloudwatch
+requireImdsv2

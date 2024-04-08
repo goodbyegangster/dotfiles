@@ -64,3 +64,5 @@ hadolint
 
 njpwerner
 autodocstring
+
+odbc
