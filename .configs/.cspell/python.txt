@@ -2,3 +2,4 @@ miniconda
 pyenv
 pyproject
 virtualenvs
+noqa
