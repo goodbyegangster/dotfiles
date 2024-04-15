@@ -212,6 +212,11 @@
       "path": "~/dotfiles/.configs/.cspell/python.txt",
       "addWords": true,
     },
+    "sql": {
+      "name": "sql",
+      "path": "~/dotfiles/.configs/.cspell/sql.txt",
+      "addWords": true,
+    },
     "cloud-init": {
       "name": "cloud-init",
       "path": "~/dotfiles/.configs/.cspell/cloud-init.txt",
