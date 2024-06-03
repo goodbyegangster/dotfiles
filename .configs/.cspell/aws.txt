@@ -14,3 +14,4 @@ cloudfront
 userdata
 cloudwatch
 requireImdsv2
+chatbot
