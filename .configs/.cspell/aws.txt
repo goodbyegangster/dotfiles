@@ -17,4 +17,4 @@ requireImdsv2
 chatbot
 fargate
 mebibytes
-boto3
+boto

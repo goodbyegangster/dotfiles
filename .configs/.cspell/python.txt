@@ -3,3 +3,12 @@ pyenv
 pyproject
 virtualenvs
 noqa
+dataclasses
+dataclass
+tempfile
+dataframe
+datetime
+strftime
+getattr
+
+reindex
