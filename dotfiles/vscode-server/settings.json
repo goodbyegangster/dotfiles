@@ -190,7 +190,18 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
   },
-  
+
+  // golang
+  "[go]": {
+      "editor.tabSize": 4,
+      "editor.insertSpaces": false,
+      "editor.formatOnSave": true,
+      "editor.defaultFormatter": "golang.go"
+  },
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+
   ////////////////////////////////////////////
   // extensions
   ////////////////////////////////////////////
@@ -211,6 +222,11 @@
     "python": {
       "name": "python",
       "path": "~/dotfiles/.configs/.cspell/python.txt",
+      "addWords": true,
+    },
+    "go": {
+      "name": "go",
+      "path": "~/dotfiles/.configs/.cspell/go.txt",
       "addWords": true,
     },
     "sql": {

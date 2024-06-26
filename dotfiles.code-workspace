@@ -25,6 +25,8 @@
       "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
       // eslint
       "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
+      // golang
+      "golang.go", // https://github.com/golang/vscode-go
       // terraform
       "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
       // Docker

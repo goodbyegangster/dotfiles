@@ -143,3 +143,6 @@ eval "$(npm completion)"
 
 # Snowflake SnowSQL
 export PATH=$PATH:$HOME/bin
+
+# go
+export PATH=$PATH:/usr/local/go/bin
