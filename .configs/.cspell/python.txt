@@ -12,3 +12,4 @@ strftime
 getattr
 
 reindex
+openpyxl
