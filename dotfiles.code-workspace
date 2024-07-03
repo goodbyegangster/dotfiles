@@ -23,6 +23,8 @@
       // python
       "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
       "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
+      // boto3
+      "Boto3typed.boto3-ide", // https://github.com/youtype/boto3-ide
       // eslint
       "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // golang
@@ -43,5 +45,7 @@
       "ms-vscode.makefile-tools",  // https://github.com/Microsoft/vscode-makefile-tools
     ]
   },
-  "settings": {},
+  "settings": {
+    "python.languageServer": "Pylance"
+  },
 }

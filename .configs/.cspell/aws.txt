@@ -18,3 +18,4 @@ chatbot
 fargate
 mebibytes
 boto
+botocore
