@@ -6,6 +6,9 @@
   ],
   "extensions": {
     "recommendations": [
+      // VS Code
+      "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
+      "alefragnani.project-manager", // https://github.com/alefragnani/vscode-project-manager 
       // git
       "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
       // markdown
@@ -38,14 +41,12 @@
       // formatter
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml
-      // other
-      "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
+      // Spell Checker
       "streetsidesoftware.code-spell-checker",  // https://github.com/streetsidesoftware/vscode-spell-checker
+      // CSV
       "mechatroner.rainbow-csv", // https://github.com/mechatroner/rainbow_csv
+      // Makefile
       "ms-vscode.makefile-tools",  // https://github.com/Microsoft/vscode-makefile-tools
     ]
-  },
-  "settings": {
-    "python.languageServer": "Pylance"
-  },
+  }
 }
