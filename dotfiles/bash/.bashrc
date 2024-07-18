@@ -125,6 +125,10 @@ if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-clo
 # complement
 complete -C '/usr/local/bin/aws_completer' aws
 
+# direnv
+export EDITOR=vim
+eval "$(direnv hook bash)"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
