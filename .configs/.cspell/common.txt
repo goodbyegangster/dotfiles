@@ -68,3 +68,5 @@ autodocstring
 odbc
 
 alefragnani
+direnv
+envrc

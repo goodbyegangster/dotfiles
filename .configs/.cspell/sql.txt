@@ -1,6 +1,11 @@
 UPSERT
 VARCHAR
 
+# Redshift
+DISTSTYLE
+SORTKEY
+smallint
+
 # Snowflake
 UNPIVOT
 STARTSWITH

@@ -255,7 +255,7 @@
   "shellcheck.run": "onSave",
   "shellcheck.executablePath": "", // Priority: user defined > bundled shellcheck binary > "shellcheck"
   "shellcheck.exclude": [],
-  "shellcheck.customArgs": [],
+  "shellcheck.customArgs": ["-x"],
   "shellcheck.ignorePatterns": {
     "**/.bashrc": true,
     "**/.profile": true,
