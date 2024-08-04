@@ -11,6 +11,8 @@ datetime
 strftime
 getattr
 getenv
+classmethod
+staticmethod
 
 reindex
 openpyxl
