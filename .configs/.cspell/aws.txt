@@ -6,6 +6,7 @@ TBLPROPERTIES
 # Step Functions
 stepfunctions
 statemachine
+statemachines
 
 # CodeCommit
 codecommit
@@ -19,3 +20,5 @@ fargate
 mebibytes
 boto
 botocore
+
+compatibleRuntimes

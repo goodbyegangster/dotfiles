@@ -192,6 +192,18 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
   },
+  // prettier
+  "prettier.printWidth": 100,
+  // eslint
+  "eslint.enable": true,
+  "eslint.validate": [
+    "typescript",
+  ],
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "always",
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit",
+  },
 
   // golang
   "[go]": {
@@ -219,6 +231,11 @@
     "aws": {
       "name": "aws",
       "path": "~/dotfiles/.configs/.cspell/aws.txt",
+      "addWords": true,
+    },
+    "projects": {
+      "name": "projects",
+      "path": "~/dotfiles/.configs/.cspell/projects.txt",
       "addWords": true,
     },
     "python": {
@@ -259,17 +276,6 @@
   "shellcheck.ignorePatterns": {
     "**/.bashrc": true,
     "**/.profile": true,
-  },
-
-  // eslint
-  "eslint.enable": true,
-  "eslint.validate": [
-    "typescript",
-  ],
-  "editor.codeActionsOnSave": {
-    "source.addMissingImports": "always",
-    "source.fixAll": "never",
-    "source.fixAll.eslint": "explicit",
   },
 
   // sqlfluff
