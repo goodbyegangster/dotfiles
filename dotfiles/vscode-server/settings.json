@@ -223,14 +223,29 @@
   // cSpell
   "cSpell.enabled": true,
   "cSpell.customDictionaries": {
+    "aws": {
+      "name": "aws",
+      "path": "~/dotfiles/.configs/.cspell/aws.txt",
+      "addWords": true,
+    },
+    "cloud-init": {
+      "name": "cloud-init",
+      "path": "~/dotfiles/.configs/.cspell/cloud-init.txt",
+      "addWords": true,
+    },
     "common": {
       "name": "common",
       "path": "~/dotfiles/.configs/.cspell/common.txt",
       "addWords": true,
     },
-    "aws": {
-      "name": "aws",
-      "path": "~/dotfiles/.configs/.cspell/aws.txt",
+    "go": {
+      "name": "go",
+      "path": "~/dotfiles/.configs/.cspell/go.txt",
+      "addWords": true,
+    },
+    "private": {
+      "name": "private",
+      "path": "~/dotfiles/.configs/.cspell/private.txt",
       "addWords": true,
     },
     "projects": {
@@ -243,19 +258,9 @@
       "path": "~/dotfiles/.configs/.cspell/python.txt",
       "addWords": true,
     },
-    "go": {
-      "name": "go",
-      "path": "~/dotfiles/.configs/.cspell/go.txt",
-      "addWords": true,
-    },
     "sql": {
       "name": "sql",
       "path": "~/dotfiles/.configs/.cspell/sql.txt",
-      "addWords": true,
-    },
-    "cloud-init": {
-      "name": "cloud-init",
-      "path": "~/dotfiles/.configs/.cspell/cloud-init.txt",
       "addWords": true,
     },
     "custom": true,

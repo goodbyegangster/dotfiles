@@ -13,13 +13,31 @@ getattr
 getenv
 classmethod
 staticmethod
+isinstance
+abspath
+timedelta
+strptime
+zoneinfo
+isoformat
+timespec
+functools
+monthrange
+pathlib
+makedirs
+maxsize
+pipx
+ensurepath
 
 reindex
 openpyxl
 
 pytest
+pytest_report_teststatus
 setenv
 setattr
+pipdeptree
+pycache
+filterwarnings
 
 # jinja
 elif
