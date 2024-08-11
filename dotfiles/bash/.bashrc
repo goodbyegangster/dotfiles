@@ -137,6 +137,11 @@ eval "$(pyenv init -)"
 # tfenv
 export PATH=$PATH:$HOME/.tfenv/bin
 
+# terraform
+if type terraform &>/dev/null; then
+    complete -C terraform terraform
+fi
+
 # nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
