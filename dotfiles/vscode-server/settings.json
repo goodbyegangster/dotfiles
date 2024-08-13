@@ -140,6 +140,18 @@
     "editor.formatOnSave": true,
   },
 
+  // shellcheck
+  "shellcheck.enable": true,
+  "shellcheck.enableQuickFix": true,
+  "shellcheck.run": "onSave",
+  "shellcheck.executablePath": "", // Priority: user defined > bundled shellcheck binary > "shellcheck"
+  "shellcheck.exclude": [],
+  "shellcheck.customArgs": ["-x"],
+  "shellcheck.ignorePatterns": {
+    "**/.bashrc": true,
+    "**/.profile": true,
+  },
+
   // Makefile
   "[makefile]": {
     "editor.tabSize": 4,
@@ -270,18 +282,6 @@
   // makefile
   "makefile.makePath": "/usr/bin/make",
   "makefile.launchConfigurations": [],
-
-  // shellcheck
-  "shellcheck.enable": true,
-  "shellcheck.enableQuickFix": true,
-  "shellcheck.run": "onSave",
-  "shellcheck.executablePath": "", // Priority: user defined > bundled shellcheck binary > "shellcheck"
-  "shellcheck.exclude": [],
-  "shellcheck.customArgs": ["-x"],
-  "shellcheck.ignorePatterns": {
-    "**/.bashrc": true,
-    "**/.profile": true,
-  },
 
   // sqlfluff
   "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",

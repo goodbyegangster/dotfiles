@@ -27,6 +27,7 @@ makedirs
 maxsize
 pipx
 ensurepath
+configparser
 
 reindex
 openpyxl
