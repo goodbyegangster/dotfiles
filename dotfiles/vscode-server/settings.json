@@ -132,6 +132,11 @@
     "editor.insertSpaces": true,
   },
 
+  // sqlfluff
+  "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
+  "sqlfluff.config": "~/dotfiles/.configs/.sqlfluff/.sqlfluff",
+  "sqlfluff.linter.run": "onSave",
+
   // shellscript
   "[shellscript]": {
     "editor.tabSize": 4,
@@ -197,6 +202,9 @@
   "python.analysis.typeCheckingMode": "basic",
   "ruff.format.args": ["--config", "line-length=120"],
 
+  // javascript
+  "javascript.suggestionActions.enabled": false,
+
   // typescript
   "[typescript]": {
     "editor.tabSize": 2,
@@ -227,10 +235,6 @@
   "gopls": {
     "ui.semanticTokens": true
   },
-
-  ////////////////////////////////////////////
-  // extensions
-  ////////////////////////////////////////////
 
   // cSpell
   "cSpell.enabled": true,
@@ -282,11 +286,6 @@
   // makefile
   "makefile.makePath": "/usr/bin/make",
   "makefile.launchConfigurations": [],
-
-  // sqlfluff
-  "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
-  "sqlfluff.config": "~/dotfiles/.configs/.sqlfluff/.sqlfluff",
-  "sqlfluff.linter.run": "onSave",
 
   // dbt Power User
   "dbt.queryLimit": 5,
