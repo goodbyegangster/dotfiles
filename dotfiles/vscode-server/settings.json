@@ -283,6 +283,14 @@
     "internal-terms": true,
   },
 
+  // Outline Map
+  "outline-map.workspace.IncludeSymbols": [
+    "__om_Tag__",
+    "__om_Region__",
+    "Method",
+    "Function"
+  ],
+
   // makefile
   "makefile.makePath": "/usr/bin/make",
   "makefile.launchConfigurations": [],

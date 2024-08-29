@@ -8,7 +8,8 @@
     "recommendations": [
       // VS Code
       "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
-      "alefragnani.project-manager", // https://github.com/alefragnani/vscode-project-manager 
+      "alefragnani.project-manager", // https://github.com/alefragnani/vscode-project-manager
+      "Gerrnperl.outline-map", //https://github.com/Gerrnperl/outline-map
       // git
       "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
       // markdown
