@@ -100,6 +100,7 @@
     // Cloud Formation
     // https://github.com/redhat-developer/vscode-yaml/issues/669
     "!Base64 scalar",
+    "!Contains sequence",
     "!Cidr scalar",
     "!And sequence",
     "!Equals sequence",
@@ -162,6 +163,8 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
   },
+  "makefile.makePath": "/usr/bin/make",
+  "makefile.launchConfigurations": [],
 
   // hadolint
   "hadolint.hadolintPath": "hadolint",
@@ -288,12 +291,10 @@
     "__om_Tag__",
     "__om_Region__",
     "Method",
-    "Function"
+    "Function",
+    "Class",
+    "Interface"
   ],
-
-  // makefile
-  "makefile.makePath": "/usr/bin/make",
-  "makefile.launchConfigurations": [],
 
   // dbt Power User
   "dbt.queryLimit": 5,
