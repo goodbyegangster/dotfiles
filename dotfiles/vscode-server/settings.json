@@ -43,6 +43,7 @@
 
   // files.associations 
   "files.associations": {
+    "*.j2": "jinja",
     // sql
     "*.sql": "jinja-sql",
     // dbt - don't format models in `target/` dir

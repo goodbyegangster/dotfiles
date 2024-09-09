@@ -27,6 +27,8 @@
       // python
       "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
       "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
+      // jinja2
+      "samuelcolvin.jinjahtml", // https://github.com/samuelcolvin/jinjahtml-vscode
       // boto3
       "Boto3typed.boto3-ide", // https://github.com/youtype/boto3-ide
       // eslint
