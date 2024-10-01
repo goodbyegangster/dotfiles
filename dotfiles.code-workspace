@@ -50,6 +50,8 @@
       "mechatroner.rainbow-csv", // https://github.com/mechatroner/rainbow_csv
       // Makefile
       "ms-vscode.makefile-tools",  // https://github.com/Microsoft/vscode-makefile-tools
+      // Live Server
+      "ritwickdey.LiveServer" // https://github.com/ritwickdey/vscode-live-server
     ]
   }
 }
