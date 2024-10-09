@@ -166,6 +166,7 @@
   },
   "makefile.makePath": "/usr/bin/make",
   "makefile.launchConfigurations": [],
+  "makefile.configureOnOpen": false,
 
   // hadolint
   "hadolint.hadolintPath": "hadolint",
