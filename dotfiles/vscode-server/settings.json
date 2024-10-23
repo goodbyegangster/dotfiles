@@ -37,6 +37,8 @@
   "editor.copyWithSyntaxHighlighting": false,
   "editor.formatOnSave": false,
   "editor.unicodeHighlight.nonBasicASCII": false,
+  // NOTE: https://stackoverflow.com/questions/54173462/how-to-turn-off-or-on-sounds-from-visual-studio-code
+  "editor.accessibilitySupport": "off",
 
   // remote
   "remote.autoForwardPortsSource": "hybrid",
