@@ -28,6 +28,7 @@ maxsize
 pipx
 ensurepath
 configparser
+tomllib
 
 reindex
 openpyxl
