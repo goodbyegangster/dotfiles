@@ -73,11 +73,11 @@
     "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.formatOnSave": true,
     "format.enable": true,
-    "schemas": {
-      //////////////
+  },
+  "yaml.schemas": {
       // dbt
-      //////////////
-      "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/dbt_yml_files.json": [
+    // https://github.com/dbt-labs/dbt-jsonschema
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_yml_files-latest.json": [
         "/**/models/**/*.yml",
         "!profiles.yml",
         "!dbt_project.yml",
@@ -87,17 +87,15 @@
         "!profile_template.yml",
         "!deployment.yml",
       ],
-      // add: $defs.model_configs.properties.+snowflake_warehouse
-      "~/dotfiles/.configs/.json-schemas/dbt_project.json": [
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_project-latest.json": [
         "dbt_project.yml"
       ],
-      "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/selectors.json": [
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/selectors-latest.json": [
         "selectors.yml"
       ],
-      "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/packages.json": [
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/packages-latest.json": [
         "packages.yml"
       ],
-    },
   },
   "yaml.customTags": [
     // Cloud Formation

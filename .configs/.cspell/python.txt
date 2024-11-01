@@ -29,6 +29,7 @@ pipx
 ensurepath
 configparser
 tomllib
+asdict
 
 reindex
 openpyxl
