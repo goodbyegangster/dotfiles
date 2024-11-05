@@ -12,6 +12,7 @@ strftime
 getattr
 getenv
 classmethod
+abstractmethod
 staticmethod
 isinstance
 abspath
