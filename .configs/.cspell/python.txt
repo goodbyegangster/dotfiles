@@ -31,6 +31,10 @@ ensurepath
 configparser
 tomllib
 asdict
+realpath
+traceback
+maketrans
+splitext
 
 reindex
 openpyxl
