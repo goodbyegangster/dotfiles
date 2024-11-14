@@ -6,8 +6,8 @@ help:
 
 .PHONY: link
 link: ## create symbolic link files.
-	bash ./scripts/link.sh
+	@bash ./scripts/link.sh
 
 .PHONY: install_tools
 install_tools: ## install tools.
-	bash ./scripts/install_tools.sh
+	@bash ./scripts/install_tools.sh

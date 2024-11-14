@@ -57,12 +57,21 @@ function install_poetry {
 	fi
 }
 
+function install_pre-commit {
+	if ! command -v pre-commit &>/dev/null; then
+		echo -e "${GREEN}install pre-commit${RESET}"
+		# https://pre-commit.com/#installation
+		pipx install pre-commit
+	fi
+}
+
 function main {
 	install_jq
 	install_yq
 	install_pyenv
 	install_pipx
 	install_poetry
+	install_pre-commit
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
