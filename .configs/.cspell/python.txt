@@ -3,6 +3,7 @@ abstractmethod
 asdict
 classmethod
 configparser
+csvfile
 dataclass
 dataclasses
 dataframe
@@ -44,4 +45,5 @@ timespec
 tomllib
 traceback
 virtualenvs
+writerows
 zoneinfo

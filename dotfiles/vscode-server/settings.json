@@ -259,6 +259,11 @@
       "path": "~/dotfiles/.configs/.cspell/common.txt",
       "addWords": true,
     },
+    "dbt": {
+      "name": "dbt",
+      "path": "~/dotfiles/.configs/.cspell/dbt.txt",
+      "addWords": true,
+    },
     "go": {
       "name": "go",
       "path": "~/dotfiles/.configs/.cspell/go.txt",
@@ -277,6 +282,11 @@
     "python": {
       "name": "python",
       "path": "~/dotfiles/.configs/.cspell/python.txt",
+      "addWords": true,
+    },
+    "python-jinja": {
+      "name": "python-jinja",
+      "path": "~/dotfiles/.configs/.cspell/python-jinja.txt",
       "addWords": true,
     },
     "sql": {
