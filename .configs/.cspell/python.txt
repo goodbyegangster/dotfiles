@@ -35,6 +35,7 @@ realpath
 reindex
 setattr
 setenv
+setrecursionlimit
 splitext
 staticmethod
 strftime
