@@ -52,194 +52,16 @@
     "**/target/**": "",
   },
 
-  // json
-  "[json][jsonc]": {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-  },
-	"json.schemas": [
-    {
-      "fileMatch": ["*.json"],
-		  "schema": {
-			  "allowTrailingCommas": true
-		  }
-	  }
-  ],
+  //////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////
 
-  // yaml
-  "[yaml]": {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "redhat.vscode-yaml",
-    "editor.formatOnSave": true,
-    "format.enable": true,
-  },
-  "yaml.schemas": {
-    // dbt
-    // https://github.com/dbt-labs/dbt-jsonschema
-    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_yml_files-latest.json": [
-      "/**/models/**/*.yml",
-      "!profiles.yml",
-      "!dbt_project.yml",
-      "!packages.yml",
-      "!package-lock.yml",
-      "!selectors.yml",
-      "!profile_template.yml",
-      "!deployment.yml",
-    ],
-    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_project-latest.json": [
-      "dbt_project.yml"
-    ],
-    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/selectors-latest.json": [
-      "selectors.yml"
-    ],
-    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/packages-latest.json": [
-      "packages.yml"
-    ],
-  },
-  "yaml.customTags": [
-    // Cloud Formation
-    // https://github.com/redhat-developer/vscode-yaml/issues/669
-    "!Base64 scalar",
-    "!Contains sequence",
-    "!Cidr scalar",
-    "!And sequence",
-    "!Equals sequence",
-    "!If sequence",
-    "!Not sequence",
-    "!Or sequence",
-    "!Condition scalar",
-    "!FindInMap sequence",
-    "!GetAtt sequence",
-    "!GetAtt scalar",
-    "!GetAZs scalar",
-    "!ImportValue scalar",
-    "!Join sequence",
-    "!Select sequence",
-    "!Split sequence",
-    "!Sub scalar",
-    "!Transform mapping",
-    "!Ref scalar",
-  ],
+  // AWS Toolkit
+  "aws.codeWhisperer.importRecommendation": false,
+  "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
+  "aws.telemetry": false,
 
-  // markdown
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-  },
-
-  // sql
-  "[sql]": {
-    "editor.tabSize": 4,
-    "editor.insertSpaces": true,
-  },
-
-  // sqlfluff
-  "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
-  "sqlfluff.config": "~/dotfiles/.configs/.sqlfluff/.sqlfluff",
-  "sqlfluff.linter.run": "onSave",
-
-  // shellscript
-  "[shellscript]": {
-    "editor.tabSize": 4,
-    "editor.insertSpaces": false,
-    "editor.defaultFormatter": "foxundermoon.shell-format",
-    "editor.formatOnSave": true,
-  },
-
-  // shellcheck
-  "shellcheck.enable": true,
-  "shellcheck.enableQuickFix": true,
-  "shellcheck.run": "onSave",
-  "shellcheck.executablePath": "", // Priority: user defined > bundled shellcheck binary > "shellcheck"
-  "shellcheck.exclude": [],
-  "shellcheck.customArgs": ["-x"],
-  "shellcheck.ignorePatterns": {
-    "**/.bashrc": true,
-    "**/.profile": true,
-  },
-
-  // Makefile
-  "[makefile]": {
-    "editor.tabSize": 4,
-    "editor.insertSpaces": false,
-  },
-  "makefile.makePath": "/usr/bin/make",
-  "makefile.launchConfigurations": [],
-  "makefile.configureOnOpen": false,
-
-  // hadolint
-  "hadolint.hadolintPath": "hadolint",
-  "hadolint.cliOptions": [],
-  "hadolint.maxNumberOfProblems": 100,
-  "hadolint.outputLevel": "warning",
-
-  // Docker Compose
-  "[Compose]": {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
-    "editor.formatOnSave": true,
-  },
-
-  // Terraform
-  "[terraform]": {
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
-  },
-  "[terraform-vars]": {
-    "editor.defaultFormatter": "hashicorp.terraform",
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "file"
-  },
-
-  // Python
-  "[python]": {
-    "defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
-    "editor.defaultFormatter": "charliermarsh.ruff",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    }
-  },
-  "python.languageServer": "Pylance",
-  "python.analysis.typeCheckingMode": "basic",
-  "ruff.format.args": ["--config", "line-length=120"],
-
-  // javascript
-  "javascript.suggestionActions.enabled": false,
-
-  // typescript
-  "[typescript]": {
-    "editor.tabSize": 2,
-    "editor.insertSpaces": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
-  },
-  // prettier
-  "prettier.printWidth": 100,
-  // eslint
-  "eslint.enable": true,
-  "eslint.validate": [
-    "typescript",
-  ],
-  "editor.codeActionsOnSave": {
-    "source.addMissingImports": "always",
-    "source.fixAll": "never",
-    "source.fixAll.eslint": "explicit",
-  },
-
-  // golang
-  "[go]": {
-      "editor.tabSize": 4,
-      "editor.insertSpaces": false,
-      "editor.formatOnSave": true,
-      "editor.defaultFormatter": "golang.go"
-  },
-  "gopls": {
-    "ui.semanticTokens": true
-  },
+  // dbt Power User
+  "dbt.queryLimit": 5,
 
   // cSpell
   "cSpell.enabled": true,
@@ -298,6 +120,63 @@
     "internal-terms": true,
   },
 
+  // Docker Compose
+  "[Compose]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
+    "editor.formatOnSave": true,
+  },
+
+  // golang
+  "[go]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "golang.go"
+  },
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+
+  // hadolint
+  "hadolint.hadolintPath": "hadolint",
+  "hadolint.cliOptions": [],
+  "hadolint.maxNumberOfProblems": 100,
+  "hadolint.outputLevel": "warning",
+
+  // javascript
+  "javascript.suggestionActions.enabled": false,
+
+  // json
+  "[json][jsonc]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
+	"json.schemas": [
+    {
+      "fileMatch": ["*.json"],
+		  "schema": {
+			  "allowTrailingCommas": true
+		  }
+	  }
+  ],
+
+  // Makefile
+  "[makefile]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+  },
+  "makefile.configureOnOpen": false,
+  "makefile.launchConfigurations": [],
+  "makefile.makePath": "/usr/bin/make",
+
+  // markdown
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+
   // Outline Map
   "outline-map.workspace.IncludeSymbols": [
     "__om_Tag__",
@@ -308,13 +187,131 @@
     "Interface"
   ],
 
-  // dbt Power User
-  "dbt.queryLimit": 5,
+  // Python
+  "[python]": {
+    "defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "basic",
+  "python.languageServer": "Pylance",
+  "ruff.format.args": ["--config", "line-length=120"],
 
-  // AWS Toolkit
-  "aws.codeWhisperer.importRecommendation": false,
-  "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
-  "aws.telemetry": false,
+  // shellcheck
+  "shellcheck.enable": true,
+  "shellcheck.enableQuickFix": true,
+  "shellcheck.run": "onSave",
+  "shellcheck.executablePath": "", // Priority: user defined > bundled shellcheck binary > "shellcheck"
+  "shellcheck.exclude": [],
+  "shellcheck.customArgs": ["-x"],
+  "shellcheck.ignorePatterns": {
+    "**/.bashrc": true,
+    "**/.profile": true,
+  },
+
+  // shellscript
+  "[shellscript]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true,
+  },
+
+  // sql
+  "[sql]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+  },
+
+  // sqlfluff
+  "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
+  "sqlfluff.config": "~/dotfiles/.configs/.sqlfluff/.sqlfluff",
+  "sqlfluff.linter.run": "onSave",
+
+  // Terraform
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+
+  // typescript
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  // prettier
+  "prettier.printWidth": 100,
+  // eslint
+  "eslint.enable": true,
+  "eslint.validate": [
+    "typescript",
+  ],
+  "editor.codeActionsOnSave": {
+    "source.addMissingImports": "always",
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "explicit",
+  },
+
+  // yaml
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true,
+    "format.enable": true,
+  },
+  "yaml.schemas": {
+    // dbt
+    // https://github.com/dbt-labs/dbt-jsonschema
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_yml_files-latest.json": [
+      "/**/models/**/*.yml",
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_project-latest.json": [
+      "dbt_project.yml"
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/selectors-latest.json": [
+      "selectors.yml"
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/packages-latest.json": [
+      "packages.yml"
+    ],
+  },
+  "yaml.customTags": [
+    // Cloud Formation
+    // https://github.com/redhat-developer/vscode-yaml/issues/669
+    "!Base64 scalar",
+    "!Contains sequence",
+    "!Cidr scalar",
+    "!And sequence",
+    "!Equals sequence",
+    "!If sequence",
+    "!Not sequence",
+    "!Or sequence",
+    "!Condition scalar",
+    "!FindInMap sequence",
+    "!GetAtt sequence",
+    "!GetAtt scalar",
+    "!GetAZs scalar",
+    "!ImportValue scalar",
+    "!Join sequence",
+    "!Select sequence",
+    "!Split sequence",
+    "!Sub scalar",
+    "!Transform mapping",
+    "!Ref scalar",
+  ],
 
   "redhat.telemetry.enabled": false,
 }
