@@ -176,6 +176,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true,
   },
+  "markdown.extension.toc.levels": "1..2",
+  "markdown.extension.toc.omittedFromToc": {},
 
   // Outline Map
   "outline-map.workspace.IncludeSymbols": [
