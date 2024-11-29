@@ -1,21 +1,17 @@
+codegen
+CONCAT
+countif
+dbname
+DISTSTYLE
+enddocs
+endif
+keepalives
+LPAD
+smallint
+SORTKEY
+sslmode
+STARTSWITH
+stddev
+UNPIVOT
 UPSERT
 VARCHAR
-
-# Redshift
-DISTSTYLE
-SORTKEY
-smallint
-
-# Snowflake
-UNPIVOT
-STARTSWITH
-CONCAT
-LPAD
-
-# dbt
-codegen
-keepalives
-sslmode
-dbname
-endif
-enddocs

@@ -71,6 +71,11 @@
       "path": "~/dotfiles/.configs/.cspell/aws.txt",
       "addWords": true,
     },
+    "bash": {
+      "name": "bash",
+      "path": "~/dotfiles/.configs/.cspell/bash.txt",
+      "addWords": true,
+    },
     "cloud-init": {
       "name": "cloud-init",
       "path": "~/dotfiles/.configs/.cspell/cloud-init.txt",
