@@ -53,5 +53,6 @@
       // Live Server
       "ritwickdey.LiveServer" // https://github.com/ritwickdey/vscode-live-server
     ]
-  }
+  },
+  "settings": {}
 }

@@ -39,12 +39,21 @@ function create_link() {
 function main() {
 	parse_option "$@"
 
-	printf "\033[32m%s\033[m\n" "### Create symbolic links: start ####"
-	create_link "$HOME/dotfiles/dotfiles/bash/.bashrc" "$HOME/.bashrc"
-	create_link "$HOME/dotfiles/dotfiles/bash/.profile" "$HOME/.profile"
-	create_link "$HOME/dotfiles/dotfiles/vscode-server/settings.json" "$HOME/.vscode-server/data/Machine/settings.json"
-	create_link "$HOME/dotfiles/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
-	printf "\033[32m%s\033[m\n" "### Create symbolic links: end   ####"
+	read -rp "Do you want to update symbolic links? [Y,n]: " symbolic
+	if [ "$symbolic" == "Y" ]; then
+		printf "\033[32m%s\033[m\n" "### Create symbolic links: start ####"
+		create_link "$HOME/dotfiles/dotfiles/bash/.bashrc" "$HOME/.bashrc"
+		create_link "$HOME/dotfiles/dotfiles/bash/.profile" "$HOME/.profile"
+		create_link "$HOME/dotfiles/dotfiles/vscode/settings.json" "$HOME/.vscode-server/data/Machine/settings.json"
+		create_link "$HOME/dotfiles/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
+		printf "\033[32m%s\033[m\n" "### Create symbolic links: end   ####"
+	fi
+
+	read -rp "Do you want to update keybindings? [Y,n]: " shortcut
+	if [ "$shortcut" == "Y" ]; then
+		read -rp "Please enter your Windows OS user name: " username
+		cp ./dotfiles/vscode/keybindings.json "/mnt/c/Users/${username}/AppData/Roaming/Code/User/keybindings.json"
+	fi
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
