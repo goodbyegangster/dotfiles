@@ -12,6 +12,7 @@
       "Gerrnperl.outline-map", //https://github.com/Gerrnperl/outline-map
       // git
       "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
+      "adam-bender.commit-message-editor", // https://github.com/bendera/vscode-commit-message-editor#readme
       // markdown
       "yzane.markdown-pdf", // https://github.com/yzane/vscode-markdown-pdf
       "yzhang.markdown-all-in-one", // https://github.com/yzhang-gh/vscode-markdown

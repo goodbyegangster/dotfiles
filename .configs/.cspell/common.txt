@@ -1,74 +1,56 @@
-# love
-zunda
-
 # dotfiles
-dotfiles
-windir
-Sysnative
-scrollback
-
 # githistory
-donjayamanne
-githistory
-
-# shellcheck
-timonwong
-shellcheck
-
-# prettier
-esbenp
-
-# rainbow-csv
-mechatroner
-
-# markdown-pdf
-yzane
-
+# love
 # markdown-all-in-one
-yzhang
-
-# shell-format
-foxundermoon
-
-# vscode-language-pack-ja
-ceintl
-
-# vscode-eslint
-dbaeumer
-
-# template password string
-Passw
-
+# markdown-pdf
 # other
-pyspark
-DATALAKE
-hudi
-azuretools
-pylance
-debugpy
-sqlfluff
-venv
-innoverio
-dorzey
-amazonwebservices
-Quickstart
-charliermarsh
-
-NOAA
-GHCN
-
-errorhandling
-
-exiasr
-hadolint
-
-njpwerner
-autodocstring
-
-odbc
-
+# prettier
+# rainbow-csv
+# shell-format
+# shellcheck
+# template password string
+# vscode-eslint
+# vscode-language-pack-ja
 alefragnani
-direnv
-envrc
-
+amazonwebservices
 APAC
+autodocstring
+azuretools
+ceintl
+charliermarsh
+DATALAKE
+dbaeumer
+debugpy
+direnv
+donjayamanne
+dorzey
+dotfiles
+envrc
+errorhandling
+esbenp
+exiasr
+foxundermoon
+GHCN
+githistory
+gitmessage
+hadolint
+hudi
+innoverio
+mechatroner
+njpwerner
+NOAA
+odbc
+Passw
+pylance
+pyspark
+Quickstart
+scrollback
+shellcheck
+sqlfluff
+Sysnative
+timonwong
+venv
+windir
+yzane
+yzhang
+zunda

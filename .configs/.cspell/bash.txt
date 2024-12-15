@@ -1,2 +1,5 @@
 Eeuo
+esac
+mapfile
 pipefail
+regextype
