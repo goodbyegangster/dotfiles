@@ -5,6 +5,7 @@ dbname
 DISTSTYLE
 enddocs
 endif
+ifnull
 keepalives
 LPAD
 smallint

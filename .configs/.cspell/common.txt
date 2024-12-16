@@ -37,6 +37,7 @@ hadolint
 hudi
 innoverio
 mechatroner
+nbsp
 njpwerner
 NOAA
 odbc
