@@ -1,3 +1,4 @@
+bashdb
 Eeuo
 esac
 mapfile
