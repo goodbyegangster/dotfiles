@@ -4,3 +4,4 @@ esac
 mapfile
 pipefail
 regextype
+strenv
