@@ -43,6 +43,8 @@
       "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
       // hadolint
       "exiasr.hadolint", // https://github.com/michaellzc/vscode-hadolint
+      // Dataform
+      "ashishalex.dataform-lsp-vscode", // https://github.com/ashish10alex/vscode-dataform-tools
       // formatter
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml

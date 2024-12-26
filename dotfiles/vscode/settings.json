@@ -395,14 +395,19 @@
     "source.fixAll.eslint": "explicit",
   },
 
+  // dataform-tools
+  "vscode-dataform-tools.bigqueryAuthenticationCheck": false,
+  "vscode-dataform-tools.showCompiledQueryInVerticalSplitOnSave": false,
+  "vscode-dataform-tools.compileAndDryRunBeforeFormatting": false,
+
   // yaml
   "[yaml]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
     "editor.defaultFormatter": "redhat.vscode-yaml",
     "editor.formatOnSave": true,
-    "format.enable": true,
   },
+  "yaml.format.enable": true,
   "yaml.schemas": {
     // dbt
     // https://github.com/dbt-labs/dbt-jsonschema

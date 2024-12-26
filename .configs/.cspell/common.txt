@@ -18,6 +18,7 @@ autodocstring
 azuretools
 ceintl
 charliermarsh
+dataform
 DATALAKE
 dbaeumer
 debugpy
