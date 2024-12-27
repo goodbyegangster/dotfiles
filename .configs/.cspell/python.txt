@@ -1,6 +1,7 @@
 abspath
 abstractmethod
 asdict
+autouse
 classmethod
 configparser
 csvfile
@@ -8,9 +9,11 @@ dataclass
 dataclasses
 dataframe
 datetime
+difflib
 divmod
 elif
 ensurepath
+filecmp
 filterwarnings
 functools
 getattr
@@ -32,12 +35,16 @@ pyenv
 pyproject
 pytest
 pytest_report_teststatus
+pytrace
 realpath
 reindex
+removedirs
+rmtree
 ruamel
 setattr
 setenv
 setrecursionlimit
+shutil
 splitext
 staticmethod
 strftime
@@ -45,7 +52,9 @@ strptime
 tempfile
 timedelta
 timespec
+tofile
 tomllib
+topdown
 traceback
 virtualenvs
 writerows

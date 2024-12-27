@@ -1,7 +1,7 @@
 {
   // workbench
   "workbench.colorTheme": "Dark Modern",
-  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreview": true,
   "workbench.editorLargeFileConfirmation": 3072,
   "workbench.startupEditor": "none",
 
