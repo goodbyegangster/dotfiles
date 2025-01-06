@@ -36,12 +36,15 @@ githistory
 gitmessage
 hadolint
 hudi
+Inmon
 innoverio
+Kimball
 mechatroner
 nbsp
 njpwerner
 NOAA
 odbc
+OLAP
 Passw
 pylance
 pyspark
