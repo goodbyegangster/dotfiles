@@ -6,16 +6,6 @@
   ],
   "extensions": {
     "recommendations": [
-      // VS Code
-      "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
-      "alefragnani.project-manager", // https://github.com/alefragnani/vscode-project-manager
-      "Gerrnperl.outline-map", //https://github.com/Gerrnperl/outline-map
-      // git
-      "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
-      "adam-bender.commit-message-editor", // https://github.com/bendera/vscode-commit-message-editor#readme
-      // markdown
-      "yzane.markdown-pdf", // https://github.com/yzane/vscode-markdown-pdf
-      "yzhang.markdown-all-in-one", // https://github.com/yzhang-gh/vscode-markdown
       // AWS Toolkit
       "amazonwebservices.aws-toolkit-vscode", // https://github.com/aws/aws-toolkit-vscode
       // bash
@@ -23,39 +13,54 @@
       "timonwong.shellcheck", // https://github.com/vscode-shellcheck/vscode-shellcheck
       "foxundermoon.shell-format", // https://github.com/foxundermoon/vs-shell-format
       "rogalmic.bash-debug", // https://github.com/rogalmic/vscode-bash-debug
-      // sql
-      "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
-      "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
-      // python
-      "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
-      "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
-      // jinja2
-      "samuelcolvin.jinjahtml", // https://github.com/samuelcolvin/jinjahtml-vscode
       // boto3
       "Boto3typed.boto3-ide", // https://github.com/youtype/boto3-ide
-      // eslint
-      "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
-      // golang
-      "golang.go", // https://github.com/golang/vscode-go
-      // terraform
-      "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
-      // Docker
-      "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
-      // hadolint
-      "exiasr.hadolint", // https://github.com/michaellzc/vscode-hadolint
-      // Dataform
-      "ashishalex.dataform-lsp-vscode", // https://github.com/ashish10alex/vscode-dataform-tools
-      // formatter
-      "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
-      "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml
-      // Spell Checker
-      "streetsidesoftware.code-spell-checker",  // https://github.com/streetsidesoftware/vscode-spell-checker
       // CSV
       "mechatroner.rainbow-csv", // https://github.com/mechatroner/rainbow_csv
-      // Makefile
-      "ms-vscode.makefile-tools",  // https://github.com/Microsoft/vscode-makefile-tools
+      "takezoe.vscode-csv-markdown", // https://github.com/redhat-developer/vscode-yaml
+      // Dataform
+      "ashishalex.dataform-lsp-vscode", // https://github.com/ashish10alex/vscode-dataform-tools
+      // Docker
+      "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
+      // eslint
+      "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
+      // formatter
+      "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
+      // git
+      "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
+      "adam-bender.commit-message-editor", // https://github.com/bendera/vscode-commit-message-editor#readme
+      // golang
+      "golang.go", // https://github.com/golang/vscode-go
+      // hadolint
+      "exiasr.hadolint", // https://github.com/michaellzc/vscode-hadolint
+      // jinja2
+      "samuelcolvin.jinjahtml", // https://github.com/samuelcolvin/jinjahtml-vscode
       // Live Server
-      "ritwickdey.LiveServer" // https://github.com/ritwickdey/vscode-live-server
+      "ritwickdey.LiveServer", // https://github.com/ritwickdey/vscode-live-server
+      // Makefile
+      "ms-vscode.makefile-tools", // https://github.com/Microsoft/vscode-makefile-tools
+      // markdown
+      "yzane.markdown-pdf", // https://github.com/yzane/vscode-markdown-pdf
+      "yzhang.markdown-all-in-one", // https://github.com/yzhang-gh/vscode-markdown
+      // Mermaid
+      "bierner.markdown-mermaid", // https://github.com/mjbvz/vscode-markdown-mermaid
+      "bpruitt-goddard.mermaid-markdown-syntax-highlighting", // https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight
+      // Python
+      "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
+      "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
+      // Spell Checker
+      "streetsidesoftware.code-spell-checker",  // https://github.com/streetsidesoftware/vscode-spell-checker
+      // SQL
+      "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
+      "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
+      // terraform
+      "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
+      // VS Code
+      "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
+      "alefragnani.project-manager", // https://github.com/alefragnani/vscode-project-manager
+      "Gerrnperl.outline-map", //https://github.com/Gerrnperl/outline-map
+      // YAML
+      "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml#readme
     ]
   },
   "settings": {}
