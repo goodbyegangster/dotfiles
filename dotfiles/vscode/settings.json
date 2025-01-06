@@ -50,6 +50,11 @@
     "*.sql": "jinja-sql",
     // dbt - don't format models in `target/` dir
     "**/target/**": "",
+    // JSON
+    "*.json.default": "json",
+    // YAML
+    "*.yml.default": "yaml",
+    "*.yaml.default": "yaml",
   },
 
   //////////////////////////////////////////////////////////////
