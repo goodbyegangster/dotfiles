@@ -9,5 +9,7 @@
 !/scripts
 !Makefile
 !README.md
+
+### specific ignore
 projects.txt
 private.txt
