@@ -29,6 +29,9 @@
       // git
       "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
       "adam-bender.commit-message-editor", // https://github.com/bendera/vscode-commit-message-editor#readme
+      // GitHub
+      "github.vscode-pull-request-github", // https://github.com/Microsoft/vscode-pull-request-github
+      "github.vscode-github-actions", // https://github.com/github/vscode-github-actions
       // golang
       "golang.go", // https://github.com/golang/vscode-go
       // hadolint
