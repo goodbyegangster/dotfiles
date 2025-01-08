@@ -20,6 +20,8 @@
       "takezoe.vscode-csv-markdown", // https://github.com/redhat-developer/vscode-yaml
       // Dataform
       "ashishalex.dataform-lsp-vscode", // https://github.com/ashish10alex/vscode-dataform-tools
+      // dbt
+      "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
       // Docker
       "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
       // eslint
@@ -54,7 +56,6 @@
       // Spell Checker
       "streetsidesoftware.code-spell-checker",  // https://github.com/streetsidesoftware/vscode-spell-checker
       // SQL
-      "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
       "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
       // terraform
       "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform

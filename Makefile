@@ -15,3 +15,7 @@ remove-link: ## remove old backup links.
 .PHONY: install_tools
 install_tools: ## install tools.
 	@bash ./scripts/install_tools.sh
+
+.PHONY: install_dbt_cloud_cli
+install_dbt_cloud_cli: ## install dbt Cloud cli.
+	@bash ./scripts/dbt/install_dbt_cloud_cli.sh
