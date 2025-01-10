@@ -155,3 +155,16 @@ export PATH=$PATH:$HOME/bin
 
 # go
 export PATH=$PATH:/usr/local/go/bin
+
+# kubectl
+# https://kubernetes.io/ja/docs/tasks/tools/install-kubectl-linux/#kubectl%E3%81%AE%E8%87%AA%E5%8B%95%E8%A3%9C%E5%AE%8C%E3%82%92%E6%9C%89%E5%8A%B9%E3%81%AB%E3%81%99%E3%82%8B
+source <(kubectl completion bash)
+
+# minikube
+alias kubectl="minikube kubectl --"
+# https://minikube.sigs.k8s.io/docs/commands/completion/
+source <(minikube completion bash) # for bash users
+
+# helm
+# https://helm.sh/docs/helm/helm_completion_bash/
+source <(helm completion bash)
