@@ -33,6 +33,7 @@ pipx
 pyarrow
 pycache
 pyenv
+pyodbc
 pyproject
 pytest
 pytest_report_teststatus
