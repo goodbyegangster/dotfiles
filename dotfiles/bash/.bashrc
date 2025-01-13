@@ -168,3 +168,11 @@ source <(minikube completion bash) # for bash users
 # helm
 # https://helm.sh/docs/helm/helm_completion_bash/
 source <(helm completion bash)
+
+# sqlcmd, bcp
+# https://learn.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install#ubuntu
+export PATH="$PATH:/opt/mssql-tools18/bin"
+
+# uv
+# https://docs.astral.sh/uv/getting-started/installation/#shell-autocompletion
+eval "$(~/.local/bin/uv generate-shell-completion bash)"
