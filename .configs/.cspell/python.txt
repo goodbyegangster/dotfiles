@@ -3,6 +3,7 @@ abstractmethod
 asdict
 autouse
 classmethod
+cloudevents
 configparser
 csvfile
 dataclass
