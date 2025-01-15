@@ -1,28 +1,20 @@
 amazonaws
-
-# Athena
-TBLPROPERTIES
-
-# Step Functions
-stepfunctions
-statemachine
-statemachines
-secretsmanager
-
-# CodeCommit
-codecommit
-
-cloudfront
-userdata
-cloudwatch
-requireImdsv2
-chatbot
-fargate
-mebibytes
 boto
 botocore
+chatbot
 cloudformation
-
+cloudfront
+cloudwatch
+codecommit
 compatibleRuntimes
+fargate
 gibibytes
 maxvcpus
+mebibytes
+requireImdsv2
+secretsmanager
+statemachine
+statemachines
+stepfunctions
+TBLPROPERTIES
+userdata

@@ -158,16 +158,22 @@ export PATH=$PATH:/usr/local/go/bin
 
 # kubectl
 # https://kubernetes.io/ja/docs/tasks/tools/install-kubectl-linux/#kubectl%E3%81%AE%E8%87%AA%E5%8B%95%E8%A3%9C%E5%AE%8C%E3%82%92%E6%9C%89%E5%8A%B9%E3%81%AB%E3%81%99%E3%82%8B
-source <(kubectl completion bash)
+if [[ -e kubectl ]]; then
+    source <(kubectl completion bash)
+fi
 
 # minikube
-alias kubectl="minikube kubectl --"
 # https://minikube.sigs.k8s.io/docs/commands/completion/
-source <(minikube completion bash) # for bash users
+if [[ -e minikube ]]; then
+    alias kubectl="minikube kubectl --"
+    source <(minikube completion bash) # for bash users
+fi
 
 # helm
 # https://helm.sh/docs/helm/helm_completion_bash/
-source <(helm completion bash)
+if [[ -e helm ]]; then
+    source <(helm completion bash)
+fi
 
 # sqlcmd, bcp
 # https://learn.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install#ubuntu
@@ -175,4 +181,6 @@ export PATH="$PATH:/opt/mssql-tools18/bin"
 
 # uv
 # https://docs.astral.sh/uv/getting-started/installation/#shell-autocompletion
-eval "$(~/.local/bin/uv generate-shell-completion bash)"
+if [[ -e ~/.local/bin/uv ]]; then
+    eval "$(~/.local/bin/uv generate-shell-completion bash)"
+fi

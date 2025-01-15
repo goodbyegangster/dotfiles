@@ -48,6 +48,7 @@ setenv
 setrecursionlimit
 shutil
 splitext
+splitlines
 staticmethod
 strftime
 strptime
@@ -58,6 +59,8 @@ tofile
 tomllib
 topdown
 traceback
+urllib
+urlopen
 virtualenvs
 writerows
 zoneinfo

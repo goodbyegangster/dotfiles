@@ -1,6 +1,7 @@
 codegen
 CONCAT
 countif
+DATE_TRUNC
 dbname
 DISTSTYLE
 enddocs

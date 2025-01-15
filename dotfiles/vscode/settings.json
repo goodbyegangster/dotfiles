@@ -413,6 +413,7 @@
     "editor.formatOnSave": true,
   },
   "yaml.format.enable": true,
+  "yaml.format.printWidth": 999, // 配列要素名が一定の長さを超えると壊れてしまうので対応 https://github.com/redhat-developer/vscode-yaml/issues/968#issuecomment-1748610455
   "yaml.schemas": {
     // dbt
     // https://github.com/dbt-labs/dbt-jsonschema
