@@ -62,6 +62,8 @@
       "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
       // terraform
       "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
+      // TOML
+      "tamasfe.even-better-toml", // https://github.com/tamasfe/taplo
       // VS Code
       "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
       "alefragnani.project-manager", // https://github.com/alefragnani/vscode-project-manager

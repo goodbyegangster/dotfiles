@@ -16,6 +16,7 @@ elif
 ensurepath
 filecmp
 filterwarnings
+fromisoformat
 functools
 getattr
 getenv
@@ -44,6 +45,7 @@ reindex
 removedirs
 rmtree
 ruamel
+secretmanager
 setattr
 setenv
 setrecursionlimit
