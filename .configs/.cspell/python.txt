@@ -2,6 +2,7 @@ abspath
 abstractmethod
 asdict
 autouse
+bqstorage
 classmethod
 cloudevents
 configparser
@@ -24,6 +25,8 @@ isinstance
 isoformat
 makedirs
 maketrans
+maxcolwidths
+maxheadercolwidths
 maxsize
 miniconda
 monthrange
@@ -49,6 +52,7 @@ secretmanager
 setattr
 setenv
 setrecursionlimit
+showindex
 shutil
 splitext
 splitlines

@@ -41,6 +41,7 @@ scrollback
 shellcheck
 sqlcmd
 sqlfluff
+subseconds
 Sysnative
 tfenv
 timonwong
