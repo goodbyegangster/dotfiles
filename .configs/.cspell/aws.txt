@@ -7,10 +7,13 @@ cloudfront
 cloudwatch
 codecommit
 compatibleRuntimes
+datazone
 fargate
 gibibytes
+lakeformation
 maxvcpus
 mebibytes
+redshiftserverless
 requireImdsv2
 secretsmanager
 statemachine

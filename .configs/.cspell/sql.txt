@@ -7,6 +7,7 @@ DISTSTYLE
 enddocs
 endif
 ifnull
+ignoreheader
 keepalives
 LPAD
 smallint
@@ -14,6 +15,7 @@ SORTKEY
 sslmode
 STARTSWITH
 stddev
+timeformat
 UNPIVOT
 UPSERT
 VARCHAR
