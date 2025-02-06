@@ -7,6 +7,7 @@ ceintl
 charliermarsh
 dataform
 DATALAKE
+datauser
 dbaeumer
 debugpy
 direnv
@@ -25,6 +26,7 @@ hadolint
 hudi
 Inmon
 innoverio
+JDBC
 Kimball
 mechatroner
 nbsp

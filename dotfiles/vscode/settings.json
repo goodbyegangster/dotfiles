@@ -391,6 +391,7 @@
   "prettier.printWidth": 100,
   // eslint
   "eslint.enable": true,
+  "eslint.experimental.useFlatConfig": true,
   "eslint.validate": [
     "typescript",
   ],
