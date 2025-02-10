@@ -19,4 +19,8 @@ install_tools: ## install tools.
 
 .PHONY: install_dbt_cloud_cli
 install_dbt_cloud_cli: ## install dbt Cloud cli.
-	@bash ./scripts/dbt/install_dbt_cloud_cli.sh
+	@bash ./scripts/install/dbt_cloud_cli.sh
+
+.PHONY: install_kubectl
+install_kubectl: ## install kubectl.
+	@bash ./scripts/install/kubectl.sh

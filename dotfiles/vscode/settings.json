@@ -312,6 +312,7 @@
   },
   "markdown.extension.toc.levels": "1..2",
   "markdown.extension.toc.omittedFromToc": {},
+  "markdown-pdf.executablePath": "/usr/bin/chromium-browser",
 
   // Outline Map
   "outline-map.workspace.IncludeSymbols": [

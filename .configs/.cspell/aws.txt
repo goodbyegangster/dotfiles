@@ -1,6 +1,7 @@
 amazonaws
 boto
 botocore
+BURSTABLE
 chatbot
 cloudformation
 cloudfront
@@ -8,11 +9,16 @@ cloudwatch
 codecommit
 compatibleRuntimes
 datazone
+eksctl
 fargate
 gibibytes
+iamserviceaccount
 lakeformation
 maxvcpus
 mebibytes
+opensearch
+opensearchservice
+orderable
 redshiftserverless
 requireImdsv2
 secretsmanager

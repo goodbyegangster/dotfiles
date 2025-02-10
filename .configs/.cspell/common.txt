@@ -28,6 +28,7 @@ Inmon
 innoverio
 JDBC
 Kimball
+kubeconfig
 mechatroner
 nbsp
 njpwerner
@@ -35,7 +36,9 @@ NOAA
 odbc
 OLAP
 OLTP
+openmetadata
 Passw
+psql
 pylance
 pyspark
 Quickstart
@@ -49,6 +52,8 @@ tfenv
 timonwong
 venv
 windir
+XGET
+xvda
 yzane
 yzhang
 zunda

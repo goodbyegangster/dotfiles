@@ -162,16 +162,22 @@ if [[ -e kubectl ]]; then
     source <(kubectl completion bash)
 fi
 
+# eksctl
+# https://eksctl.io/installation/#shell-completion
+if [[ -e /usr/local/bin/eksctl ]]; then
+    source <(eksctl completion bash)
+fi
+
 # minikube
 # https://minikube.sigs.k8s.io/docs/commands/completion/
-if [[ -e minikube ]]; then
-    alias kubectl="minikube kubectl --"
-    source <(minikube completion bash) # for bash users
-fi
+# if [[ -e /usr/local/bin/minikube ]]; then
+#     alias kubectl="minikube kubectl --"
+#     source <(minikube completion bash) # for bash users
+# fi
 
 # helm
 # https://helm.sh/docs/helm/helm_completion_bash/
-if [[ -e helm ]]; then
+if [[ -e /usr/local/bin/helm ]]; then
     source <(helm completion bash)
 fi
 
