@@ -341,7 +341,7 @@
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "basic",
   "python.languageServer": "Pylance",
-  "ruff.format.args": ["--config", "line-length=120"],
+  "ruff.lineLength": 120,
 
   // shellcheck
   "shellcheck.enable": true,
