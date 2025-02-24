@@ -13,6 +13,8 @@
       "timonwong.shellcheck", // https://github.com/vscode-shellcheck/vscode-shellcheck
       "foxundermoon.shell-format", // https://github.com/foxundermoon/vs-shell-format
       "rogalmic.bash-debug", // https://github.com/rogalmic/vscode-bash-debug
+      // biome
+      "biomejs.biome", // https://github.com/biomejs/biome-vscode
       // boto3
       "Boto3typed.boto3-ide", // https://github.com/youtype/boto3-ide
       // Code Spell Checker
@@ -29,10 +31,8 @@
       "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
       // Docker
       "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
-      // eslint
-      "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
-      // formatter
-      "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
+      // (unused) eslint
+      // "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // git
       "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
       "adam-bender.commit-message-editor", // https://github.com/bendera/vscode-commit-message-editor#readme
@@ -55,6 +55,8 @@
       // Mermaid
       "bierner.markdown-mermaid", // https://github.com/mjbvz/vscode-markdown-mermaid
       "bpruitt-goddard.mermaid-markdown-syntax-highlighting", // https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight
+      // prettier
+      "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       // Python
       "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
       "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring

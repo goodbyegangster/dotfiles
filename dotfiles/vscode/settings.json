@@ -130,6 +130,11 @@
     "internal-terms": true,
   },
 
+  // dataform-tools
+  "vscode-dataform-tools.bigqueryAuthenticationCheck": false,
+  "vscode-dataform-tools.showCompiledQueryInVerticalSplitOnSave": false,
+  "vscode-dataform-tools.compileAndDryRunBeforeFormatting": false,
+
   // Docker Compose
   "[Compose]": {
     "editor.tabSize": 2,
@@ -385,27 +390,24 @@
   "[typescript]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "biomejs.biome",
     "editor.formatOnSave": true,
   },
   // prettier
-  "prettier.printWidth": 100,
+  // "prettier.printWidth": 100,
   // eslint
-  "eslint.enable": true,
-  "eslint.experimental.useFlatConfig": true,
-  "eslint.validate": [
-    "typescript",
-  ],
+  // "eslint.enable": true,
+  // "eslint.experimental.useFlatConfig": true,
+  // "eslint.validate": [
+  //   "typescript",
+  // ],
   "editor.codeActionsOnSave": {
-    "source.addMissingImports": "always",
-    "source.fixAll": "never",
-    "source.fixAll.eslint": "explicit",
+    // "source.addMissingImports": "always",
+    // "source.fixAll": "never",
+    // "source.fixAll.eslint": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
   },
-
-  // dataform-tools
-  "vscode-dataform-tools.bigqueryAuthenticationCheck": false,
-  "vscode-dataform-tools.showCompiledQueryInVerticalSplitOnSave": false,
-  "vscode-dataform-tools.compileAndDryRunBeforeFormatting": false,
 
   // yaml
   "[yaml]": {

@@ -10,6 +10,7 @@ ifnull
 ignoreheader
 keepalives
 LPAD
+PGPASSWORD
 smallint
 SORTKEY
 sslmode
