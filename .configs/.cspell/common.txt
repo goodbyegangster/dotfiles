@@ -23,12 +23,14 @@ GHCN
 githistory
 gitmessage
 hadolint
+hogehoge
 hudi
 Inmon
 innoverio
 JDBC
 Kimball
 kubeconfig
+lifecycle
 mechatroner
 nbsp
 njpwerner
@@ -49,6 +51,7 @@ sqlfluff
 subseconds
 Sysnative
 tfenv
+tickitdb
 timonwong
 venv
 windir
@@ -57,5 +60,3 @@ xvda
 yzane
 yzhang
 zunda
-hogehoge
-tickitdb
