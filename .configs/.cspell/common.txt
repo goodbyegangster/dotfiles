@@ -10,6 +10,7 @@ DATALAKE
 datauser
 dbaeumer
 debugpy
+deque
 direnv
 donjayamanne
 dorzey

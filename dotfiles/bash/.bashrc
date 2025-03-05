@@ -125,6 +125,9 @@ if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-clo
 # complement
 complete -C '/usr/local/bin/aws_completer' aws
 
+# browser
+export BROWSER="wslview"
+
 # direnv
 export EDITOR=vim
 eval "$(direnv hook bash)"
