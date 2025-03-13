@@ -9,6 +9,7 @@ cloudwatch
 codecommit
 compatibleRuntimes
 datazone
+eksbuild
 eksctl
 fargate
 gibibytes
@@ -27,3 +28,4 @@ statemachines
 stepfunctions
 TBLPROPERTIES
 userdata
+xlarge

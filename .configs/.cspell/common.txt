@@ -5,6 +5,7 @@ autodocstring
 azuretools
 ceintl
 charliermarsh
+coredns
 dataform
 DATALAKE
 datauser
@@ -20,12 +21,16 @@ errorhandling
 esbenp
 exiasr
 foxundermoon
+fullname
 GHCN
 githistory
 gitmessage
 hadolint
+healthcheck
 hogehoge
 hudi
+IAMROLE
+initdb
 Inmon
 innoverio
 JDBC
@@ -45,10 +50,12 @@ psql
 pylance
 pyspark
 Quickstart
+SAML
 scrollback
 shellcheck
 sqlcmd
 sqlfluff
+STORAGECLASS
 subseconds
 Sysnative
 tfenv
