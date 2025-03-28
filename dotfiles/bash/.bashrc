@@ -193,3 +193,10 @@ export PATH="$PATH:/opt/mssql-tools18/bin"
 if [[ -e ~/.local/bin/uv ]]; then
     eval "$(~/.local/bin/uv generate-shell-completion bash)"
 fi
+
+# aqua
+# https://aquaproj.github.io/docs/products/aqua-installer#shell-script
+if [[ -e ~/.local/share/aquaproj-aqua/bin/aqua ]]; then
+    export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH
+    export AQUA_PROGRESS_BAR=true
+fi

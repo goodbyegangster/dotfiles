@@ -55,6 +55,8 @@
       // Mermaid
       "bierner.markdown-mermaid", // https://github.com/mjbvz/vscode-markdown-mermaid
       "bpruitt-goddard.mermaid-markdown-syntax-highlighting", // https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight
+      // PDF
+      "tomoki1207.pdf", // https://github.com/tomoki1207/vscode-pdfviewer
       // prettier
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       // Python
