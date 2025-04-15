@@ -61,8 +61,8 @@
   *******************************************/
 
   // AWS Toolkit
-  "aws.codeWhisperer.importRecommendation": false,
-  "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
+  // "aws.codeWhisperer.importRecommendation": false,
+  // "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
   "aws.telemetry": false,
 
   // dbt Power User
@@ -339,9 +339,11 @@
     }
   },
   "python.analysis.autoImportCompletions": true,
-  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.typeCheckingMode": "standard",
   "python.languageServer": "Pylance",
   "ruff.lineLength": 120,
+  // "ruff.lint.select": ["ALL"], // VSCode の設定だけでは完結できないので、lint は ruff でなく pylance を使う
+  // "ruff.lint.extendSelect": ["ALL"],
 
   // shellcheck
   "shellcheck.enable": true,
@@ -408,6 +410,7 @@
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
+  "jsdoc-generator.includeTypes": false,
 
   // yaml
   "[yaml]": {

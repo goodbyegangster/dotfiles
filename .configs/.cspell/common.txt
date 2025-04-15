@@ -30,6 +30,7 @@ healthcheck
 hogehoge
 hudi
 IAMROLE
+JSONata
 initdb
 Inmon
 innoverio

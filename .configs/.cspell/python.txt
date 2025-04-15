@@ -1,5 +1,6 @@
 abspath
 abstractmethod
+addoption
 asdict
 autouse
 bqstorage
@@ -23,6 +24,7 @@ functools
 gcloudignore
 getattr
 getenv
+getoption
 iloc
 isinstance
 isoformat

@@ -31,8 +31,6 @@
       "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
       // Docker
       "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
-      // (unused) eslint
-      // "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // git
       "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
       "adam-bender.commit-message-editor", // https://github.com/bendera/vscode-commit-message-editor#readme
@@ -43,6 +41,10 @@
       "golang.go", // https://github.com/golang/vscode-go
       // hadolint
       "exiasr.hadolint", // https://github.com/michaellzc/vscode-hadolint
+      // JavaScript, TypeScript
+      "crystal-spider.jsdoc-generator", // https://github.com/Crystal-Spider/jsdoc-generator
+      // (unused) eslint
+      // "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // jinja2
       "samuelcolvin.jinjahtml", // https://github.com/samuelcolvin/jinjahtml-vscode
       // Live Server

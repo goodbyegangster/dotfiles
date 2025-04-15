@@ -9,6 +9,7 @@ cloudwatch
 codecommit
 compatibleRuntimes
 datazone
+eipalloc
 eksbuild
 eksctl
 fargate
