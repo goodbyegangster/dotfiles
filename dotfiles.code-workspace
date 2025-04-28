@@ -62,6 +62,7 @@
       // prettier
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       // Python
+      "ms-python.vscode-pylance", // https://github.com/microsoft/pylance-release
       "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
       "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
       // SQL

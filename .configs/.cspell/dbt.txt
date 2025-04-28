@@ -1,4 +1,5 @@
 endtest
 lookback
 microbatch
+templater
 versionless

@@ -1,5 +1,6 @@
 abspath
 abstractmethod
+addfile
 addoption
 asdict
 autouse
@@ -16,8 +17,10 @@ difflib
 divmod
 elif
 ensurepath
+extractall
 filecmp
 filterwarnings
+findall
 forcelist
 fromisoformat
 functools
@@ -26,6 +29,7 @@ getattr
 getenv
 getoption
 iloc
+isdir
 isinstance
 isoformat
 levelname
@@ -41,6 +45,7 @@ openpyxl
 pathlib
 pipdeptree
 pipx
+psycopg
 pyarrow
 pycache
 pyenv
@@ -49,6 +54,7 @@ pyproject
 pytest
 pytest_report_teststatus
 pytrace
+pyyaml
 realpath
 reindex
 removedirs
@@ -65,6 +71,7 @@ splitlines
 staticmethod
 strftime
 strptime
+tarinfo
 tempfile
 timedelta
 timespec
@@ -76,4 +83,5 @@ urllib
 urlopen
 virtualenvs
 writerows
+zfill
 zoneinfo

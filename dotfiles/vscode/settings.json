@@ -121,6 +121,11 @@
       "path": "~/dotfiles/.configs/.cspell/python-jinja.txt",
       "addWords": true,
     },
+    "snowflake": {
+      "name": "snowflake",
+      "path": "~/dotfiles/.configs/.cspell/snowflake.txt",
+      "addWords": true,
+    },
     "sql": {
       "name": "sql",
       "path": "~/dotfiles/.configs/.cspell/sql.txt",
@@ -344,6 +349,7 @@
   "ruff.lineLength": 120,
   // "ruff.lint.select": ["ALL"], // VSCode の設定だけでは完結できないので、lint は ruff でなく pylance を使う
   // "ruff.lint.extendSelect": ["ALL"],
+  "python.interpreter.infoVisibility": "always",
 
   // shellcheck
   "shellcheck.enable": true,
@@ -372,7 +378,7 @@
   },
 
   // sqlfluff
-  "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
+  // "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
   "sqlfluff.config": "~/dotfiles/.configs/.sqlfluff/.sqlfluff",
   "sqlfluff.linter.run": "onSave",
 
@@ -463,6 +469,5 @@
     "!Transform mapping",
     "!Ref scalar",
   ],
-
   "redhat.telemetry.enabled": false,
 }

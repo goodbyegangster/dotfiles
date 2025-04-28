@@ -30,11 +30,11 @@ healthcheck
 hogehoge
 hudi
 IAMROLE
-JSONata
 initdb
 Inmon
 innoverio
 JDBC
+JSONata
 Kimball
 kubeconfig
 lifecycle
@@ -47,6 +47,7 @@ OLAP
 OLTP
 openmetadata
 Passw
+pids
 psql
 pylance
 pyspark
@@ -66,6 +67,7 @@ upto
 venv
 windir
 XGET
+XSAMLL
 xvda
 yzane
 yzhang

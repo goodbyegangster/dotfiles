@@ -196,8 +196,8 @@ fi
 
 # aqua
 # https://aquaproj.github.io/docs/products/aqua-installer#shell-script
-if [[ -e ~/.local/share/aquaproj-aqua/bin/aqua ]]; then
-    export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH
-    export AQUA_PROGRESS_BAR=true
-    export AQUA_GLOBAL_CONFIG=$HOME/dotfiles/aqua/aqua.yaml
-fi
+# if [[ -e ~/.local/share/aquaproj-aqua/bin/aqua ]]; then
+#     export PATH=${AQUA_ROOT_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/aquaproj-aqua}/bin:$PATH
+#     export AQUA_PROGRESS_BAR=true
+#     export AQUA_GLOBAL_CONFIG=$HOME/dotfiles/aqua/aqua.yaml
+# fi
