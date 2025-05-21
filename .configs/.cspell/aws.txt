@@ -28,5 +28,6 @@ statemachine
 statemachines
 stepfunctions
 TBLPROPERTIES
+TOTP
 userdata
 xlarge
