@@ -5,3 +5,4 @@ mapfile
 pipefail
 regextype
 strenv
+wslpath

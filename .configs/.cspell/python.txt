@@ -3,8 +3,10 @@ abstractmethod
 addfile
 addoption
 asdict
+astimezone
 autouse
 bqstorage
+chardet
 classmethod
 cloudevents
 configparser
@@ -23,6 +25,7 @@ filterwarnings
 findall
 forcelist
 fromisoformat
+frozenset
 functools
 gcloudignore
 getattr

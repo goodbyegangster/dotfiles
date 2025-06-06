@@ -122,8 +122,24 @@ if [ -f "$HOME/google-cloud-sdk/path.bash.inc" ]; then . "$HOME/google-cloud-sdk
 if [ -f "$HOME/google-cloud-sdk/completion.bash.inc" ]; then . "$HOME/google-cloud-sdk/completion.bash.inc"; fi
 
 # AWS cli
-# complement
 complete -C '/usr/local/bin/aws_completer' aws
+
+# AWSume
+if command -v ~/.local/bin/awsume >/dev/null 2>&1; then
+    # https://awsu.me/general/quickstart.html#alias-setup
+    alias awsume=". awsume"
+    # https://awsu.me/utilities/awsume-configure.html#autocomplete-script
+    _awsume() {
+        local cur prev opts
+        COMPREPLY=()
+        cur="${COMP_WORDS[COMP_CWORD]}"
+        prev="${COMP_WORDS[COMP_CWORD - 1]}"
+        opts=$(awsume-autocomplete)
+        COMPREPLY=($(compgen -W "${opts}" -- ${cur}))
+        return 0
+    }
+    complete -F _awsume awsume
+fi
 
 # browser
 export BROWSER="wslview"
@@ -152,6 +168,11 @@ export NVM_DIR="$HOME/.nvm"
 
 # npm
 eval "$(npm completion)"
+
+# yarn
+if [[ -e /usr/bin/yarn ]]; then
+    export PATH=$PATH:$HOME/.yarn/bin
+fi
 
 # Snowflake SnowSQL
 export PATH=$PATH:$HOME/bin
