@@ -44,6 +44,7 @@ kubeconfig
 lifecycle
 mechatroner
 nbsp
+nektos
 njpwerner
 NOAA
 odbc

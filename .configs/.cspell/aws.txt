@@ -1,4 +1,5 @@
 amazonaws
+awscli
 AWSume
 boto
 botocore
