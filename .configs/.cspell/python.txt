@@ -23,6 +23,7 @@ extractall
 filecmp
 filterwarnings
 findall
+fnmatch
 forcelist
 fromisoformat
 frozenset
