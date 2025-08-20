@@ -25,3 +25,7 @@ if [ -n "$BASH_VERSION" ]; then
         . "$HOME/.bashrc"
     fi
 fi
+
+# deno
+# https://docs.deno.com/runtime/getting_started/installation/
+. "/home/kawata/.deno/env"

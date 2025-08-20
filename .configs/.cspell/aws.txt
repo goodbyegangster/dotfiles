@@ -1,4 +1,5 @@
 amazonaws
+arns
 awscli
 AWSume
 boto

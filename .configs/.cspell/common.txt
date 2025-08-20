@@ -19,10 +19,12 @@ donjayamanne
 dorzey
 dotfiles
 duckdb
+ecommerce
 envrc
 errorhandling
 esbenp
 exiasr
+FKEY
 foxundermoon
 fugafuga
 fullname
@@ -39,6 +41,7 @@ initdb
 Inmon
 innoverio
 JDBC
+jobtype
 JSONata
 Kimball
 kubeconfig
@@ -49,6 +52,8 @@ nbsp
 nektos
 njpwerner
 NOAA
+nontech
+Noto
 odbc
 OLAP
 OLTP
@@ -56,6 +61,7 @@ openmetadata
 Passw
 pids
 PKEY
+pointsize
 psql
 pylance
 pyspark

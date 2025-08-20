@@ -222,3 +222,10 @@ fi
 #     export AQUA_PROGRESS_BAR=true
 #     export AQUA_GLOBAL_CONFIG=$HOME/dotfiles/aqua/aqua.yaml
 # fi
+
+# deno
+# https://docs.deno.com/runtime/getting_started/installation/
+if [[ -e ~/.deno/bin/deno ]]; then
+    . "/home/kawata/.deno/env"
+    source <(deno completions bash)
+fi
