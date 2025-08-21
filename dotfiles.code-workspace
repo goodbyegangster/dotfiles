@@ -25,6 +25,8 @@
       "takezoe.vscode-csv-markdown", // https://github.com/redhat-developer/vscode-yaml
       // Dataform
       "ashishalex.dataform-lsp-vscode", // https://github.com/ashish10alex/vscode-dataform-tools
+      // deno
+      "denoland.vscode-deno",  // https://github.com/denoland/vscode_deno
       // Dependency Analytics
       "redhat.fabric8-analytics", // https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension
       // dbt
