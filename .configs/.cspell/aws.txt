@@ -10,6 +10,7 @@ cloudformation
 cloudfront
 cloudwatch
 codecommit
+Cognito
 compatibleRuntimes
 datazone
 eipalloc

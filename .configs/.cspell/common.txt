@@ -24,6 +24,7 @@ envrc
 errorhandling
 esbenp
 exiasr
+FGAC
 FKEY
 foxundermoon
 fugafuga
@@ -66,6 +67,7 @@ psql
 pylance
 pyspark
 Quickstart
+retriable
 SAML
 scrollback
 shellcheck
