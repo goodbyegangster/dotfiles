@@ -15,6 +15,7 @@ dataclass
 dataclasses
 dataframe
 datetime
+deepcopy
 difflib
 divmod
 elif
