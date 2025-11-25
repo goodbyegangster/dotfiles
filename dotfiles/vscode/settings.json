@@ -73,7 +73,7 @@
   "[c]": {
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "ms-vscode.cpptools",
-    "editor.tabSize": 4,
+    "editor.tabSize": 2,
     "editor.insertSpaces": true
   },
   "C_Cpp.clang_format_fallbackStyle": "Google",
