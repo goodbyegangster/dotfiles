@@ -34,4 +34,5 @@ stepfunctions
 TBLPROPERTIES
 TOTP
 userdata
+vendedlogs
 xlarge

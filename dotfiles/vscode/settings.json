@@ -69,6 +69,17 @@
   // dbt Power User
   "dbt.queryLimit": 5,
 
+  // C
+  "[c]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true
+  },
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "C_Cpp.codeAnalysis.runAutomatically": true,
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+
   // cSpell
   "cSpell.enabled": true,
   "cSpell.customDictionaries": {
