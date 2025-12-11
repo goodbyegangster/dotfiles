@@ -167,7 +167,20 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 # npm
-eval "$(npm completion)"
+# npm を利用不能にしたためコメントアウト
+# eval "$(npm completion)"
+
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+# pnpm Command line tab-completion: https://pnpm.io/completion
+if command -v pnpm > /dev/null; then
+    source <(pnpm completion bash)
+fi
 
 # yarn
 if [[ -e /usr/bin/yarn ]]; then
@@ -229,3 +242,17 @@ if [[ -e ~/.deno/bin/deno ]]; then
     . "/home/kawata/.deno/env"
     source <(deno completions bash)
 fi
+
+# 1Password
+# CLI を利用する場合、Windows 側にある CLI を呼ぶことになるので
+alias op='op.exe'
+
+# aws-vault 向け
+# aws-vault の backend として利用している pass の情報
+export AWS_VAULT_BACKEND=pass
+export GPG_TTY=$(tty)
+
+# npm を動作不能にする alias
+alias npx='echo "WARNING: npx は実行しないでください" && false'
+alias npm='echo "WARNING: npm は実行しないでください" && false'
+

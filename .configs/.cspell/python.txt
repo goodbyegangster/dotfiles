@@ -33,6 +33,8 @@ gcloudignore
 getattr
 getenv
 getoption
+getpass
+graphviz
 iloc
 isdir
 isinstance
@@ -58,6 +60,7 @@ pyodbc
 pyproject
 pytest
 pytest_report_teststatus
+PYTHONPATH
 pytrace
 pyyaml
 realpath
