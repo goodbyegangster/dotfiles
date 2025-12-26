@@ -1,0 +1,89 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "extensions": {
+    "recommendations": [
+      // AWS Toolkit
+      "amazonwebservices.aws-toolkit-vscode", // https://github.com/aws/aws-toolkit-vscode
+      // bash
+      "mads-hartmann.bash-ide-vscode", // https://github.com/bash-lsp/bash-language-server
+      "timonwong.shellcheck", // https://github.com/vscode-shellcheck/vscode-shellcheck
+      "foxundermoon.shell-format", // https://github.com/foxundermoon/vs-shell-format
+      "rogalmic.bash-debug", // https://github.com/rogalmic/vscode-bash-debug
+      // biome
+      "biomejs.biome", // https://github.com/biomejs/biome-vscode
+      // boto3
+      "Boto3typed.boto3-ide", // https://github.com/youtype/boto3-ide
+      // C/C++
+      "ms-vscode.cpptools", // https://github.com/Microsoft/vscode-cpptools
+      "ms-vscode.cpptools-extension-pack", // https://github.com/Microsoft/vscode-cpptools
+      // Code Spell Checker
+      "streetsidesoftware.code-spell-checker",  // https://github.com/streetsidesoftware/vscode-spell-checker
+      "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries", // https://github.com/streetsidesoftware/vscode-cspell-dict-extensions
+      // CSV
+      "mechatroner.rainbow-csv", // https://github.com/mechatroner/rainbow_csv
+      "takezoe.vscode-csv-markdown", // https://github.com/redhat-developer/vscode-yaml
+      // Dataform
+      "ashishalex.dataform-lsp-vscode", // https://github.com/ashish10alex/vscode-dataform-tools
+      // deno
+      "denoland.vscode-deno",  // https://github.com/denoland/vscode_deno
+      // Dependency Analytics
+      "redhat.fabric8-analytics", // https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension
+      // dbt
+      "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
+      // Docker
+      "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
+      // git
+      "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
+      "adam-bender.commit-message-editor", // https://github.com/bendera/vscode-commit-message-editor#readme
+      // GitHub
+      "github.vscode-pull-request-github", // https://github.com/Microsoft/vscode-pull-request-github
+      "github.vscode-github-actions", // https://github.com/github/vscode-github-actions
+      // golang
+      "golang.go", // https://github.com/golang/vscode-go
+      // hadolint
+      "exiasr.hadolint", // https://github.com/michaellzc/vscode-hadolint
+      // JavaScript, TypeScript
+      "crystal-spider.jsdoc-generator", // https://github.com/Crystal-Spider/jsdoc-generator
+      // (unused) eslint
+      // "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
+      // jinja2
+      "samuelcolvin.jinjahtml", // https://github.com/samuelcolvin/jinjahtml-vscode
+      // Live Server
+      "ritwickdey.LiveServer", // https://github.com/ritwickdey/vscode-live-server
+      // Makefile
+      "ms-vscode.makefile-tools", // https://github.com/Microsoft/vscode-makefile-tools
+      // markdown
+      "yzane.markdown-pdf", // https://github.com/yzane/vscode-markdown-pdf
+      "yzhang.markdown-all-in-one", // https://github.com/yzhang-gh/vscode-markdown
+      // Mermaid
+      "bierner.markdown-mermaid", // https://github.com/mjbvz/vscode-markdown-mermaid
+      "bpruitt-goddard.mermaid-markdown-syntax-highlighting", // https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight
+      // PDF
+      "tomoki1207.pdf", // https://github.com/tomoki1207/vscode-pdfviewer
+      // prettier
+      "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
+      // Python
+      "ms-python.vscode-pylance", // https://github.com/microsoft/pylance-release
+      "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
+      "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
+      // SQL
+      "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
+      // terraform
+      "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
+      // TOML
+      "tamasfe.even-better-toml", // https://github.com/tamasfe/taplo
+      // VS Code
+      "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
+      "alefragnani.project-manager", // https://github.com/alefragnani/vscode-project-manager
+      "Gerrnperl.outline-map", //https://github.com/Gerrnperl/outline-map
+      "aaron-bond.better-comments", // https://github.com/aaron-bond/better-comments/blob/master/README.md
+      // YAML
+      "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml#readme
+    ]
+  },
+  "settings": {}
+}

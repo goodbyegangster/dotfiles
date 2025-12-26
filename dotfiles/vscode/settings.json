@@ -1,0 +1,484 @@
+{
+  // workbench
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.editor.enablePreview": true,
+  "workbench.editorLargeFileConfirmation": 3072,
+  "workbench.startupEditor": "none",
+
+  // terminal
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "source": "Git Bash"
+    },
+    "Ubuntu (WSL)": {
+      "path": "C:\\windows\\System32\\wsl.exe",
+      "args": [
+        "-d",
+        "Ubuntu"
+      ]
+    }
+  },
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.scrollback": 5000,
+
+  // editor
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.formatOnSave": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  // NOTE: https://stackoverflow.com/questions/54173462/how-to-turn-off-or-on-sounds-from-visual-studio-code
+  "editor.accessibilitySupport": "off",
+  "editor.renderWhitespace": "trailing",
+
+  // remote
+  "remote.autoForwardPortsSource": "hybrid",
+
+  // files.associations 
+  "files.associations": {
+    "*.j2": "jinja",
+    // sql
+    "*.sql": "jinja-sql",
+    // dbt - don't format models in `target/` dir
+    "**/target/**": "",
+    // JSON
+    "*.json.default": "json",
+    // YAML
+    "*.yml.default": "yaml",
+    "*.yaml.default": "yaml",
+  },
+
+  /*******************************************
+  *******************************************/
+
+  // AWS Toolkit
+  // "aws.codeWhisperer.importRecommendation": false,
+  // "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
+  "aws.telemetry": false,
+
+  // dbt Power User
+  "dbt.queryLimit": 5,
+
+  // C
+  "[c]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "C_Cpp.clang_format_fallbackStyle": "Google",
+  "C_Cpp.codeAnalysis.runAutomatically": true,
+  "C_Cpp.codeAnalysis.clangTidy.enabled": true,
+
+  // cSpell
+  "cSpell.enabled": true,
+  "cSpell.customDictionaries": {
+    "aws": {
+      "name": "aws",
+      "path": "~/dotfiles/.configs/.cspell/aws.txt",
+      "addWords": true,
+    },
+    "bash": {
+      "name": "bash",
+      "path": "~/dotfiles/.configs/.cspell/bash.txt",
+      "addWords": true,
+    },
+    "cloud-init": {
+      "name": "cloud-init",
+      "path": "~/dotfiles/.configs/.cspell/cloud-init.txt",
+      "addWords": true,
+    },
+    "common": {
+      "name": "common",
+      "path": "~/dotfiles/.configs/.cspell/common.txt",
+      "addWords": true,
+    },
+    "dbt": {
+      "name": "dbt",
+      "path": "~/dotfiles/.configs/.cspell/dbt.txt",
+      "addWords": true,
+    },
+    "go": {
+      "name": "go",
+      "path": "~/dotfiles/.configs/.cspell/go.txt",
+      "addWords": true,
+    },
+    "private": {
+      "name": "private",
+      "path": "~/dotfiles/.configs/.cspell/private.txt",
+      "addWords": true,
+    },
+    "projects": {
+      "name": "projects",
+      "path": "~/dotfiles/.configs/.cspell/projects.txt",
+      "addWords": true,
+    },
+    "python": {
+      "name": "python",
+      "path": "~/dotfiles/.configs/.cspell/python.txt",
+      "addWords": true,
+    },
+    "python-jinja": {
+      "name": "python-jinja",
+      "path": "~/dotfiles/.configs/.cspell/python-jinja.txt",
+      "addWords": true,
+    },
+    "snowflake": {
+      "name": "snowflake",
+      "path": "~/dotfiles/.configs/.cspell/snowflake.txt",
+      "addWords": true,
+    },
+    "sql": {
+      "name": "sql",
+      "path": "~/dotfiles/.configs/.cspell/sql.txt",
+      "addWords": true,
+    },
+    "custom": true,
+    "internal-terms": true,
+  },
+
+  // dataform-tools
+  "vscode-dataform-tools.bigqueryAuthenticationCheck": false,
+  "vscode-dataform-tools.showCompiledQueryInVerticalSplitOnSave": false,
+  "vscode-dataform-tools.compileAndDryRunBeforeFormatting": false,
+
+  // Docker Compose
+  "[Compose]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker",
+    "editor.formatOnSave": true,
+  },
+
+  // git
+  "commit-message-editor.staticTemplate": [
+    "# ==================== Format ====================",
+    "Type: Subject",
+    "",
+    "# ==================== Types ====================",
+    "# Feat: 新機能",
+    "# Update: 機能改善",
+    "# Fix: バグ修正",
+    "# Style: コードの意味に影響しない変更（空白、書式、セミコロンの欠落など）",
+    "# Refactor: バグの修正でも機能の追加でもないコード変更",
+    "# Docs: ドキュメントのみの変更",
+    "# Perf: パフォーマンスを向上させるコード変更",
+    "# Test: 不足しているテストの追加や既存のテストの修正",
+    "# Build: ビルドシステムや外部の依存関係に影響する変更 (スコープの例: gulp, npm)",
+    "# CI: CI の設定ファイルやスクリプトの変更 (スコープ例: Travis, Circle)",
+    "# Chore: src やテストファイルを変更しないその他の変更",
+    "# Remove: ファイル/コード削除",
+    "# Revert: 以前のコミットを取り消す"
+  ],
+  "commit-message-editor.dynamicTemplate": [
+    "{type}{scope}: {subject}",
+    "",
+    "{body}",
+    "",
+    "{breaking_change}{footer}"
+  ],
+  "commit-message-editor.tokens": [
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "enum",
+      "options": [
+        {
+          "label": "---",
+          "value": ""
+        },
+        {
+          "label": "build",
+          "description": "Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)"
+        },
+        {
+          "label": "chore",
+          "description": "Updating grunt tasks etc; no production code change"
+        },
+        {
+          "label": "ci",
+          "description": "Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)"
+        },
+        {
+          "label": "docs",
+          "description": "Documentation only changes"
+        },
+        {
+          "label": "feat",
+          "description": "A new feature"
+        },
+        {
+          "label": "fix",
+          "description": "A bug fix"
+        },
+        {
+          "label": "perf",
+          "description": "A code change that improves performance"
+        },
+        {
+          "label": "refactor",
+          "description": "A code change that neither fixes a bug nor adds a feature"
+        },
+        {
+          "label": "revert"
+        },
+        {
+          "label": "style",
+          "description": "Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"
+        },
+        {
+          "label": "test",
+          "description": "Adding missing tests or correcting existing tests"
+        }
+      ],
+      "description": "Type of changes"
+    },
+    {
+      "label": "Scope",
+      "name": "scope",
+      "description": "A scope may be provided to a commit’s type, to provide additional contextual information and is contained within parenthesis, e.g., \"feat(parser): add ability to parse arrays\".",
+      "type": "text",
+      "multiline": false,
+      "prefix": "(",
+      "suffix": ")"
+    },
+    {
+      "label": "Short description",
+      "name": "description",
+      "description": "Short description in the subject line.",
+      "type": "text",
+      "multiline": false
+    },
+    {
+      "label": "Body",
+      "name": "body",
+      "description": "Optional body",
+      "type": "text",
+      "multiline": true,
+      "lines": 5,
+      "maxLines": 10
+    },
+    {
+      "label": "Breaking change",
+      "name": "breaking_change",
+      "type": "boolean",
+      "value": "BREAKING CHANGE: ",
+      "default": false
+    },
+    {
+      "label": "Footer",
+      "name": "footer",
+      "description": "Optional footer",
+      "type": "text",
+      "multiline": true
+    }
+  ],
+
+  // golang
+  "[go]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "golang.go"
+  },
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+
+  // hadolint
+  "hadolint.hadolintPath": "hadolint",
+  "hadolint.cliOptions": [],
+  "hadolint.maxNumberOfProblems": 100,
+  "hadolint.outputLevel": "warning",
+
+  // javascript
+  "javascript.suggestionActions.enabled": false,
+
+  // json
+  "[json][jsonc]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
+	"json.schemas": [
+    {
+      "fileMatch": ["*.json"],
+		  "schema": {
+			  "allowTrailingCommas": true
+		  }
+	  }
+  ],
+
+  // Makefile
+  "[makefile]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+  },
+  "makefile.configureOnOpen": false,
+  "makefile.launchConfigurations": [],
+  "makefile.makePath": "/usr/bin/make",
+
+  // markdown
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "markdown.extension.toc.levels": "1..2",
+  "markdown.extension.toc.omittedFromToc": {},
+  "markdown-pdf.executablePath": "/usr/bin/chromium-browser",
+
+  // Outline Map
+  "outline-map.workspace.IncludeSymbols": [
+    "__om_Tag__",
+    "__om_Region__",
+    "Method",
+    "Function",
+    "Class",
+    "Interface"
+  ],
+
+  // Python
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.typeCheckingMode": "standard",
+  "python.languageServer": "Pylance",
+  "ruff.lineLength": 120,
+  // "ruff.lint.select": ["ALL"], // VSCode の設定だけでは完結できないので、lint は ruff でなく pylance を使う
+  // "ruff.lint.extendSelect": ["ALL"],
+  "python.interpreter.infoVisibility": "always",
+
+  // shellcheck
+  "shellcheck.enable": true,
+  "shellcheck.enableQuickFix": true,
+  "shellcheck.run": "onSave",
+  "shellcheck.executablePath": "", // Priority: user defined > bundled shellcheck binary > "shellcheck"
+  "shellcheck.exclude": [],
+  "shellcheck.customArgs": ["-x"],
+  "shellcheck.ignorePatterns": {
+    "**/.bashrc": true,
+    "**/.profile": true,
+  },
+
+  // shellscript
+  "[shellscript]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false,
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnSave": true,
+  },
+
+  // sql
+  "[sql]": {
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+  },
+
+  // sqlfluff
+  // "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
+  // "sqlfluff.config": "~/dotfiles/.configs/.sqlfluff/.sqlfluff",
+  // "sqlfluff.linter.run": "onSave",
+
+  // Terraform
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+
+  // typescript
+  "[typescript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+  },
+  // prettier
+  // "prettier.printWidth": 100,
+  // eslint
+  // "eslint.enable": true,
+  // "eslint.experimental.useFlatConfig": true,
+  // "eslint.validate": [
+  //   "typescript",
+  // ],
+  "editor.codeActionsOnSave": {
+    // "source.addMissingImports": "always",
+    // "source.fixAll": "never",
+    // "source.fixAll.eslint": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "jsdoc-generator.includeTypes": false,
+
+  // yaml
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.formatOnSave": true,
+  },
+  "yaml.format.enable": true,
+  "yaml.format.printWidth": 999, // 配列要素名が一定の長さを超えると壊れてしまうので対応 https://github.com/redhat-developer/vscode-yaml/issues/968#issuecomment-1748610455
+  "yaml.maxItemsComputed": 10000,
+  "yaml.schemas": {
+    // dbt
+    // https://github.com/dbt-labs/dbt-jsonschema
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_yml_files-latest.json": [
+      "/**/models/**/*.yml",
+      "/**/snapshots/**/*.yml",
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/dbt_project-latest.json": [
+      "dbt_project.yml",
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/selectors-latest.json": [
+      "selectors.yml",
+    ],
+    "https://raw.githubusercontent.com/dbt-labs/dbt-jsonschema/main/schemas/latest/packages-latest.json": [
+      "packages.yml",
+    ],
+  },
+  "yaml.customTags": [
+    // Cloud Formation
+    // https://github.com/redhat-developer/vscode-yaml/issues/669
+    "!Base64 scalar",
+    "!Contains sequence",
+    "!Cidr scalar",
+    "!And sequence",
+    "!Equals sequence",
+    "!If sequence",
+    "!Not sequence",
+    "!Or sequence",
+    "!Condition scalar",
+    "!FindInMap sequence",
+    "!GetAtt sequence",
+    "!GetAtt scalar",
+    "!GetAZs scalar",
+    "!ImportValue scalar",
+    "!Join sequence",
+    "!Select sequence",
+    "!Split sequence",
+    "!Sub scalar",
+    "!Transform mapping",
+    "!Ref scalar",
+  ],
+  "redhat.telemetry.enabled": false,
+}

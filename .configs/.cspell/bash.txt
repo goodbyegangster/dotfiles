@@ -1,0 +1,9 @@
+bashdb
+Eeuo
+esac
+fromjson
+mapfile
+pipefail
+regextype
+strenv
+wslpath

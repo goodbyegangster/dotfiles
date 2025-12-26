@@ -1,0 +1,17 @@
+### all ignore
+/*
+
+### not ignore
+!.gitignore
+!*.code-workspace
+!/dotfiles
+!/.configs
+!/aqua
+!/scripts
+!/tips
+!Makefile
+!README.md
+
+### specific ignore
+projects.txt
+private.txt

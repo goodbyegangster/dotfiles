@@ -1,0 +1,67 @@
+{
+  "CDK App": {
+    "prefix": "cdk-app",
+    "body": [
+      "#!/usr/bin/env node",
+      "import * as cdk from 'aws-cdk-lib';",
+      "import { ${1:StackName} } from './${2:stack-file}';",
+      "",
+      "const app = new cdk.App();",
+      "",
+      "new ${1:StackName}(app, '${1:StackName}', {",
+      "  description: '${3:Description of the stack}',",
+      "  env: {",
+      "    account: process.env.CDK_DEFAULT_ACCOUNT,",
+      "    region: process.env.CDK_DEFAULT_REGION,",
+      "  },",
+      "});"
+    ],
+    "description": "Generate a CDK App scaffold"
+  },
+  "CDK Stack": {
+    "prefix": "cdk-stack",
+    "body": [
+      "import * as cdk from 'aws-cdk-lib';",
+      "import { Construct } from 'constructs';",
+      "",
+      "interface ${1:StackName}Props extends cdk.StackProps {",
+      "  ${2:// add props here}",
+      "}",
+      "",
+      "export class ${1:StackName} extends cdk.Stack {",
+      "  constructor(scope: Construct, id: string, props: ${1:StackName}Props) {",
+      "    super(scope, id, props);",
+      "",
+      "    cdk.Tags.of(this).add('cdk-created-by', cdk.Stack.of(this).stackName);",
+      "",
+      "    ${3}",
+      "  }",
+      "}"
+    ],
+    "description": "Generate a CDK stack scaffold"
+  },
+  "CDK Construct": {
+    "prefix": "cdk-construct",
+    "body": [
+      "import { Construct } from 'constructs';",
+      "",
+      "export interface ${1:ConstructName}Props {",
+      "  ${2:// add props here}",
+      "}",
+      "",
+      "export class ${1:ConstructName} extends Construct {",
+      "  constructor(scope: Construct, id: string, props: ${1:ConstructName}Props) {",
+      "    super(scope, id);",
+      "",
+      "    ${3}",
+      "  }",
+      "}"
+    ],
+    "description": "Generate a CDK construct scaffold"
+  },
+  "CDK Import": {
+    "prefix": "cdk-import",
+    "body": ["import * as ${1:service} from 'aws-cdk-lib/aws-${1:service}';"],
+    "description": "Generate a CDK import statement"
+  }
+}
