@@ -111,9 +111,10 @@ function install-nvm {
 
 # Deno
 # https://docs.deno.com/runtime/getting_started/installation/
-function install-nvm {
+function install-deno {
 	if ! command -v deno &>/dev/null; then
 		echo -e "${GREEN}install Deno${RESET}"
+		sudo apt-get install -y unzip
 		curl -fsSL https://deno.land/install.sh | sh
 	fi
 }
@@ -134,7 +135,8 @@ function install-biome {
 	if ! command -v biome &>/dev/null; then
 		echo -e "${GREEN}install biome${RESET}"
 		curl -L "https://github.com/biomejs/biome/releases/download/@biomejs/biome@${version}/biome-linux-x64" -o biome
-		chmod +x biome
+		sudo mv biome /usr/local/bin/biome
+		chmod +x /usr/local/bin/biome
 	fi
 }
 
@@ -168,8 +170,8 @@ function install-rootless-docker {
 		echo -e "${GREEN}install Rootless Docker${RESET}"
 		sudo apt-get remove "$(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc | cut -f1)"
 		sudo apt-get install -y \
-		  newuidmap \
-		  newgidmap
+		  uidmap \
+		  iptables
 		curl -fsSL https://get.docker.com/rootless | sh
 		systemctl --user enable docker
 	fi

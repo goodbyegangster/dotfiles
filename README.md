@@ -2,8 +2,6 @@
 
 ## 1st Setup
 
-- Visual Studio Code
-  - [Download Visual Studio Code](https://code.visualstudio.com/download)
 - Windows Terminal
   - [Windows ターミナルとは](https://learn.microsoft.com/ja-jp/windows/terminal/)
 - Microsoft PowerToys
@@ -12,6 +10,10 @@
   - [WSL を使用して Windows に Linux をインストールする方法](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 - GitHub CLI
   - [installation](https://github.com/cli/cli?tab=readme-ov-file#installation)
+- Visual Studio Code
+  - [Download Visual Studio Code](https://code.visualstudio.com/download)
+  - Remote Development
+    - [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
 
 ## task runner
 

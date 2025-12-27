@@ -37,6 +37,7 @@ function parse_option() {
 
 function create_link() {
 	printf "ln -s %-60s %-60s\n" "$1" "$2"
+	mkdir -p "$(dirname "$2")"
 	ln --symbolic --force -S ".${NOW}" "$1" "$2"
 }
 

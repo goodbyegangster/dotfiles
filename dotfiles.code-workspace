@@ -15,8 +15,6 @@
       "rogalmic.bash-debug", // https://github.com/rogalmic/vscode-bash-debug
       // biome
       "biomejs.biome", // https://github.com/biomejs/biome-vscode
-      // boto3
-      "Boto3typed.boto3-ide", // https://github.com/youtype/boto3-ide
       // C/C++
       "ms-vscode.cpptools", // https://github.com/Microsoft/vscode-cpptools
       "ms-vscode.cpptools-extension-pack", // https://github.com/Microsoft/vscode-cpptools
@@ -25,7 +23,6 @@
       "streetsidesoftware.code-spell-checker-cspell-bundled-dictionaries", // https://github.com/streetsidesoftware/vscode-cspell-dict-extensions
       // CSV
       "mechatroner.rainbow-csv", // https://github.com/mechatroner/rainbow_csv
-      "takezoe.vscode-csv-markdown", // https://github.com/redhat-developer/vscode-yaml
       // Dataform
       "ashishalex.dataform-lsp-vscode", // https://github.com/ashish10alex/vscode-dataform-tools
       // deno
@@ -77,9 +74,7 @@
       // TOML
       "tamasfe.even-better-toml", // https://github.com/tamasfe/taplo
       // VS Code
-      "ms-ceintl.vscode-language-pack-ja", // https://github.com/Microsoft/vscode-loc
       "alefragnani.project-manager", // https://github.com/alefragnani/vscode-project-manager
-      "Gerrnperl.outline-map", //https://github.com/Gerrnperl/outline-map
       "aaron-bond.better-comments", // https://github.com/aaron-bond/better-comments/blob/master/README.md
       // YAML
       "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml#readme
