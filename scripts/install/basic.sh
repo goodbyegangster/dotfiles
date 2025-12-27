@@ -163,6 +163,15 @@ function install-pre-commit {
 	fi
 }
 
+# sqlfluff
+# https://docs.sqlfluff.com/en/stable/gettingstarted.html#installing-sqlfluff
+function install-sqlfluff {
+	if ! command -v sqlfluff &>/dev/null; then
+		echo -e "${GREEN}install sqlfluff${RESET}"
+		pipx install sqlfluff
+	fi
+}
+
 # Rootless Docker
 # https://docs.docker.com/engine/security/rootless/
 function install-rootless-docker {
@@ -192,6 +201,7 @@ function main {
 	install-biome
 	install-go
 	install-pre-commit
+	install-sqlfluff
 	install-rootless-docker
 }
 

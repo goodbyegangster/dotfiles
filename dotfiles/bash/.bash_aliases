@@ -8,7 +8,6 @@
 #####################################################
 
 export EDITOR=vim
-export BROWSER="wslview"
 
 # 1Password（Windows 側にインストールされた CLI を呼ぶ）
 alias op='op.exe'
@@ -21,6 +20,7 @@ alias op='op.exe'
 # https://cli.github.com/manual/gh_completion
 if command -v gh &> /dev/null; then
 	eval "$(gh completion -s bash)"
+	export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
 fi
 
 #####################################################

@@ -7,6 +7,7 @@ readonly RED='\033[0;32m'
 readonly RESET='\033[0m'
 
 readonly NOW=$(date "+%Y%m%d%H%M%S")
+readonly SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 
 function usage() {
 	cat <<-EOF
@@ -36,59 +37,59 @@ function parse_option() {
 }
 
 function create_link() {
-	printf "ln -s %-60s %-60s\n" "$1" "$2"
-	mkdir -p "$(dirname "$2")"
-	ln --symbolic --force -S ".${NOW}" "$1" "$2"
+	local source="$(realpath "$1")"
+	local destination="$2"
+
+	printf "ln -s %-60s %-60s\n" "$source" "$destination"
+	mkdir -p "$(dirname "$destination")"
+	ln --symbolic --force -S ".${NOW}" "$source" "$destination"
 }
 
-function update_links() {
-	local input
+function update_file() {
+	local source="$(realpath "$1")"
+	local destination="$2"
 
-	read -erp "Do you want to update symbolic links? [Y,n]: " input
-	if [ "$input" == "Y" ]; then
-		echo -e "${GREEN}Create symbolic links${RESET}"
-		create_link "$HOME/dotfiles/dotfiles/bash/.bash_aliases" "$HOME/.bash_aliases"
-		create_link "$HOME/dotfiles/dotfiles/bash/.profile" "$HOME/.profile"
-		create_link "$HOME/dotfiles/dotfiles/git/.gitconfig" "$HOME/.gitconfig"
-		create_link "$HOME/dotfiles/dotfiles/git/.gitmessage.txt" "$HOME/.gitmessage.txt"
-		create_link "$HOME/dotfiles/dotfiles/vscode/settings.json" "$HOME/.vscode-server/data/Machine/settings.json"
-	fi
-}
-
-function update_snippets() {
-	local input
-	local default_user
-
-	read -erp "Do you want to update snippets? [Y,n]: " input
-	if [ "$input" == "Y" ]; then
-	    default_user=$(cmd.exe /c "echo %USERNAME%" 2> /dev/null | tr -d '\r')
-		read -erp "Please enter your Windows OS user name [${default_user}]: " username
-		echo -e "${GREEN}Copy snippets file${RESET}"
-		cp ./dotfiles/vscode/snippets/typescript.json \
-		  "/mnt/c/Users/${username:-$default_user}/AppData/Roaming/Code/User/snippets/typescript.json"
-	fi
-}
-
-function update_keybindings() {
-	local input
-	local default_user
-
-	read -erp "Do you want to update keybindings? [Y,n]: " input
-	if [ "$input" == "Y" ]; then
-	    default_user=$(cmd.exe /c "echo %USERNAME%" 2> /dev/null | tr -d '\r')
-		read -erp "Please enter your Windows OS user name [${default_user}]: " username
-		echo -e "${GREEN}Copy keybindings file${RESET}"
-		cp ./dotfiles/vscode/keybindings.json \
-		  "/mnt/c/Users/${username:-$default_user}/AppData/Roaming/Code/User/keybindings.json"
-	fi
+	printf "cp %-60s %-60s\n" "$source" "$destination"
+	mkdir -p "$(dirname "$destination")"
+	cp "$source" "$destination"
 }
 
 function main() {
+	local input
+	local window_user_name=$(cmd.exe /c "echo %USERNAME%" 2> /dev/null | tr -d '\r')
+
 	parse_option "$@"
 
-	update_links
-	update_snippets
-	update_keybindings
+	read -erp "Do you want to update? [Y,n]: " input
+	if [[ "$input" == "Y" ]]; then
+		echo -e "${GREEN}Create symbolic links${RESET}"
+		create_link \
+		  "${SCRIPT_DIR}/../dotfiles/bash/.bash_aliases" \
+		  "${HOME}/.bash_aliases"
+		create_link \
+		  "${SCRIPT_DIR}/../dotfiles/bash/.profile" \
+		  "${HOME}/.profile"
+		create_link \
+		  "${SCRIPT_DIR}/../dotfiles/git/.gitconfig" \
+		  "${HOME}/.gitconfig"
+		create_link \
+		  "${SCRIPT_DIR}/../dotfiles/git/.gitmessage.txt" \
+		  "${HOME}/.gitmessage.txt"
+		create_link \
+		  "${SCRIPT_DIR}/../dotfiles/vscode/settings-wsl/settings.json" \
+		  "${HOME}/.vscode-server/data/Machine/settings.json"
+
+		echo -e "${GREEN}Update file${RESET}"
+		update_file \
+		  "${SCRIPT_DIR}/../dotfiles/vscode/settings-windows/settings.json" \
+		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/settings.json"
+		update_file \
+		  "${SCRIPT_DIR}/../dotfiles/vscode/keybindings.json" \
+		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/keybindings.json"
+		update_file \
+		  "${SCRIPT_DIR}/../dotfiles/vscode/snippets/typescript.json" \
+		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/typescript.json"
+	fi
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

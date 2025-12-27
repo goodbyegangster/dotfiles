@@ -34,7 +34,6 @@
       // Docker
       "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
       // git
-      "donjayamanne.githistory", // https://github.com/DonJayamanne/gitHistoryVSCode
       "adam-bender.commit-message-editor", // https://github.com/bendera/vscode-commit-message-editor#readme
       // GitHub
       "github.vscode-pull-request-github", // https://github.com/Microsoft/vscode-pull-request-github

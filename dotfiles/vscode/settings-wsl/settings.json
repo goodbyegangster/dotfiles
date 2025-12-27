@@ -161,6 +161,7 @@
   },
 
   // git
+  "git.blame.editorDecoration.enabled": false,
   "commit-message-editor.staticTemplate": [
     "# ==================== Format ====================",
     "Type: Subject",

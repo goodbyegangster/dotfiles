@@ -26,4 +26,5 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
+# shellcheck disable=SC1091
 . "$HOME/.local/bin/env"
