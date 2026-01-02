@@ -87,6 +87,9 @@ function main() {
 		  "${SCRIPT_DIR}/../dotfiles/vscode/keybindings.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/keybindings.json"
 		update_file \
+		  "${SCRIPT_DIR}/../dotfiles/vscode/snippets/shellscript.json" \
+		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/shellscript.json"
+		update_file \
 		  "${SCRIPT_DIR}/../dotfiles/vscode/snippets/typescript.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/typescript.json"
 	fi

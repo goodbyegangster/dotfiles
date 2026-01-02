@@ -1,0 +1,47 @@
+{
+  "shebang": {
+    "prefix": "#!",
+    "body": [
+      "#!/usr/bin/env bash",
+      "set -Eeuo pipefail",
+      "",
+      "readonly SCRIPT_DIR=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" &>/dev/null && pwd -P)",
+      "",
+      "$0"
+    ],
+    "description": "Generate a shebang statement"
+  },
+  "entry point": {
+    "prefix": "entrypoint",
+    "body": [
+      "function main() {",
+      "\t:",
+      "}",
+      "",
+      "if [[ \"${BASH_SOURCE[0]}\" == \"\\${0}\" ]]; then",
+	    "\tmain \"$@\"",
+      "fi"
+    ],
+    "description": "Generate a entry point"
+  },
+  "parse option": {
+    "prefix": "parse_option",
+    "body": [
+      "function parse_option() {",
+      "\twhile :; do",
+      "\t\tcase \\${1:-} in",
+      "\t\t-h | --help) usage && exit ;;",
+      "\t\t-v | --verbose) set -x ;;",
+      "\t\t-?*)",
+      "\t\t\tprintf \"ERROR: unknown option\\n\" >&2",
+      "\t\t\texit 1",
+      "\t\t\t;;",
+      "\t\t*) break ;;",
+      "\t\tesac",
+      "\t\tshift",
+      "\tdone",
+      "}"
+    ],
+    "description": "Generate a while-loop option parser"
+  }
+}

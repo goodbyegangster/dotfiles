@@ -108,8 +108,8 @@ esac
 
 # rootless-docker
 # https://docs.docker.com/engine/security/rootless/#install
-if command -v docker &> /dev/null; then
-	export DOCKER_HOST=unix:///run/user/1000/docker.sock
+if [[ -S "/run/user/$(id -u)/docker.sock" ]]; then
+	export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
 fi
 
 #####################################################
