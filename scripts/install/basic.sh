@@ -186,6 +186,19 @@ function install-rootless-docker {
 	fi
 }
 
+# hadolint
+# https://github.com/hadolint/hadolint?tab=readme-ov-file#install
+function install-hadolint {
+	local version="2.14.0"
+	local file="hadolint-linux-x86_64"
+	if ! command -v hadolint &>/dev/null; then
+		echo -e "${GREEN}install hadolint${RESET}"
+		curl -OL "https://github.com/hadolint/hadolint/releases/download/v${version}/${file}"
+		chmod +x "${file}"
+		sudo mv "${file}" "/usr/local/bin/hadolint"
+	fi
+}
+
 function main {
 	update-apt
 	install-jq
@@ -203,6 +216,7 @@ function main {
 	install-pre-commit
 	install-sqlfluff
 	install-rootless-docker
+	install-hadolint
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
