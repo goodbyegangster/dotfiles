@@ -55,6 +55,7 @@
       // markdown
       "yzane.markdown-pdf", // https://github.com/yzane/vscode-markdown-pdf
       "yzhang.markdown-all-in-one", // https://github.com/yzhang-gh/vscode-markdown
+      "davidanson.vscode-markdownlint", // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
       // Mermaid
       "bierner.markdown-mermaid", // https://github.com/mjbvz/vscode-markdown-mermaid
       "bpruitt-goddard.mermaid-markdown-syntax-highlighting", // https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight

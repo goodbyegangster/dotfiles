@@ -1,0 +1,25 @@
+{
+  "help": {
+    "prefix": "help",
+    "body": [
+      ".DEFAULT_GOAL := help",
+      "",
+      ".PHONY: help",
+      "help:",
+      "\t@printf \"%-30s %-60s\\n\" \"[Sub command]\" \"[Description]\"",
+      "\t@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = \":.*?## \"}; {printf \"%-30s %-60s\\n\", $$1, $$2}'",
+      ""
+    ],
+    "description": "Generate a help"
+  },
+  "template target": {
+    "prefix": ".PHONY",
+    "body": [
+      ".PHONY: $1",
+      "$1: ## $1",
+      "\t$2",
+      ""
+    ],
+    "description": "Generate a template target"
+  }
+}

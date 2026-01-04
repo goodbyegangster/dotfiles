@@ -23,7 +23,7 @@ function usage() {
 
 function parse_option() {
 	while :; do
-		case ${1:-default} in
+		case ${1:-} in
 		-h | --help) usage && exit ;;
 		-v | --verbose) set -x ;;
 		-?*)
@@ -63,29 +63,40 @@ function main() {
 	read -erp "Do you want to update? [Y,n]: " input
 	if [[ "$input" == "Y" ]]; then
 		echo -e "${GREEN}Create symbolic links${RESET}"
+		# [Linux] .bash_aliases
 		create_link \
 		  "${SCRIPT_DIR}/../dotfiles/bash/.bash_aliases" \
 		  "${HOME}/.bash_aliases"
+		# [Linux] .profile
 		create_link \
 		  "${SCRIPT_DIR}/../dotfiles/bash/.profile" \
 		  "${HOME}/.profile"
+		# [git] .gitconfig
 		create_link \
 		  "${SCRIPT_DIR}/../dotfiles/git/.gitconfig" \
 		  "${HOME}/.gitconfig"
+		# [git] .gitmessage.txt
 		create_link \
 		  "${SCRIPT_DIR}/../dotfiles/git/.gitmessage.txt" \
 		  "${HOME}/.gitmessage.txt"
+		# [VS Code] settings.json (Remote)
 		create_link \
 		  "${SCRIPT_DIR}/../dotfiles/vscode/settings-wsl/settings.json" \
 		  "${HOME}/.vscode-server/data/Machine/settings.json"
 
 		echo -e "${GREEN}Update file${RESET}"
+		# [VS Code] settings.json (User)
 		update_file \
 		  "${SCRIPT_DIR}/../dotfiles/vscode/settings-windows/settings.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/settings.json"
+		# [VS Code] key shortcut
 		update_file \
 		  "${SCRIPT_DIR}/../dotfiles/vscode/keybindings.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/keybindings.json"
+		# [VS Code] snippet
+		update_file \
+		  "${SCRIPT_DIR}/../dotfiles/vscode/snippets/makefile.json" \
+		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/makefile.json"
 		update_file \
 		  "${SCRIPT_DIR}/../dotfiles/vscode/snippets/shellscript.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/shellscript.json"

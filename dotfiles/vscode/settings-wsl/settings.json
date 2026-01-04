@@ -330,8 +330,14 @@
 
   // markdown
   "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "davidanson.vscode-markdownlint",
     "editor.formatOnSave": true,
+  },
+  "markdownlint.config": {
+      // Hard tabs https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md010.md
+      "MD010": {
+        "code_blocks": false
+      }
   },
   "markdown.extension.toc.levels": "1..2",
   "markdown.extension.toc.omittedFromToc": {},
