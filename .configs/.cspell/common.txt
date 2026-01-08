@@ -68,6 +68,7 @@ Passw
 pids
 PKEY
 pointsize
+projen
 psql
 pylance
 pyspark
