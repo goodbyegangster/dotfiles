@@ -201,8 +201,8 @@ function install-hadolint {
 
 function main {
 	update-apt
-	install-jq
-	install-yq
+	# install-jq
+	# install-yq
 	install-direnv
 	install-pipx
 	# install-pyenv

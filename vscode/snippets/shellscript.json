@@ -12,9 +12,9 @@
     "description": "Generate a shebang statement"
   },
   "entry point": {
-    "prefix": "entrypoint",
+    "prefix": "main",
     "body": [
-      "function main() {",
+      "main() {",
       "\t:",
       "}",
       "",
@@ -27,7 +27,7 @@
   "parse option": {
     "prefix": "parse_option",
     "body": [
-      "function parse_option() {",
+      "parse_option() {",
       "\twhile :; do",
       "\t\tcase \\${1:-} in",
       "\t\t-h | --help) usage && exit ;;",

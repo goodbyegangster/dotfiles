@@ -4,7 +4,10 @@
 ### not ignore
 !.gitignore
 !*.code-workspace
-!/dotfiles
+!/bash
+!/git
+!/vscode
+!/mise
 !/.configs
 !/aqua
 !/scripts

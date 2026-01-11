@@ -13,9 +13,9 @@ link-update: ## create/update symbolic link files.
 link-remove: ## remove old backup links.
 	@bash ./scripts/link-remove.sh
 
-.PHONY: install-basic
-install-basic: ## install tools.
-	@bash ./scripts/install/basic.sh
+.PHONY: install-mise
+install-mise: ## install-mise
+	@bash ./scripts/install/install-mise.sh
 
 .PHONY: install-dbt-cloud-cli
 install-dbt-cloud-cli: ## install dbt Cloud cli.

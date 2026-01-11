@@ -65,43 +65,51 @@ function main() {
 		echo -e "${GREEN}Create symbolic links${RESET}"
 		# [Linux] .bash_aliases
 		create_link \
-		  "${SCRIPT_DIR}/../dotfiles/bash/.bash_aliases" \
+		  "${SCRIPT_DIR}/../bash/.bash_aliases" \
 		  "${HOME}/.bash_aliases"
+		# [Linux] .bashrc
+		create_link \
+		  "${SCRIPT_DIR}/../bash/.bashrc" \
+		  "${HOME}/.bashrc"
 		# [Linux] .profile
 		create_link \
-		  "${SCRIPT_DIR}/../dotfiles/bash/.profile" \
+		  "${SCRIPT_DIR}/../bash/.profile" \
 		  "${HOME}/.profile"
+		# [mise] config.toml
+		create_link \
+		  "${SCRIPT_DIR}/../mise/config.toml" \
+		  "${HOME}/.config/mise/config.toml"
 		# [git] .gitconfig
 		create_link \
-		  "${SCRIPT_DIR}/../dotfiles/git/.gitconfig" \
+		  "${SCRIPT_DIR}/../git/.gitconfig" \
 		  "${HOME}/.gitconfig"
 		# [git] .gitmessage.txt
 		create_link \
-		  "${SCRIPT_DIR}/../dotfiles/git/.gitmessage.txt" \
+		  "${SCRIPT_DIR}/../git/.gitmessage.txt" \
 		  "${HOME}/.gitmessage.txt"
 		# [VS Code] settings.json (Remote)
 		create_link \
-		  "${SCRIPT_DIR}/../dotfiles/vscode/settings-wsl/settings.json" \
+		  "${SCRIPT_DIR}/../vscode/settings-wsl/settings.json" \
 		  "${HOME}/.vscode-server/data/Machine/settings.json"
 
 		echo -e "${GREEN}Update file${RESET}"
 		# [VS Code] settings.json (User)
 		update_file \
-		  "${SCRIPT_DIR}/../dotfiles/vscode/settings-windows/settings.json" \
+		  "${SCRIPT_DIR}/../vscode/settings-windows/settings.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/settings.json"
 		# [VS Code] key shortcut
 		update_file \
-		  "${SCRIPT_DIR}/../dotfiles/vscode/keybindings.json" \
+		  "${SCRIPT_DIR}/../vscode/keybindings.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/keybindings.json"
 		# [VS Code] snippet
 		update_file \
-		  "${SCRIPT_DIR}/../dotfiles/vscode/snippets/makefile.json" \
+		  "${SCRIPT_DIR}/../vscode/snippets/makefile.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/makefile.json"
 		update_file \
-		  "${SCRIPT_DIR}/../dotfiles/vscode/snippets/shellscript.json" \
+		  "${SCRIPT_DIR}/../vscode/snippets/shellscript.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/shellscript.json"
 		update_file \
-		  "${SCRIPT_DIR}/../dotfiles/vscode/snippets/typescript.json" \
+		  "${SCRIPT_DIR}/../vscode/snippets/typescript.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/typescript.json"
 	fi
 }

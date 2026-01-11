@@ -13,6 +13,16 @@ export EDITOR=vim
 alias op='op.exe'
 
 #####################################################
+# mise
+#####################################################
+
+# mise
+# https://mise.jdx.dev/getting-started.html#activate-mise
+if command -v mise &> /dev/null; then
+	eval "$(mise activate bash)"
+fi
+
+#####################################################
 # git
 #####################################################
 
