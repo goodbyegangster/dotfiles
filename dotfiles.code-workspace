@@ -61,6 +61,8 @@
       "bpruitt-goddard.mermaid-markdown-syntax-highlighting", // https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight
       // PDF
       "tomoki1207.pdf", // https://github.com/tomoki1207/vscode-pdfviewer
+      // PowerShell
+      "ms-vscode.powershell", // https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell
       // prettier
       "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       // Python
