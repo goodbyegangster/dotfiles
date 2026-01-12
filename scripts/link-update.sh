@@ -40,7 +40,7 @@ function create_link() {
 	local source="$(realpath "$1")"
 	local destination="$2"
 
-	printf "ln -s %-60s %-60s\n" "$source" "$destination"
+	printf "${GREEN}ln -s %-60s %-60s${RESET}\n" "$source" "$destination"
 	mkdir -p "$(dirname "$destination")"
 	ln --symbolic --force -S ".${NOW}" "$source" "$destination"
 }
@@ -49,7 +49,7 @@ function update_file() {
 	local source="$(realpath "$1")"
 	local destination="$2"
 
-	printf "cp %-60s %-60s\n" "$source" "$destination"
+	printf "${GREEN}cp %-60s %-60s${RESET}\n" "$source" "$destination"
 	mkdir -p "$(dirname "$destination")"
 	cp "$source" "$destination"
 }
@@ -62,7 +62,6 @@ function main() {
 
 	read -erp "Do you want to update? [Y,n]: " input
 	if [[ "$input" == "Y" ]]; then
-		echo -e "${GREEN}Create symbolic links${RESET}"
 		# [Linux] .bash_aliases
 		create_link \
 		  "${SCRIPT_DIR}/../bash/.bash_aliases" \
@@ -75,10 +74,12 @@ function main() {
 		create_link \
 		  "${SCRIPT_DIR}/../bash/.profile" \
 		  "${HOME}/.profile"
+
 		# [mise] config.toml
 		create_link \
 		  "${SCRIPT_DIR}/../mise/config.toml" \
 		  "${HOME}/.config/mise/config.toml"
+
 		# [git] .gitconfig
 		create_link \
 		  "${SCRIPT_DIR}/../git/.gitconfig" \
@@ -87,12 +88,11 @@ function main() {
 		create_link \
 		  "${SCRIPT_DIR}/../git/.gitmessage.txt" \
 		  "${HOME}/.gitmessage.txt"
+
 		# [VS Code] settings.json (Remote)
 		create_link \
 		  "${SCRIPT_DIR}/../vscode/settings-wsl/settings.json" \
 		  "${HOME}/.vscode-server/data/Machine/settings.json"
-
-		echo -e "${GREEN}Update file${RESET}"
 		# [VS Code] settings.json (User)
 		update_file \
 		  "${SCRIPT_DIR}/../vscode/settings-windows/settings.json" \

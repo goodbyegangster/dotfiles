@@ -20,6 +20,7 @@ alias op='op.exe'
 # https://mise.jdx.dev/getting-started.html#activate-mise
 if command -v mise &> /dev/null; then
 	eval "$(mise activate bash)"
+	eval "$(mise completion bash --include-bash-completion-lib)"
 fi
 
 #####################################################

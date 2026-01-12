@@ -51,45 +51,6 @@ function install-pipx {
 	fi
 }
 
-# pyenv
-function install-pyenv {
-	if ! command -v pyenv &>/dev/null; then
-		echo -e "${GREEN}install pyenv${RESET}"
-		# https://github.com/pyenv/pyenv?tab=readme-ov-file#automatic-installer
-		curl https://pyenv.run | bash
-		# https://github.com/pyenv/pyenv/wiki/Common-build-problems#prerequisites
-		sudo apt-get install -y \
-			libedit-dev \
-			libncurses5-dev
-		# https://github.com/pyenv/pyenv/wiki#suggested-build-environment
-		sudo apt-get install -y \
-			build-essential \
-			curl \
-			git \
-			libbz2-dev \
-			libffi-dev \
-			liblzma-dev \
-			libncursesw5-dev \
-			libreadline-dev \
-			libsqlite3-dev \
-			libssl-dev \
-			libxml2-dev \
-			libxmlsec1-dev \
-			tk-dev \
-			xz-utils \
-			zlib1g-dev
-	fi
-}
-
-# poetry
-# https://python-poetry.org/docs/#installation
-function install-poetry {
-	if ! command -v poetry &>/dev/null; then
-		echo -e "${GREEN}install poetry${RESET}"
-		pipx install poetry
-	fi
-}
-
 # uv
 # https://github.com/astral-sh/uv?tab=readme-ov-file#installation
 function install-uv {
@@ -203,10 +164,8 @@ function main {
 	update-apt
 	# install-jq
 	# install-yq
-	install-direnv
+	# install-direnv
 	install-pipx
-	# install-pyenv
-	# install-poetry
 	install-uv
 	install-nvm
 	install-deno
@@ -216,7 +175,7 @@ function main {
 	install-pre-commit
 	install-sqlfluff
 	install-rootless-docker
-	install-hadolint
+	# install-hadolint
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

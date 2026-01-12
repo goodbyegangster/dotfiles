@@ -1,3 +1,8 @@
+# mise registry
+# https://mise.jdx.dev/registry.html#tools
 [tools]
+direnv = "latest"
+hadolint = "latest"
 jq = "latest"
+usage = "latest"
 yq = "latest"
