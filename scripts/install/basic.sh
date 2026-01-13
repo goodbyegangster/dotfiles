@@ -11,35 +11,35 @@ function update-apt {
 
 # jq
 # https://jqlang.github.io/jq/download/
-function install-jq {
-	if ! command -v jq &>/dev/null; then
-		echo -e "${GREEN}install jq${RESET}"
-		sudo apt-get install -y jq
-	fi
-}
+# function install-jq {
+# 	if ! command -v jq &>/dev/null; then
+# 		echo -e "${GREEN}install jq${RESET}"
+# 		sudo apt-get install -y jq
+# 	fi
+# }
 
 # yq(mikefarah)
 # https://github.com/mikefarah/yq?tab=readme-ov-file#install
-function install-yq {
-	if ! command -v yq &>/dev/null; then
-		echo -e "${GREEN}install yq${RESET}"
-		if command -v snap &>/dev/null; then
-			sudo snap install yq
-        else
-			sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq && \
-    		  chmod +x /usr/local/bin/yq
-        fi
-	fi
-}
+# function install-yq {
+# 	if ! command -v yq &>/dev/null; then
+# 		echo -e "${GREEN}install yq${RESET}"
+# 		if command -v snap &>/dev/null; then
+# 			sudo snap install yq
+#         else
+# 			sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq && \
+#     		  chmod +x /usr/local/bin/yq
+#         fi
+# 	fi
+# }
 
 # direnv
 # https://github.com/direnv/direnv/blob/master/docs/installation.md
-function install-direnv {
-	if ! command -v direnv &>/dev/null; then
-		echo -e "${GREEN}install direnv${RESET}"
-		curl -sfL https://direnv.net/install.sh | bash
-	fi
-}
+# function install-direnv {
+# 	if ! command -v direnv &>/dev/null; then
+# 		echo -e "${GREEN}install direnv${RESET}"
+# 		curl -sfL https://direnv.net/install.sh | bash
+# 	fi
+# }
 
 # pipx
 # https://github.com/pypa/pipx?tab=readme-ov-file#on-linux
@@ -149,16 +149,16 @@ function install-rootless-docker {
 
 # hadolint
 # https://github.com/hadolint/hadolint?tab=readme-ov-file#install
-function install-hadolint {
-	local version="2.14.0"
-	local file="hadolint-linux-x86_64"
-	if ! command -v hadolint &>/dev/null; then
-		echo -e "${GREEN}install hadolint${RESET}"
-		curl -OL "https://github.com/hadolint/hadolint/releases/download/v${version}/${file}"
-		chmod +x "${file}"
-		sudo mv "${file}" "/usr/local/bin/hadolint"
-	fi
-}
+# function install-hadolint {
+# 	local version="2.14.0"
+# 	local file="hadolint-linux-x86_64"
+# 	if ! command -v hadolint &>/dev/null; then
+# 		echo -e "${GREEN}install hadolint${RESET}"
+# 		curl -OL "https://github.com/hadolint/hadolint/releases/download/v${version}/${file}"
+# 		chmod +x "${file}"
+# 		sudo mv "${file}" "/usr/local/bin/hadolint"
+# 	fi
+# }
 
 function main {
 	update-apt
