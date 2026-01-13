@@ -5,4 +5,14 @@ direnv = "latest"
 hadolint = "latest"
 jq = "latest"
 usage = "latest"
+uv = "latest"
 yq = "latest"
+
+# Tasks
+# https://mise.jdx.dev/tasks/
+[tasks.setup-uv-tools]
+description = "uv tools の一括インストール"
+run = """
+uv tool install sqlfluff
+uv tool install pre-commit
+"""

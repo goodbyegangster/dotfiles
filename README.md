@@ -23,6 +23,10 @@ make
 
 ## tips
 
+### mise
+
+- [mise](./tips/mise.md)
+
 ### Python
 
 - [uv](./tips/Python/uv.md)

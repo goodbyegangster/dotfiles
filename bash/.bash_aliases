@@ -13,17 +13,6 @@ export EDITOR=vim
 alias op='op.exe'
 
 #####################################################
-# mise
-#####################################################
-
-# mise
-# https://mise.jdx.dev/getting-started.html#activate-mise
-if command -v mise &> /dev/null; then
-	eval "$(mise activate bash)"
-	eval "$(mise completion bash --include-bash-completion-lib)"
-fi
-
-#####################################################
 # git
 #####################################################
 
@@ -32,6 +21,17 @@ fi
 if command -v gh &> /dev/null; then
 	eval "$(gh completion -s bash)"
 	export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
+fi
+
+#####################################################
+# mise
+#####################################################
+
+# mise
+# https://mise.jdx.dev/getting-started.html#activate-mise
+if command -v mise &> /dev/null; then
+	eval "$(mise activate bash)"
+	eval "$(mise completion bash --include-bash-completion-lib)"
 fi
 
 #####################################################
@@ -174,7 +174,7 @@ fi
 # uv
 # https://docs.astral.sh/uv/getting-started/installation/#shell-autocompletion
 if command -v uv &> /dev/null; then
-	eval "$(~/.local/bin/uv generate-shell-completion bash)"
+	eval "$(uv generate-shell-completion bash)"
 fi
 
 #####################################################
