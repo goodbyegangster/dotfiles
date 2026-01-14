@@ -52,27 +52,12 @@ function install-biome {
 	fi
 }
 
-# Rootless Docker
-# https://docs.docker.com/engine/security/rootless/
-function install-rootless-docker {
-	if ! command -v docker &>/dev/null; then
-		echo -e "${GREEN}install Rootless Docker${RESET}"
-		sudo apt-get remove "$(dpkg --get-selections docker.io docker-compose docker-compose-v2 docker-doc podman-docker containerd runc | cut -f1)"
-		sudo apt-get install -y \
-		  uidmap \
-		  iptables
-		curl -fsSL https://get.docker.com/rootless | sh
-		systemctl --user enable docker
-	fi
-}
-
 function main {
 	update-apt
 	# install-nvm
 	# install-deno
 	# install-pnpm
 	# install-biome
-	install-rootless-docker
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
