@@ -2,6 +2,7 @@
 # https://mise.jdx.dev/registry.html#tools
 [tools]
 biome = "latest"
+deno = "latest"
 direnv = "latest"
 go = "latest"
 hadolint = "latest"

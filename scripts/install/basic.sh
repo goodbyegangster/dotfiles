@@ -21,6 +21,7 @@ function install-nvm {
 
 # Deno
 # https://docs.deno.com/runtime/getting_started/installation/
+# sudo rm -rf ~/.deno
 function install-deno {
 	if ! command -v deno &>/dev/null; then
 		echo -e "${GREEN}install Deno${RESET}"
@@ -31,6 +32,7 @@ function install-deno {
 
 # pnpm
 # https://pnpm.io/ja/installation#posix-%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E5%A0%B4%E5%90%88
+# rm -rf "$PNPM_HOME"
 function install-pnpm {
 	if ! command -v pnpm &>/dev/null; then
 		echo -e "${GREEN}install pnpm${RESET}"
@@ -66,8 +68,8 @@ function install-rootless-docker {
 
 function main {
 	update-apt
-	install-nvm
-	install-deno
+	# install-nvm
+	# install-deno
 	# install-pnpm
 	# install-biome
 	install-rootless-docker

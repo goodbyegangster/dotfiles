@@ -180,14 +180,9 @@ if [[ -s "$NVM_DIR/bash_completion" ]]; then
 fi
 
 # Deno
-export DENO_INSTALL="$HOME/.deno"
-case ":$PATH:" in
-	*":$DENO_INSTALL/bin:"*) ;;
-	*) export PATH="$DENO_INSTALL/bin:$PATH" ;;
-esac
-
 # https://docs.deno.com/runtime/reference/cli/completions/
 if command -v deno &> /dev/null; then
+	export DENO_INSTALL=$(which deno)
 	source <(deno completions bash)
 fi
 
@@ -205,12 +200,7 @@ case ":$PATH:" in
 esac
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
-case ":$PATH:" in
-	*":$PNPM_HOME:"*) ;;
-	*) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-
 if command -v pnpm &> /dev/null; then
+	export PNPM_HOME=$(which pnpm)
 	source <(pnpm completion bash)
 fi
