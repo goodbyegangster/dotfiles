@@ -9,25 +9,6 @@ function update-apt {
 	sudo apt-get update
 }
 
-# pipx
-# https://github.com/pypa/pipx?tab=readme-ov-file#on-linux
-function install-pipx {
-	if ! command -v pipx &>/dev/null; then
-		echo -e "${GREEN}install pipx${RESET}"
-		sudo apt-get install -y pipx
-		pipx ensurepath
-	fi
-}
-
-# uv
-# https://github.com/astral-sh/uv?tab=readme-ov-file#installation
-function install-uv {
-	if ! command -v uv &>/dev/null; then
-		echo -e "${GREEN}install uv${RESET}"
-		curl -LsSf https://astral.sh/uv/install.sh | sh
-	fi
-}
-
 # nvm
 # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 function install-nvm {
@@ -69,38 +50,6 @@ function install-biome {
 	fi
 }
 
-# Go
-# https://go.dev/doc/install
-function install-go {
-	local version="1.25.5"
-	local tarball="go${version}.linux-amd64.tar.gz"
-	if ! command -v go &>/dev/null; then
-		echo -e "${GREEN}install Go${RESET}"
-		curl -OL "https://go.dev/dl/${tarball}"
-		sudo rm -rf /usr/local/go
-		sudo tar -C /usr/local -xzf "$tarball"
-		rm "$tarball"
-	fi
-}
-
-# pre-commit
-# https://pre-commit.com/#installation
-function install-pre-commit {
-	if ! command -v pre-commit &>/dev/null; then
-		echo -e "${GREEN}install pre-commit${RESET}"
-		pipx install pre-commit
-	fi
-}
-
-# sqlfluff
-# https://docs.sqlfluff.com/en/stable/gettingstarted.html#installing-sqlfluff
-function install-sqlfluff {
-	if ! command -v sqlfluff &>/dev/null; then
-		echo -e "${GREEN}install sqlfluff${RESET}"
-		pipx install sqlfluff
-	fi
-}
-
 # Rootless Docker
 # https://docs.docker.com/engine/security/rootless/
 function install-rootless-docker {
@@ -117,15 +66,10 @@ function install-rootless-docker {
 
 function main {
 	update-apt
-	# install-pipx
-	# install-uv
 	install-nvm
 	install-deno
 	install-pnpm
 	install-biome
-	install-go
-	# install-pre-commit
-	# install-sqlfluff
 	install-rootless-docker
 }
 

@@ -2,6 +2,7 @@
 # https://mise.jdx.dev/registry.html#tools
 [tools]
 direnv = "latest"
+go = "latest"
 hadolint = "latest"
 jq = "latest"
 usage = "latest"
@@ -13,6 +14,10 @@ yq = "latest"
 [tasks.setup-uv-tools]
 description = "uv tools の一括インストール"
 run = """
-uv tool install sqlfluff
+uv tool install awsume
+uv tool install json-schema-for-humans
+uv tool install parquet-tools
+uv tool install pproxy
 uv tool install pre-commit
+uv tool install sqlfluff
 """

@@ -160,17 +160,6 @@ fi
 # Python
 #####################################################
 
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-case ":$PATH:" in
-	*":$PYENV_ROOT:"*) ;;
-	*) export PATH="$PYENV_ROOT/bin:$PATH" ;;
-esac
-
-if command -v pyenv &> /dev/null; then
-	eval "$(pyenv init -)"
-fi
-
 # uv
 # https://docs.astral.sh/uv/getting-started/installation/#shell-autocompletion
 if command -v uv &> /dev/null; then
@@ -225,13 +214,3 @@ esac
 if command -v pnpm &> /dev/null; then
 	source <(pnpm completion bash)
 fi
-
-#####################################################
-# Go
-#####################################################
-
-# Go
-case ":$PATH:" in
-	*":/usr/local/go/bin:"*) ;;
-	*) export PATH="$PATH:/usr/local/go/bin" ;;
-esac

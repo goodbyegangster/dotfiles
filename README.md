@@ -27,6 +27,10 @@ make
 
 - [mise](./tips/mise.md)
 
+### PowerShell
+
+- [PowerShell](./tips/PowerShell/PowerShell.md)
+
 ### Python
 
 - [uv](./tips/Python/uv.md)
