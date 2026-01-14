@@ -89,6 +89,11 @@ function main() {
 		  "${SCRIPT_DIR}/../git/.gitmessage.txt" \
 		  "${HOME}/.gitmessage.txt"
 
+		# [pnpm] rc
+		create_link \
+		  "${SCRIPT_DIR}/../.config/pnpm/rc" \
+		  "${HOME}/.config/pnpm/rc"
+
 		# [VS Code] settings.json (Remote)
 		create_link \
 		  "${SCRIPT_DIR}/../vscode/settings-wsl/settings.json" \

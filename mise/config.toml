@@ -1,10 +1,12 @@
 # mise registry
 # https://mise.jdx.dev/registry.html#tools
 [tools]
+biome = "latest"
 direnv = "latest"
 go = "latest"
 hadolint = "latest"
 jq = "latest"
+pnpm = "latest"
 usage = "latest"
 uv = "latest"
 yq = "latest"

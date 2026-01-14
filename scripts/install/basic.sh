@@ -13,7 +13,7 @@ function update-apt {
 # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 function install-nvm {
 	local version="v0.40.3"
-	if ! command -v pre-commit &>/dev/null; then
+	if ! command -v nvm &>/dev/null; then
 		echo -e "${GREEN}install nvm${RESET}"
 		curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/${version}/install.sh | bash
 	fi
@@ -68,8 +68,8 @@ function main {
 	update-apt
 	install-nvm
 	install-deno
-	install-pnpm
-	install-biome
+	# install-pnpm
+	# install-biome
 	install-rootless-docker
 }
 

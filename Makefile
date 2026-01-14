@@ -15,7 +15,7 @@ link-remove: ## remove old backup links.
 
 .PHONY: install-mise
 install-mise: ## install-mise
-	@bash ./scripts/install/install-mise.sh
+	@bash ./scripts/install/mise.sh
 
 .PHONY: install-dbt-cloud-cli
 install-dbt-cloud-cli: ## install dbt Cloud cli.

@@ -46,6 +46,9 @@
 
   // files.associations 
   "files.associations": {
+    // pnpm config
+    "**/pnpm/rc": "ini", 
+    // jinja
     "*.j2": "jinja",
     // sql
     "*.sql": "jinja-sql",
@@ -85,62 +88,62 @@
   "cSpell.customDictionaries": {
     "aws": {
       "name": "aws",
-      "path": "~/dotfiles/.configs/.cspell/aws.txt",
+      "path": "~/dotfiles/.config/.cspell/aws.txt",
       "addWords": true,
     },
     "bash": {
       "name": "bash",
-      "path": "~/dotfiles/.configs/.cspell/bash.txt",
+      "path": "~/dotfiles/.config/.cspell/bash.txt",
       "addWords": true,
     },
     "cloud-init": {
       "name": "cloud-init",
-      "path": "~/dotfiles/.configs/.cspell/cloud-init.txt",
+      "path": "~/dotfiles/.config/.cspell/cloud-init.txt",
       "addWords": true,
     },
     "common": {
       "name": "common",
-      "path": "~/dotfiles/.configs/.cspell/common.txt",
+      "path": "~/dotfiles/.config/.cspell/common.txt",
       "addWords": true,
     },
     "dbt": {
       "name": "dbt",
-      "path": "~/dotfiles/.configs/.cspell/dbt.txt",
+      "path": "~/dotfiles/.config/.cspell/dbt.txt",
       "addWords": true,
     },
     "go": {
       "name": "go",
-      "path": "~/dotfiles/.configs/.cspell/go.txt",
+      "path": "~/dotfiles/.config/.cspell/go.txt",
       "addWords": true,
     },
     "private": {
       "name": "private",
-      "path": "~/dotfiles/.configs/.cspell/private.txt",
+      "path": "~/dotfiles/.config/.cspell/private.txt",
       "addWords": true,
     },
     "projects": {
       "name": "projects",
-      "path": "~/dotfiles/.configs/.cspell/projects.txt",
+      "path": "~/dotfiles/.config/.cspell/projects.txt",
       "addWords": true,
     },
     "python": {
       "name": "python",
-      "path": "~/dotfiles/.configs/.cspell/python.txt",
+      "path": "~/dotfiles/.config/.cspell/python.txt",
       "addWords": true,
     },
     "python-jinja": {
       "name": "python-jinja",
-      "path": "~/dotfiles/.configs/.cspell/python-jinja.txt",
+      "path": "~/dotfiles/.config/.cspell/python-jinja.txt",
       "addWords": true,
     },
     "snowflake": {
       "name": "snowflake",
-      "path": "~/dotfiles/.configs/.cspell/snowflake.txt",
+      "path": "~/dotfiles/.config/.cspell/snowflake.txt",
       "addWords": true,
     },
     "sql": {
       "name": "sql",
-      "path": "~/dotfiles/.configs/.cspell/sql.txt",
+      "path": "~/dotfiles/.config/.cspell/sql.txt",
       "addWords": true,
     },
     "custom": true,
@@ -406,7 +409,7 @@
 
   // sqlfluff
   // "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
-  // "sqlfluff.config": "~/dotfiles/.configs/.sqlfluff/.sqlfluff",
+  // "sqlfluff.config": "~/dotfiles/.config/.sqlfluff/.sqlfluff",
   // "sqlfluff.linter.run": "onSave",
 
   // Terraform
