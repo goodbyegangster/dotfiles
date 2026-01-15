@@ -1,6 +1,7 @@
 # mise registry
 # https://mise.jdx.dev/registry.html#tools
 [tools]
+aws-cli = { version = "latest", symlink_bins = "true" }
 biome = "latest"
 deno = "latest"
 direnv = "latest"
@@ -9,6 +10,7 @@ hadolint = "latest"
 helm = "latest"
 jq = "latest"
 kubectl = "latest"
+node = "25"
 pnpm = "latest"
 usage = "latest"
 uv = "latest"
@@ -26,3 +28,6 @@ uv tool install pproxy
 uv tool install pre-commit
 uv tool install sqlfluff
 """
+
+[settings]
+idiomatic_version_file_enable_tools= ["node", "python"] # https://mise.jdx.dev/configuration/settings.html#idiomatic_version_file_enable_tools

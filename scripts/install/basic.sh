@@ -10,6 +10,7 @@ function update-apt {
 }
 
 # nvm
+# rm -rf $NVM_DIR
 # https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 function install-nvm {
 	local version="v0.40.3"

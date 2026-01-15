@@ -6,21 +6,17 @@ help:
 	@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "%-30s %-60s\n", $$1, $$2}'
 
 .PHONY: link-update
-link-update: ## create/update symbolic link files.
+link-update: ## Create or update symbolic links.
 	@bash ./scripts/link-update.sh
 
 .PHONY: link-remove
-link-remove: ## remove old backup links.
+link-remove: ## Remove old backup links.
 	@bash ./scripts/link-remove.sh
 
 .PHONY: install-mise
-install-mise: ## install-mise
+install-mise: ## install mise (minimal setup).
 	@bash ./scripts/install/mise.sh
 
-.PHONY: install-dbt-cloud-cli
-install-dbt-cloud-cli: ## install dbt Cloud cli.
-	@bash ./scripts/install/dbt-cloud-cli.sh
-
-.PHONY: install-kubectl
-install-kubectl: ## install kubectl.
-	@bash ./scripts/install/kubectl.sh
+.PHONY: run-install-scripts
+run-install-scripts: ## Execute the installation scripts.
+	@bash ./scripts/install/_install.sh
