@@ -21,11 +21,11 @@
 make
 ```
 
+## mise
+
+- [mise](./tips/mise/mise.md)
+
 ## tips
-
-### mise
-
-- [mise](./tips/mise.md)
 
 ### PowerShell
 

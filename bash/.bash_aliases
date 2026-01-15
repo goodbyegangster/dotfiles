@@ -13,7 +13,7 @@ export EDITOR=vim
 alias op='op.exe'
 
 #####################################################
-# git
+# GitHub
 #####################################################
 
 # GitHub CLI
@@ -77,20 +77,20 @@ fi
 # Google Cloud
 #####################################################
 
-# Google Cloud SDK
-export GCLOUD_HOME="$HOME/google-cloud-sdk"
+# Google Cloud CLI
+# Check install path with: gcloud info --format="value(installation.sdk_root)"
+export GCLOUD_HOME="/usr/lib/google-cloud-sdk"
 if [[ -f "$GCLOUD_HOME/path.bash.inc" ]]; then
-    . "$GCLOUD_HOME/path.bash.inc"
+	source "$GCLOUD_HOME/path.bash.inc"
 fi
 if [[ -f "$GCLOUD_HOME/completion.bash.inc" ]]; then
-    . "$GCLOUD_HOME/completion.bash.inc"
+	source "$GCLOUD_HOME/completion.bash.inc"
 fi
 
 #####################################################
-# Microsoft
+# SQLServer
 #####################################################
 
-# sqlcmd, bcp (SQLServer)
 # https://learn.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install#ubuntu
 case ":$PATH:" in
 	*":/opt/mssql-tools18/bin:"*) ;;
@@ -133,18 +133,18 @@ if command -v kubectl &> /dev/null; then
 	source <(kubectl completion bash)
 fi
 
+# helm
+# https://helm.sh/docs/helm/helm_completion_bash/
+if command -v helm &> /dev/null; then
+	source <(helm completion bash)
+fi
+
 # minikube
 # https://minikube.sigs.k8s.io/docs/commands/completion/
 # if command -v minikube &> /dev/null; then
 # 	alias kubectl="minikube kubectl --"
 # 	source <(minikube completion bash)
 # fi
-
-# helm
-# https://helm.sh/docs/helm/helm_completion_bash/
-if command -v helm &> /dev/null; then
-	source <(helm completion bash)
-fi
 
 #####################################################
 # direnv
@@ -192,12 +192,6 @@ alias npx='echo "WARNING: do not use npx. Use pnpm dlx instead." && false'
 # if command -v npm &> /dev/null; then
 # 	eval "$(npm completion)"
 # fi
-
-# yarn
-case ":$PATH:" in
-	*":$HOME/.yarn/bin:"*) ;;
-	*) export PATH="$PATH:$HOME/.yarn/bin" ;;
-esac
 
 # pnpm
 if command -v pnpm &> /dev/null; then
