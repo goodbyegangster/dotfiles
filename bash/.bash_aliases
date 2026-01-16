@@ -18,28 +18,6 @@ function excel() {
 alias op='op.exe'
 
 #####################################################
-# GitHub
-#####################################################
-
-# GitHub CLI
-# https://cli.github.com/manual/gh_completion
-if command -v gh &> /dev/null; then
-	eval "$(gh completion -s bash)"
-	export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
-fi
-
-#####################################################
-# mise
-#####################################################
-
-# mise
-# https://mise.jdx.dev/getting-started.html#activate-mise
-if command -v mise &> /dev/null; then
-	eval "$(mise activate bash)"
-	eval "$(mise completion bash --include-bash-completion-lib)"
-fi
-
-#####################################################
 # AWS
 #####################################################
 
@@ -79,6 +57,37 @@ if command -v eksctl &> /dev/null; then
 fi
 
 #####################################################
+# direnv
+#####################################################
+
+# direnv
+# https://direnv.net/docs/hook.html#bash
+if command -v direnv &> /dev/null; then
+	eval "$(direnv hook bash)"
+fi
+
+#####################################################
+# Docker
+#####################################################
+
+# rootless-docker
+# https://docs.docker.com/engine/security/rootless/#install
+if [[ -S "/run/user/$(id -u)/docker.sock" ]]; then
+	export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
+fi
+
+#####################################################
+# GitHub
+#####################################################
+
+# GitHub CLI
+# https://cli.github.com/manual/gh_completion
+if command -v gh &> /dev/null; then
+	eval "$(gh completion -s bash)"
+	export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
+fi
+
+#####################################################
 # Google Cloud
 #####################################################
 
@@ -93,39 +102,27 @@ if [[ -f "$GCLOUD_HOME/completion.bash.inc" ]]; then
 fi
 
 #####################################################
-# SQLServer
+# JavaScript / TypeScript
 #####################################################
 
-# https://learn.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install#ubuntu
-case ":$PATH:" in
-	*":/opt/mssql-tools18/bin:"*) ;;
-	*) export PATH="$PATH:/opt/mssql-tools18/bin" ;;
-esac
-
-#####################################################
-# Terraform
-#####################################################
-
-# Terraform
-# https://developer.hashicorp.com/terraform/cli/commands#shell-tab-completion
-if command -v terraform &> /dev/null; then
-	complete -C terraform terraform
+# Deno
+# https://docs.deno.com/runtime/reference/cli/completions/
+if command -v deno &> /dev/null; then
+	export DENO_INSTALL=$(which deno)
+	source <(deno completions bash)
 fi
 
-# tfenv
-case ":$PATH:" in
-	*":$HOME/.tfenv/bin:"*) ;;
-	*) export PATH="$HOME/.tfenv/bin:$PATH" ;;
-esac
+# npm は利用しない
+alias npm='echo "WARNING: do not use npm. Use pnpm instead." && false'
+alias npx='echo "WARNING: do not use npx. Use pnpm dlx instead." && false'
+# if command -v npm &> /dev/null; then
+# 	eval "$(npm completion)"
+# fi
 
-#####################################################
-# Docker
-#####################################################
-
-# rootless-docker
-# https://docs.docker.com/engine/security/rootless/#install
-if [[ -S "/run/user/$(id -u)/docker.sock" ]]; then
-	export DOCKER_HOST="unix:///run/user/$(id -u)/docker.sock"
+# pnpm
+if command -v pnpm &> /dev/null; then
+	export PNPM_HOME=$(which pnpm)
+	source <(pnpm completion bash)
 fi
 
 #####################################################
@@ -152,16 +149,6 @@ fi
 # fi
 
 #####################################################
-# direnv
-#####################################################
-
-# direnv
-# https://direnv.net/docs/hook.html#bash
-if command -v direnv &> /dev/null; then
-	eval "$(direnv hook bash)"
-fi
-
-#####################################################
 # Python
 #####################################################
 
@@ -172,34 +159,21 @@ if command -v uv &> /dev/null; then
 fi
 
 #####################################################
-# JavaScript / TypeScript
+# SQLServer
 #####################################################
 
-# nvm
-export NVM_DIR="$HOME/.nvm"
-if [[ -s "$NVM_DIR/nvm.sh" ]]; then
-	. "$NVM_DIR/nvm.sh"
-fi
-if [[ -s "$NVM_DIR/bash_completion" ]]; then
-	. "$NVM_DIR/bash_completion"
-fi
+# https://learn.microsoft.com/ja-jp/sql/linux/sql-server-linux-setup-tools?view=sql-server-ver16&tabs=ubuntu-install#ubuntu
+case ":$PATH:" in
+	*":/opt/mssql-tools18/bin:"*) ;;
+	*) export PATH="$PATH:/opt/mssql-tools18/bin" ;;
+esac
 
-# Deno
-# https://docs.deno.com/runtime/reference/cli/completions/
-if command -v deno &> /dev/null; then
-	export DENO_INSTALL=$(which deno)
-	source <(deno completions bash)
-fi
+#####################################################
+# Terraform
+#####################################################
 
-# npm は利用しない
-alias npm='echo "WARNING: do not use npm. Use pnpm instead." && false'
-alias npx='echo "WARNING: do not use npx. Use pnpm dlx instead." && false'
-# if command -v npm &> /dev/null; then
-# 	eval "$(npm completion)"
-# fi
-
-# pnpm
-if command -v pnpm &> /dev/null; then
-	export PNPM_HOME=$(which pnpm)
-	source <(pnpm completion bash)
+# Terraform
+# https://developer.hashicorp.com/terraform/cli/commands#shell-tab-completion
+if command -v terraform &> /dev/null; then
+	complete -C terraform terraform
 fi

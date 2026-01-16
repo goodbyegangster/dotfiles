@@ -115,7 +115,23 @@ if [ -f "$HOME/.bash_aliases" ]; then
     . "$HOME/.bash_aliases"
 fi
 
-
 if [ -f "$HOME/.local/bin/env" ]; then
     . "$HOME/.local/bin/env"
 fi
+
+# ----------------------------------------------------------------
+# mise configuration
+# ----------------------------------------------------------------
+if command -v mise &> /dev/null; then
+    eval "$(mise activate bash)"
+    eval "$(mise completion bash --include-bash-completion-lib)"
+fi
+
+# MEMO: PATH に値が重複登録される件
+# mise はプロンプト表示毎に PATH の再構築を行う (mise hook-env)。
+# この処理と WSL? の組み合わせが悪いのか、
+# mise 管理外のシステムパス等が重複して登録される動作になっている。
+# 動作に実害はないため、この重複は許容する。
+
+# What does mise activate do?
+# https://mise.jdx.dev/faq.html#what-does-mise-activate-do

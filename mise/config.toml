@@ -12,6 +12,7 @@ jq = "latest"
 kubectl = "latest"
 node = "25"
 pnpm = "latest"
+terraform = "latest"
 usage = "latest"
 uv = "latest"
 yq = "latest"
@@ -30,4 +31,10 @@ uv tool install sqlfluff
 """
 
 [settings]
-idiomatic_version_file_enable_tools= ["node", "python"] # https://mise.jdx.dev/configuration/settings.html#idiomatic_version_file_enable_tools
+# https://mise.jdx.dev/configuration/settings.html#idiomatic_version_file_enable_tools
+idiomatic_version_file_enable_tools= [
+    "go",
+    "node",
+    "python",
+    "terraform",
+]
