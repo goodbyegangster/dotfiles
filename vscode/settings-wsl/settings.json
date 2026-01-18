@@ -500,4 +500,30 @@
     "!Ref scalar",
   ],
   "redhat.telemetry.enabled": false,
+
+  /**************************************************
+  / launch.json
+  ***************************************************/
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      // Bash
+      {
+        "name": "Remote: Bash: Bash-Debug (simplest configuration)",
+        "type": "bashdb",
+        "request": "launch",
+        "program": "${file}",
+        "cwd": "${fileDirname}",
+        "args": [],
+        "showDebugOutput": true,
+        "terminalKind": "integrated",
+        "trace": true,
+        "presentation": {
+          "hidden": false,
+          "group": "Remote",
+          "order": 1
+        }
+      }
+    ]
+  }
 }

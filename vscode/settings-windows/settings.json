@@ -130,6 +130,41 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "ms-vscode.PowerShell"
+    "editor.defaultFormatter": "ms-vscode.PowerShell",
+    "files.encoding": "utf8bom",
+    "files.autoGuessEncoding": true
   },
+
+  /**************************************************
+  / launch.json
+  ***************************************************/
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      // PowerShell
+      {
+        "name": "User: PowerShell: Interactive (Debug Terminal)",
+        "type": "PowerShell",
+        "request": "launch",
+        "presentation": {
+          "hidden": false,
+          "group": "User",
+          "order": 1
+        }
+      },
+      // PowerShell
+      {
+        "name": "User: PowerShell: Run Current File",
+        "type": "PowerShell",
+        "request": "launch",
+        "script": "${file}",
+        "cwd": "${fileDirname}",
+        "presentation": {
+          "hidden": false,
+          "group": "User",
+          "order": 2
+        }
+      }
+    ]
+  }
 }

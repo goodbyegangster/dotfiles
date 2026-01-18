@@ -5,15 +5,6 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "bashdb",
-      "request": "launch",
-      "name": "Bash-Debug (simplest configuration)",
-      "program": "${file}",
-      "showDebugOutput": true,
-      "terminalKind": "integrated",
-      "trace": true
-    },
-    {
       "name": "go(integratedTerminal)",
       "type": "go",
       "request": "launch",

@@ -111,6 +111,9 @@ function main() {
 		  "${SCRIPT_DIR}/../vscode/snippets/makefile.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/makefile.json"
 		update_file \
+		  "${SCRIPT_DIR}/../vscode/snippets/powershell.json" \
+		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/powershell.json"
+		update_file \
 		  "${SCRIPT_DIR}/../vscode/snippets/shellscript.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/shellscript.json"
 		update_file \
