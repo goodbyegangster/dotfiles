@@ -99,62 +99,62 @@
   "cSpell.customDictionaries": {
     "aws": {
       "name": "aws",
-      "path": "~/dotfiles/.config/.cspell/aws.txt",
+      "path": "~/dotfiles/.config/cspell/aws.txt",
       "addWords": true,
     },
     "bash": {
       "name": "bash",
-      "path": "~/dotfiles/.config/.cspell/bash.txt",
+      "path": "~/dotfiles/.config/cspell/bash.txt",
       "addWords": true,
     },
     "cloud-init": {
       "name": "cloud-init",
-      "path": "~/dotfiles/.config/.cspell/cloud-init.txt",
+      "path": "~/dotfiles/.config/cspell/cloud-init.txt",
       "addWords": true,
     },
     "common": {
       "name": "common",
-      "path": "~/dotfiles/.config/.cspell/common.txt",
+      "path": "~/dotfiles/.config/cspell/common.txt",
       "addWords": true,
     },
     "dbt": {
       "name": "dbt",
-      "path": "~/dotfiles/.config/.cspell/dbt.txt",
+      "path": "~/dotfiles/.config/cspell/dbt.txt",
       "addWords": true,
     },
     "go": {
       "name": "go",
-      "path": "~/dotfiles/.config/.cspell/go.txt",
+      "path": "~/dotfiles/.config/cspell/go.txt",
       "addWords": true,
     },
     "private": {
       "name": "private",
-      "path": "~/dotfiles/.config/.cspell/private.txt",
+      "path": "~/dotfiles/.config/cspell/private.txt",
       "addWords": true,
     },
     "projects": {
       "name": "projects",
-      "path": "~/dotfiles/.config/.cspell/projects.txt",
+      "path": "~/dotfiles/.config/cspell/projects.txt",
       "addWords": true,
     },
     "python": {
       "name": "python",
-      "path": "~/dotfiles/.config/.cspell/python.txt",
+      "path": "~/dotfiles/.config/cspell/python.txt",
       "addWords": true,
     },
     "python-jinja": {
       "name": "python-jinja",
-      "path": "~/dotfiles/.config/.cspell/python-jinja.txt",
+      "path": "~/dotfiles/.config/cspell/python-jinja.txt",
       "addWords": true,
     },
     "snowflake": {
       "name": "snowflake",
-      "path": "~/dotfiles/.config/.cspell/snowflake.txt",
+      "path": "~/dotfiles/.config/cspell/snowflake.txt",
       "addWords": true,
     },
     "sql": {
       "name": "sql",
-      "path": "~/dotfiles/.config/.cspell/sql.txt",
+      "path": "~/dotfiles/.config/cspell/sql.txt",
       "addWords": true,
     },
     "custom": true,
@@ -304,10 +304,11 @@
     "editor.tabSize": 4,
     "editor.insertSpaces": false,
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "golang.go"
+    "editor.defaultFormatter": "golang.go",
+    "toolsManagement.checkForUpdates": "proxy" // https://github.com/golang/vscode-go/blob/master/docs/settings.md#gotoolsmanagementcheckforupdates
   },
   "gopls": {
-    "ui.semanticTokens": true
+    "ui.semanticTokens": false  // https://github.com/golang/vscode-go/blob/master/docs/settings.md#uisemantictokens
   },
 
   // hadolint
@@ -442,14 +443,6 @@
     "editor.defaultFormatter": "biomejs.biome",
     "editor.formatOnSave": true,
   },
-  // prettier
-  // "prettier.printWidth": 100,
-  // eslint
-  // "eslint.enable": true,
-  // "eslint.experimental.useFlatConfig": true,
-  // "eslint.validate": [
-  //   "typescript",
-  // ],
   "editor.codeActionsOnSave": {
     // "source.addMissingImports": "always",
     // "source.fixAll": "never",
@@ -519,20 +512,37 @@
     "version": "0.2.0",
     "configurations": [
       // Bash
+      // https://bashdb.sourceforge.net/bashdb-man.html
       {
-        "name": "Remote: Bash: Bash-Debug (simplest configuration)",
+        "name": "Remote: Bash: bashdb",
         "type": "bashdb",
         "request": "launch",
         "program": "${file}",
         "cwd": "${fileDirname}",
         "args": [],
         "showDebugOutput": true,
-        "terminalKind": "integrated",
-        "trace": true,
+        "terminalKind": "integrated", // https://github.com/rogalmic/vscode-bash-debug/blob/master/README.md#limitations-and-known-problems
+        "trace": false,
         "presentation": {
           "hidden": false,
           "group": "Remote",
           "order": 1
+        }
+      },
+      // Go
+      {
+        "name": "Remote: Go: Launch Package",
+        "type": "go",
+        "request": "launch",
+        "mode": "auto",
+        "program": "${fileDirname}",
+        "args": [],
+        "env": {},
+        "showLog": true,
+        "presentation": {
+          "hidden": false,
+          "group": "Remote",
+          "order": 2
         }
       }
     ]

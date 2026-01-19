@@ -32,6 +32,12 @@ uv tool install pre-commit
 uv tool install sqlfluff
 """
 
+[tasks.setup-go-install]
+description = "go install の一括インストール"
+run = """
+go install github.com/go-delve/delve/cmd/dlv@latest
+"""
+
 [settings]
 # https://mise.jdx.dev/configuration/settings.html#idiomatic_version_file_enable_tools
 idiomatic_version_file_enable_tools= [
