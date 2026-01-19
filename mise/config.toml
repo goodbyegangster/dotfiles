@@ -1,10 +1,12 @@
 # mise registry
 # https://mise.jdx.dev/registry.html#tools
 [tools]
+act = "latest"
 aws-cli = { version = "latest", symlink_bins = "true" }
 biome = "latest"
 deno = "latest"
 direnv = "latest"
+duckdb = "latest"
 go = "latest"
 hadolint = "latest"
 helm = "latest"

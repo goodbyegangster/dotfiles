@@ -1,11 +1,15 @@
 {
-  // workbench
+  /**************************************************
+  / workbench
+  ***************************************************/
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.editor.enablePreview": true,
   "workbench.editorLargeFileConfirmation": 3072,
   "workbench.startupEditor": "none",
 
-  // terminal
+  /**************************************************
+  / terminal
+  ***************************************************/
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
       "source": "PowerShell",
@@ -33,7 +37,9 @@
   "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.scrollback": 5000,
 
-  // editor
+  /**************************************************
+  / editor
+  ***************************************************/
   "editor.copyWithSyntaxHighlighting": false,
   "editor.formatOnSave": false,
   "editor.unicodeHighlight.nonBasicASCII": false,
@@ -41,10 +47,14 @@
   "editor.accessibilitySupport": "off",
   "editor.renderWhitespace": "trailing",
 
-  // remote
+  /**************************************************
+  / remote
+  ***************************************************/
   "remote.autoForwardPortsSource": "hybrid",
 
-  // files.associations 
+  /**************************************************
+  / files
+  ***************************************************/
   "files.associations": {
     // pnpm config
     "**/pnpm/rc": "ini", 
@@ -61,8 +71,9 @@
     "*.yaml.default": "yaml",
   },
 
-  /*******************************************
-  *******************************************/
+  /**************************************************
+  / extension
+  ***************************************************/
 
   // AWS Toolkit
   // "aws.codeWhisperer.importRecommendation": false,
