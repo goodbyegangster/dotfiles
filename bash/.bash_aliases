@@ -77,6 +77,16 @@ if [[ -S "/run/user/$(id -u)/docker.sock" ]]; then
 fi
 
 #####################################################
+# Go
+#####################################################
+
+# gocomplete
+# https://github.com/posener/complete/tree/master
+if command -v gocomplete &> /dev/null; then
+	complete -C gocomplete go
+fi
+
+#####################################################
 # GitHub
 #####################################################
 

@@ -36,6 +36,7 @@ uv tool install sqlfluff
 description = "go install の一括インストール"
 run = """
 go install github.com/go-delve/delve/cmd/dlv@latest
+go install github.com/posener/complete/v2/gocomplete@latest
 """
 
 [settings]
