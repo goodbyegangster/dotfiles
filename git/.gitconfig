@@ -1,8 +1,6 @@
 [core]
     editor = vim
     quotepath = false
-[commit]
-	template = ~/.gitmessage.txt
 [credential "https://github.com"]
 	helper = !gh auth git-credential
 [credential "https://gist.github.com"]

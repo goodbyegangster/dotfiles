@@ -84,10 +84,6 @@ function main() {
 		create_link \
 		  "${SCRIPT_DIR}/../git/.gitconfig" \
 		  "${HOME}/.gitconfig"
-		# [git] .gitmessage.txt
-		create_link \
-		  "${SCRIPT_DIR}/../git/.gitmessage.txt" \
-		  "${HOME}/.gitmessage.txt"
 
 		# [pnpm] rc
 		create_link \

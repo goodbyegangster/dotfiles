@@ -10,10 +10,11 @@ function get_user_input() {
 
 function install() {
 	# https://docs.getdbt.com/docs/cloud/cloud-cli-installation?install=linux
-	cd "${HOME}"
+	pushd "${HOME}" > /dev/null
 	wget "https://github.com/dbt-labs/dbt-cli/releases/download/v${VERSION}/dbt_${VERSION}_linux_amd64.tar.gz"
 	sudo tar -xf "${HOME}/dbt_${VERSION}_linux_amd64.tar.gz" -C /usr/local/bin/
 	rm "${HOME}/dbt_${VERSION}_linux_amd64.tar.gz"
+	popd > /dev/null
 }
 
 function main() {

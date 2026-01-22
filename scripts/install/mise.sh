@@ -20,8 +20,6 @@ function install_mise() {
 
 function main() {
 	install_mise
-	# mise self-update
-	# https://mise.jdx.dev/cli/self-update.html
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
