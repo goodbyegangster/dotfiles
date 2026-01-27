@@ -69,6 +69,10 @@
       "ms-python.vscode-pylance", // https://github.com/microsoft/pylance-release
       "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
       "njpwerner.autodocstring", // https://github.com/NilsJPWerner/autoDocstring
+      // Scala
+      "scala-lang.scala-snippets", // https://github.com/scala/vscode-scala-syntax
+      "scala-lang.scala", // https://github.com/scala/vscode-scala-syntax
+      "scalameta.metals", // https://github.com/scalameta/metals
       // SQL
       "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
       // terraform
