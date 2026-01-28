@@ -15,6 +15,9 @@ jq = "latest"
 kubectl = "latest"
 node = "25"
 pnpm = "latest"
+# postgreSQL
+# sudo apt install build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev bison flex
+postgres = "17"
 sbt = "latest"
 scala = "latest"
 shellcheck = "latest"
