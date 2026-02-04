@@ -7,7 +7,7 @@
       ".PHONY: help",
       "help:",
       "\t@printf \"%-30s %-60s\\n\" \"[Sub command]\" \"[Description]\"",
-      "\t@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = \":.*?## \"}; {printf \"%-30s %-60s\\n\", $$1, $$2}'",
+      "\t@grep -E '^[0-9a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = \":.*?## \"}; {printf \"%-30s %-60s\\n\", \\$\\$1, \\$\\$2}'",
       ""
     ],
     "description": "Generate a help"
