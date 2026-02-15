@@ -56,16 +56,19 @@
   / files
   ***************************************************/
   "files.associations": {
-    // pnpm config
-    "**/pnpm/rc": "ini", 
-    // jinja
-    "*.j2": "jinja",
-    // sql
-    "*.sql": "jinja-sql",
     // dbt - don't format models in `target/` dir
     "**/target/**": "",
+    // html
+    "*.html.j2": "jinja-html",
+    // jinja
+    "*.j2": "jinja",
     // JSON
     "*.json.default": "json",
+    // pnpm config
+    "**/pnpm/rc": "ini", 
+    // sql
+    "*.sql": "jinja-sql",
+    "*.sql.j2": "jinja-sql",
      // YAML
     "*.yml.default": "yaml",
     "*.yaml.default": "yaml",
