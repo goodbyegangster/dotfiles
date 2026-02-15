@@ -1,4 +1,4 @@
-# Poetry (Python virtual environment の作成)
+# Poetry
 
 利用しているバージョンを確認。
 
@@ -36,7 +36,7 @@ $ pyenv install -l | grep "3\.11\."
 （追加で異なるバージョンをインストールしたい時）指定バージョンをインストール。
 
 ```shell
-$ pyenv install 3.11.7
+pyenv install 3.11.7
 ```
 
 利用したいバージョンを指定。
@@ -86,7 +86,7 @@ virtualenvs.in-project = true
 仮想環境を作成。
 
 ```shell
-$ poetry env use 3.11.7
+poetry env use 3.11.7
 ```
 
 確認。

@@ -16,7 +16,8 @@ kubectl = "latest"
 node = "25"
 pnpm = "latest"
 # postgreSQL
-# sudo apt install build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev bison flex
+# sudo apt-get update
+# sudo apt-get install build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev bison flex libicu-dev pkgconf
 postgres = "17"
 sbt = "latest"
 scala = "latest"

@@ -11,5 +11,9 @@ mise use -g hogehoge
 ## tasks
 
 ```shell
-uv tasks ls
+mise tasks ls
+```
+
+```shell
+mise tasks run {}
 ```
