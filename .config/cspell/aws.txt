@@ -28,6 +28,7 @@ opensearchservice
 orderable
 redshiftserverless
 requireImdsv2
+rsql
 secretsmanager
 statemachine
 statemachines
