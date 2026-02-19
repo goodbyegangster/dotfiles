@@ -2,3 +2,4 @@ Chans
 godoc
 gopls
 GOROOT
+templ

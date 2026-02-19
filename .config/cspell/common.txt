@@ -39,6 +39,7 @@ gophercises
 hadolint
 healthcheck
 hogehoge
+htmx
 hudi
 IAMROLE
 initdb
