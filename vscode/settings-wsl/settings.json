@@ -4,7 +4,7 @@
   ***************************************************/
   "workbench.colorTheme": "Default Dark Modern",
   "workbench.colorCustomizations": {
-    "editorWhitespace.foreground": "#8f8c8c",
+    "editorWhitespace.foreground": "#4d4c4c",
   },
   "workbench.editor.enablePreview": true,
   "workbench.editorLargeFileConfirmation": 3072,
