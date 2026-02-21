@@ -3,6 +3,9 @@
   / workbench
   ***************************************************/
   "workbench.colorTheme": "Default Dark Modern",
+  "workbench.colorCustomizations": {
+    "editorWhitespace.foreground": "#8f8c8c",
+  },
   "workbench.editor.enablePreview": true,
   "workbench.editorLargeFileConfirmation": 3072,
   "workbench.startupEditor": "none",
@@ -45,7 +48,8 @@
   "editor.unicodeHighlight.nonBasicASCII": false,
   // NOTE: https://stackoverflow.com/questions/54173462/how-to-turn-off-or-on-sounds-from-visual-studio-code
   "editor.accessibilitySupport": "off",
-  "editor.renderWhitespace": "trailing",
+  "editor.guides.indentation": true,
+  "editor.renderWhitespace": "boundary",
 
   /**************************************************
   / remote
@@ -130,6 +134,11 @@
     "go": {
       "name": "go",
       "path": "~/dotfiles/.config/cspell/go.txt",
+      "addWords": true,
+    },
+    "opensearch": {
+      "name": "opensearch",
+      "path": "~/dotfiles/.config/cspell/opensearch.txt",
       "addWords": true,
     },
     "private": {

@@ -36,6 +36,7 @@ GHCN
 githistory
 gitmessage
 gophercises
+grokparsefailure
 hadolint
 healthcheck
 hogehoge
