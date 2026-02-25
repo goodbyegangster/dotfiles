@@ -1,6 +1,6 @@
 {
   "shebang": {
-    "prefix": "#!",
+    "prefix": "shebang",
     "body": [
       "#!/usr/bin/env bash",
       "set -Eeuo pipefail",
