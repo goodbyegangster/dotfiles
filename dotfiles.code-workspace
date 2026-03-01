@@ -76,6 +76,8 @@
       "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
       // terraform
       "hashicorp.terraform",  // https://github.com/hashicorp/vscode-terraform
+      // Tailwind CSS
+      "bradlc.vscode-tailwindcss", // https://github.com/tailwindlabs/tailwindcss-intellisense
       // TOML
       "tamasfe.even-better-toml", // https://github.com/tamasfe/taplo
       // VS Code

@@ -333,6 +333,11 @@
   // "sqlfluff.config": "~/dotfiles/.config/.sqlfluff/.sqlfluff",
   // "sqlfluff.linter.run": "onSave",
 
+  // Tailwind CSS
+  "tailwindCSS.includeLanguages": {
+    "templ": "html"
+  },
+
   // Terraform
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform",
@@ -453,5 +458,5 @@
         }
       }
     ]
-  },
+  }
 }
