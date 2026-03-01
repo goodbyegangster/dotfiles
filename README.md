@@ -34,8 +34,8 @@ make
 ### Python
 
 - [uv](./tips/Python/uv.md)
-- [Poetry](./tips/Python/Poetry.md)
 
 ### JavaScript/TypeScript
 
+- [pnpm](./tips/JavaScript/pnpm.md)
 - [Biome](./tips/JavaScript/Biome.md)
