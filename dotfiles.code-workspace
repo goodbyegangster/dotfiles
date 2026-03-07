@@ -87,5 +87,7 @@
       "redhat.vscode-yaml", // https://github.com/redhat-developer/vscode-yaml#readme
     ]
   },
-  "settings": {}
+  "settings": {
+    "aws.telemetry": false
+  }
 }
