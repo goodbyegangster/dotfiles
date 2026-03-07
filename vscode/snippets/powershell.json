@@ -35,7 +35,7 @@
       "    Write-Error \"An error occurred: \\$_\"",
       "    exit 1",
       "}",
-      "",
+      ""
     ],
     "description": "Generate a main program template."
   },
@@ -84,7 +84,7 @@
       "    end {",
       "        # ",
       "    }",
-      "}",
+      "}"
     ],
     "description": "Generate a function template."
   }

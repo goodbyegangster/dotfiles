@@ -1,0 +1,16 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    // 選択したファイルのパスと行番号をクリップボードにコピーする
+    {
+      "label": "CopyPathWithLineNumber",
+      "type": "shell",
+      "command": "printf '${relativeFile}:${lineNumber}' | clip.exe",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent",
+        "close": true
+      }
+    }
+  ]
+}

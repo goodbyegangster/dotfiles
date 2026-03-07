@@ -86,6 +86,7 @@ sincedb
 sqlcmd
 sqlfluff
 STORAGECLASS
+stylesheet
 subseconds
 Sysnative
 tfenv

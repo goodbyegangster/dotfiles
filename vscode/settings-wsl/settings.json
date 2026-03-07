@@ -110,6 +110,12 @@
 
   // cSpell
   "cSpell.enabled": true,
+  "cSpell.languageSettings": [
+    {
+      "languageId": "templ",
+      "includeRegExpList": ["Go"]
+    }
+  ],
   "cSpell.customDictionaries": {
     "aws": {
       "name": "aws",

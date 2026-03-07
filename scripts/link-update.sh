@@ -98,6 +98,10 @@ function main() {
 		update_file \
 		  "${SCRIPT_DIR}/../vscode/settings-windows/settings.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/settings.json"
+		# [VS Code] tasks
+		update_file \
+		  "${SCRIPT_DIR}/../vscode/tasks.json" \
+		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/tasks.json"
 		# [VS Code] key shortcut
 		update_file \
 		  "${SCRIPT_DIR}/../vscode/keybindings.json" \
