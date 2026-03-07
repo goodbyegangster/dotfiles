@@ -35,6 +35,7 @@ fullname
 GHCN
 githistory
 gitmessage
+goodbyegangster
 gophercises
 grokparsefailure
 hadolint
