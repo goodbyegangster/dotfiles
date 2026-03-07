@@ -256,6 +256,9 @@
 		  },
     }
   ],
+  "json.schemaDownload.trustedDomains": {
+    "https://raw.githubusercontent.com": true
+  },
 
   // Makefile
   "[makefile]": {

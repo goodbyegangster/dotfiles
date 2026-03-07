@@ -27,6 +27,10 @@ usage = "latest"
 uv = "latest"
 yq = "latest"
 
+# Node.js 動作の CLI tool
+"npm:@box/cli" = "latest"
+"npm:aws-cdk" = "latest"
+
 # Tasks
 # https://mise.jdx.dev/tasks/
 [tasks.setup-uv-tools]
