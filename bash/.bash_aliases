@@ -187,3 +187,13 @@ esac
 if command -v terraform &> /dev/null; then
 	complete -C terraform terraform
 fi
+
+#####################################################
+# textlint
+#####################################################
+function textlint() {
+  NODE_PATH="$HOME/dotfiles/.config/textlint/node_modules" \
+  "$HOME/dotfiles/.config/textlint/node_modules/.bin/textlint" \
+  --config "$HOME/dotfiles/.config/textlint/config.json" \
+  "$@"
+}

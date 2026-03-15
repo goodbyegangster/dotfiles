@@ -17,3 +17,5 @@
 ### specific ignore
 projects.txt
 private.txt
+
+node_modules/

@@ -7,6 +7,8 @@ ceintl
 charliermarsh
 coredns
 coreutils
+CSIRT
+DAMA-DMBOK
 dataform
 DATALAKE
 datauser
@@ -90,6 +92,7 @@ STORAGECLASS
 stylesheet
 subseconds
 Sysnative
+textlint
 tfenv
 tickitdb
 timonwong
