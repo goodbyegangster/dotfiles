@@ -257,7 +257,8 @@
     }
   ],
   "json.schemaDownload.trustedDomains": {
-    "https://raw.githubusercontent.com": true
+    "https://biomejs.dev": true,
+    "https://raw.githubusercontent.com": true,
   },
 
   // Makefile
