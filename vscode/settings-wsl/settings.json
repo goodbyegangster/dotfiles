@@ -2,7 +2,7 @@
   /**************************************************
   / workbench
   ***************************************************/
-  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.colorTheme": "Dark Modern",
   "workbench.colorCustomizations": {
     "editorWhitespace.foreground": "#4d4c4c",
   },

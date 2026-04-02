@@ -26,6 +26,7 @@ mebibytes
 opensearch
 opensearchservice
 orderable
+privatelink
 redshiftserverless
 requireImdsv2
 rsql

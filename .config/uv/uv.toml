@@ -1,0 +1,5 @@
+# https://docs.astral.sh/uv/reference/settings/#exclude-newer
+exclude-newer = "1 week"
+
+# NOTE: 現在の設計情報を確認するコマンド
+# uv run --show-settings

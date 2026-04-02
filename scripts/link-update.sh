@@ -90,6 +90,11 @@ function main() {
 		  "${SCRIPT_DIR}/../.config/pnpm/rc" \
 		  "${HOME}/.config/pnpm/rc"
 
+		# [uv] uv.toml
+		create_link \
+		  "${SCRIPT_DIR}/../.config/uv/uv.toml" \
+		  "${HOME}/.config/uv/uv.toml"
+
 		# [VS Code] settings.json (Remote)
 		create_link \
 		  "${SCRIPT_DIR}/../vscode/settings-wsl/settings.json" \
