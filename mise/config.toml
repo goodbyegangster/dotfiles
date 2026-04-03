@@ -40,7 +40,7 @@ uv tool install awscurl
 uv tool install awsume
 uv tool install json-schema-for-humans
 uv tool install parquet-tools
-uv tool install pproxy
+uv tool install pproxy --python 3.10 --force
 uv tool install pre-commit
 uv tool install sqlfluff
 """

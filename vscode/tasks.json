@@ -5,7 +5,7 @@
     {
       "label": "CopyPathWithLineNumber",
       "type": "shell",
-      "command": "printf '${relativeFile}:${lineNumber}' | clip.exe",
+      "command": "printf '${file}:${lineNumber}' | clip.exe",
       "problemMatcher": [],
       "presentation": {
         "reveal": "silent",
