@@ -5,6 +5,7 @@ autodocstring
 azuretools
 ceintl
 charliermarsh
+CISC
 coredns
 coreutils
 CSIRT
@@ -32,6 +33,7 @@ Filebeat
 Fivetran
 FKEY
 foxundermoon
+FPGA
 fugafuga
 fullname
 GHCN
