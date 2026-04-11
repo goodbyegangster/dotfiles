@@ -82,12 +82,14 @@ pylance
 pyspark
 Quickstart
 retriable
+rolesmapping
 rubydebug
 SAML
 SCIM
 scrollback
 shellcheck
 sincedb
+slowlog
 sqlcmd
 sqlfluff
 STORAGECLASS

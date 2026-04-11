@@ -233,6 +233,12 @@
     ".vscode/html.htmx-data.json"
   ],
 
+  // http
+  "[http]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+
   // javascript
   "javascript.suggestionActions.enabled": false,
 
