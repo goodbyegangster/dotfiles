@@ -30,6 +30,8 @@ yq = "latest"
 # Node.js 動作の CLI tool
 "npm:@box/cli" = "latest"
 "npm:aws-cdk" = "latest"
+"npm:vite" = "latest"
+"npm:create-vite" = "latest"
 
 # Tasks
 # https://mise.jdx.dev/tasks/

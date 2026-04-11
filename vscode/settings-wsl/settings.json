@@ -84,6 +84,7 @@
     "*.yml.default": "yaml",
     "*.yaml.default": "yaml",
   },
+  "files.eol": "\n",
 
   /**************************************************
   / extension
@@ -145,6 +146,11 @@
     "go": {
       "name": "go",
       "path": "~/dotfiles/.config/cspell/go.txt",
+      "addWords": true,
+    },
+    "javascript": {
+      "name": "javascript",
+      "path": "~/dotfiles/.config/cspell/javascript.txt",
       "addWords": true,
     },
     "opensearch": {
@@ -232,6 +238,7 @@
     // https://github.com/otovo/htmx-tags/blob/main/html.htmx-data.json
     ".vscode/html.htmx-data.json"
   ],
+  "html.format.extraLiners": "",
 
   // http
   "[http]": {
