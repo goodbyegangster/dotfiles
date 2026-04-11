@@ -41,6 +41,8 @@
       "a-h.templ-vscode", // https://github.com/templ-go/templ-vscode
       // hadolint
       "exiasr.hadolint", // https://github.com/michaellzc/vscode-hadolint
+      // http
+      "anweber.vscode-httpyac", // https://github.com/anweber/httpyac
       // JavaScript, TypeScript
       "crystal-spider.jsdoc-generator", // https://github.com/Crystal-Spider/jsdoc-generator
       // (unused) eslint

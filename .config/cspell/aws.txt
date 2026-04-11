@@ -1,6 +1,7 @@
 amazonaws
 arns
 awscli
+awscurl
 AWSume
 boto
 botocore
