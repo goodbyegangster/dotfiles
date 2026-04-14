@@ -59,8 +59,8 @@ go install github.com/posener/complete/v2/gocomplete@latest
 [settings]
 # https://mise.jdx.dev/configuration/settings.html#idiomatic_version_file_enable_tools
 idiomatic_version_file_enable_tools= [
-    "go",
-    "node",
-    "python",
-    "terraform",
+  "go",
+  "node",
+  "python",
+  "terraform",
 ]

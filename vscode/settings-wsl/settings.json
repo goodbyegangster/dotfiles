@@ -378,7 +378,13 @@
     "editor.formatOnSaveMode": "file"
   },
 
-  // typescript
+  // TOML
+  "[toml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
+
+  // TypeScript
   "[typescript]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true,
