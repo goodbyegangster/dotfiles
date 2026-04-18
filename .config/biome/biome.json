@@ -6,14 +6,20 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": false,
-    "includes": ["**"]
+    "ignoreUnknown": true
   },
-  "formatter": {
+  "linter": {
     "enabled": true,
-    "indentStyle": "space",
-    "indentWidth": 2,
-    "lineWidth": 100
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useImportType": "on"
+      },
+      "correctness": {
+        "noUnusedImports": "error",
+        "noUnusedVariables": "error"
+      }
+    }
   },
   "assist": {
     "actions": {
@@ -22,22 +28,17 @@
       }
     }
   },
-  "linter": {
+  "formatter": {
     "enabled": true,
-    "rules": {
-      "recommended": true,
-      "style": {
-        "useImportType": "off"
-      },
-      "correctness": {
-        "noUnusedImports": "error",
-        "noUnusedVariables": "error"
-      }
-    }
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "double"
+      "quoteStyle": "double",
+      "jsxQuoteStyle": "double"
     }
-  }
+  },
+  "css": {}
 }
