@@ -253,9 +253,18 @@
   "hadolint.outputLevel": "warning",
 
   // html
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit"
+    }
+  },
   "html.customData": [
-    // https://github.com/otovo/htmx-tags/blob/main/html.htmx-data.json
-    ".vscode/html.htmx-data.json"
+    // htmx: https://github.com/otovo/htmx-tags/blob/main/html.htmx-data.json
+    ".config/html/html.htmx-data.json"
   ],
   "html.format.extraLiners": "",
 
@@ -411,7 +420,6 @@
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.biome": "explicit",
-      "source.organizeImports.biome": "explicit"
     },
   },
   "[typescriptreact]": {
@@ -421,7 +429,6 @@
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
       "source.fixAll.biome": "explicit",
-      "source.organizeImports.biome": "explicit"
     },
   },
   "jsdoc-generator.includeTypes": false,

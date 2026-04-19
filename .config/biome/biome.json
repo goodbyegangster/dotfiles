@@ -40,5 +40,11 @@
       "jsxQuoteStyle": "double"
     }
   },
-  "css": {}
+  "css": {},
+  "html": {
+    "formatter":{
+      "enabled": true
+    },
+    "experimentalFullSupportEnabled": true
+  }
 }

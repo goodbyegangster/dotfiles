@@ -1,5 +1,5 @@
 {
-  "main(5.1)": {
+  "Snippet main(5.1)": {
     "prefix": "main",
     "body": [
       "<#",
@@ -39,7 +39,7 @@
     ],
     "description": "Generate a main program template."
   },
-  "function(5.1)": {
+  "Snippet function(5.1)": {
     "prefix": "function",
     "body": [
       "function Verb-Noun {",

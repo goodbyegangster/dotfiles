@@ -1,5 +1,5 @@
 {
-  "shebang": {
+  "Snippet shebang": {
     "prefix": "shebang",
     "body": [
       "#!/usr/bin/env bash",
@@ -11,7 +11,7 @@
     ],
     "description": "Generate a shebang statement"
   },
-  "entry point": {
+  "Snippet entry point": {
     "prefix": "main",
     "body": [
       "main() {",
@@ -24,7 +24,7 @@
     ],
     "description": "Generate a entry point"
   },
-  "parse option": {
+  "Snippet parse option": {
     "prefix": "parse_option",
     "body": [
       "parse_option() {",

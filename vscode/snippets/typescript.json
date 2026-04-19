@@ -63,5 +63,14 @@
     "prefix": "cdk-import",
     "body": ["import * as ${1:service} from 'aws-cdk-lib/aws-${1:service}';"],
     "description": "Generate a CDK import statement"
+  },
+  "Snippet interface": {
+    "prefix": "interface",
+    "body": [
+      "interface ${1:Name} {",
+      "  ${2:key}: ${3:type};",
+      "}"
+    ],
+    "description": "Generate a TypeScript interface"
   }
 }

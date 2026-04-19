@@ -3,7 +3,7 @@
 [tools]
 act = "latest"
 aws-cli = { version = "latest", symlink_bins = "true" }
-biome = "latest"
+biome = "2.4.12"
 deno = "latest"
 direnv = "latest"
 duckdb = "latest"

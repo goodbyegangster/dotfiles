@@ -124,6 +124,9 @@ function main() {
 		update_file \
 		  "${SCRIPT_DIR}/../vscode/snippets/typescript.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/typescript.json"
+		update_file \
+		  "${SCRIPT_DIR}/../vscode/snippets/typescriptreact.json" \
+		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/typescriptreact.json"
 	fi
 }
 

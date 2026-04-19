@@ -1,5 +1,5 @@
 {
-  "help": {
+  "Snippet help": {
     "prefix": "help",
     "body": [
       ".DEFAULT_GOAL := help",
@@ -12,7 +12,7 @@
     ],
     "description": "Generate a help"
   },
-  "template target": {
+  "Snippet template target": {
     "prefix": ".PHONY",
     "body": [
       ".PHONY: $1",
