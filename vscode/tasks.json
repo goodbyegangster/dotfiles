@@ -5,7 +5,7 @@
     {
       "label": "CopyPathWithLineNumber",
       "type": "shell",
-      "command": "printf '${file}:${lineNumber}' | clip.exe",
+      "command": "printf '%s' '${file}:${lineNumber}' | iconv -f UTF-8 -t UTF-16LE | clip.exe",
       "problemMatcher": [],
       "presentation": {
         "reveal": "silent",
