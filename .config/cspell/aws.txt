@@ -1,4 +1,6 @@
 amazonaws
+applicationautoscaling
+appscaling
 arns
 awscli
 awscurl
@@ -13,6 +15,7 @@ cloudwatch
 codecommit
 Cognito
 compatibleRuntimes
+cooldown
 datazone
 eipalloc
 eksbuild

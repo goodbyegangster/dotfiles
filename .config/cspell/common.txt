@@ -71,6 +71,7 @@ Noto
 odbc
 OLAP
 OLTP
+oneshot
 openmetadata
 Passw
 pids
