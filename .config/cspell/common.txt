@@ -59,6 +59,7 @@ kubeconfig
 lifecycle
 mechatroner
 memlock
+microdnf
 mikefarah
 mmdc
 nbsp

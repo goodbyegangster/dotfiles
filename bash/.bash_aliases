@@ -11,11 +11,8 @@ export EDITOR=vim
 
 # Excel
 function excel() {
-    cmd.exe /c start excel.exe "$(wslpath -w "$1")"
+	cmd.exe /c start excel.exe "$(wslpath -w "$1")"
 }
-
-# 1Password
-alias op='op.exe'
 
 #####################################################
 # AWS
@@ -192,8 +189,8 @@ fi
 # textlint
 #####################################################
 function textlint() {
-  NODE_PATH="$HOME/dotfiles/.config/textlint/node_modules" \
-  "$HOME/dotfiles/.config/textlint/node_modules/.bin/textlint" \
-  --config "$HOME/dotfiles/.config/textlint/config.json" \
-  "$@"
+	NODE_PATH="$HOME/dotfiles/.config/textlint/node_modules" \
+	"$HOME/dotfiles/.config/textlint/node_modules/.bin/textlint" \
+	--config "$HOME/dotfiles/.config/textlint/config.json" \
+	"$@"
 }

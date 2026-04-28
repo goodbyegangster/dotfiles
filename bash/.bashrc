@@ -115,6 +115,10 @@ if [ -f "$HOME/.bash_aliases" ]; then
     . "$HOME/.bash_aliases"
 fi
 
+if [ -f "$HOME/.bash_aliases.local" ]; then
+    . "$HOME/.bash_aliases.local"
+fi
+
 if [ -f "$HOME/.local/bin/env" ]; then
     . "$HOME/.local/bin/env"
 fi
