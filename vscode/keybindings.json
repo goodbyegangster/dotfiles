@@ -1,21 +1,26 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-  // ターミナルにフォーカスがないときは、Ctrl + O でターミナルにフォーカスを移す
+  // [Ctrl + O] terminal に focus がないとき terminal に focus を移す
   {
     "key": "ctrl+o",
     "command": "workbench.action.terminal.focus",
     "when": "!terminalFocus"
   },
-  // ターミナルにフォーカスがあるときは、Ctrl + O でエディタにフォーカスを移す
+  // [Ctrl + O] terminal に focus　があるとき editor に focus を移す
   {
     "key": "ctrl+o",
     "command": "workbench.action.focusActiveEditorGroup",
     "when": "terminalFocus"
   },
-  // tasks で定義した CopyPathWithLineNumber タスクを Ctrl + Shift + C で実行する
+  // [Ctrl + Shift + C] tasks で定義した CopyPathWithLineNumber を実行する
   {
     "key": "ctrl+shift+c", 
     "command": "workbench.action.tasks.runTask",
     "args": "CopyPathWithLineNumber" 
+  },
+  // [Ctrl + Shift + R] Reload Window を実行する
+  {
+    "key": "ctrl+shift+r", 
+    "command": "workbench.action.reloadWindow"
   }
 ]
