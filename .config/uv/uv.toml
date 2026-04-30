@@ -1,5 +1,10 @@
 # https://docs.astral.sh/uv/reference/settings/#exclude-newer
 exclude-newer = "1 week"
 
+# 利用する PyPI を Flatt Security 社公開のものにする
+[[index]]
+url = "https://pypi.flatt.tech/simple/"
+default = true
+
 # NOTE: 現在の設計情報を確認するコマンド
 # uv run --show-settings

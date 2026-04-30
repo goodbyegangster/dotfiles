@@ -85,6 +85,11 @@ function main() {
 		  "${SCRIPT_DIR}/../git/.gitconfig" \
 		  "${HOME}/.gitconfig"
 
+		# [pip] pip.conf
+		create_link \
+		  "${SCRIPT_DIR}/../.config/pip/pip.conf" \
+		  "${HOME}/.config/pip/pip.conf"
+
 		# [pnpm] rc
 		create_link \
 		  "${SCRIPT_DIR}/../.config/pnpm/rc" \
