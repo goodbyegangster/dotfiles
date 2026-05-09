@@ -43,13 +43,15 @@
   /**************************************************
   / editor
   ***************************************************/
-  "editor.copyWithSyntaxHighlighting": false,
-  "editor.formatOnSave": false,
-  "editor.unicodeHighlight.nonBasicASCII": false,
   // NOTE: https://stackoverflow.com/questions/54173462/how-to-turn-off-or-on-sounds-from-visual-studio-code
   "editor.accessibilitySupport": "off",
+  "editor.copyWithSyntaxHighlighting": false,
+  "editor.formatOnSave": false,
   "editor.guides.indentation": true,
   "editor.renderWhitespace": "boundary",
+  // https://code.visualstudio.com/docs/editing/intellisense#_snippets-in-suggestions
+  "editor.snippetSuggestions": true,
+  "editor.unicodeHighlight.nonBasicASCII": false,
 
   /**************************************************
   / explorer

@@ -107,22 +107,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -f "$HOME/.bash_aliases" ]; then
-    . "$HOME/.bash_aliases"
-fi
-
-if [ -f "$HOME/.bash_aliases.local" ]; then
-    . "$HOME/.bash_aliases.local"
-fi
-
-if [ -f "$HOME/.local/bin/env" ]; then
-    . "$HOME/.local/bin/env"
-fi
-
 # ----------------------------------------------------------------
 # mise configuration
 # ----------------------------------------------------------------
@@ -139,3 +123,22 @@ fi
 
 # What does mise activate do?
 # https://mise.jdx.dev/faq.html#what-does-mise-activate-do
+
+# ----------------------------------------------------------------
+# Alias definitions.
+# ----------------------------------------------------------------
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f "$HOME/.bash_aliases" ]; then
+    . "$HOME/.bash_aliases"
+fi
+
+# git 管理したくない設定を ~/.bash_aliases.local に分離
+if [ -f "$HOME/.bash_aliases.local" ]; then
+    . "$HOME/.bash_aliases.local"
+fi
+
+if [ -f "$HOME/.local/bin/env" ]; then
+    . "$HOME/.local/bin/env"
+fi

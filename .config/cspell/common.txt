@@ -107,6 +107,7 @@ tinyint
 ulimits
 upto
 venv
+Watchlist
 windir
 XGET
 XSAMLL

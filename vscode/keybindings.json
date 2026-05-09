@@ -22,5 +22,10 @@
   {
     "key": "ctrl+shift+r", 
     "command": "workbench.action.reloadWindow"
+  },
+  // [Ctrl + Shift + S] Sort Lines を実行する
+  {
+    "key": "ctrl+shift+s", 
+    "command": "editor.action.sortLinesAscending"
   }
 ]

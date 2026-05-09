@@ -127,8 +127,8 @@ alias npx='echo "WARNING: do not use npx. Use pnpm dlx instead." && false'
 # fi
 
 # pnpm
+# https://pnpm.io/ja/completion
 if command -v pnpm &> /dev/null; then
-	export PNPM_HOME=$(which pnpm)
 	source <(pnpm completion bash)
 fi
 
