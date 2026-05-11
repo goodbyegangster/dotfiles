@@ -75,15 +75,20 @@ function main() {
 		  "${SCRIPT_DIR}/../bash/.profile" \
 		  "${HOME}/.profile"
 
-		# [mise] config.toml
+		# [biome] biome.json
 		create_link \
-		  "${SCRIPT_DIR}/../mise/config.toml" \
-		  "${HOME}/.config/mise/config.toml"
+		  "${SCRIPT_DIR}/../.config/biome/biome.json" \
+		  "${HOME}/.config/biome/biome.json"
 
 		# [git] .gitconfig
 		create_link \
 		  "${SCRIPT_DIR}/../git/.gitconfig" \
 		  "${HOME}/.gitconfig"
+
+		# [mise] config.toml
+		create_link \
+		  "${SCRIPT_DIR}/../mise/config.toml" \
+		  "${HOME}/.config/mise/config.toml"
 
 		# [pip] pip.conf
 		create_link \
