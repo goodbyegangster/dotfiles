@@ -356,16 +356,21 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
+      "source.organizeImports": "explicit",
     }
   },
+  "python.interpreter.infoVisibility": "always",
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "standard",
   "python.languageServer": "Pylance",
-  "ruff.lineLength": 120,
-  // "ruff.lint.select": ["ALL"], // VSCode の設定だけでは完結できないので、lint は ruff でなく pylance を使う
-  // "ruff.lint.extendSelect": ["ALL"],
-  "python.interpreter.infoVisibility": "always",
+  "ruff.lineLength": 80,
+  "ruff.enable": true,
+  "ruff.lint.select": ["ALL"],
+  "ruff.lint.ignore": [
+    "D100", // Missing docstring in public module
+    "D400", "D415", // First line should end with a period
+    "T201", // `print` found
+  ],
 
   // shellcheck
   "shellcheck.enable": true,

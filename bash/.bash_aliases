@@ -165,6 +165,12 @@ if command -v uv &> /dev/null; then
 	eval "$(uv generate-shell-completion bash)"
 fi
 
+# ruff
+# https://docs.astral.sh/ruff/configuration/#shell-autocompletion
+if command -v ruff &> /dev/null; then
+	eval "$(ruff generate-shell-completion bash)"
+fi
+
 #####################################################
 # SQLServer
 #####################################################
