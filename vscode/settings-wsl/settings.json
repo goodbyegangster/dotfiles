@@ -367,9 +367,17 @@
   "ruff.enable": true,
   "ruff.lint.select": ["ALL"],
   "ruff.lint.ignore": [
-    "D100", // Missing docstring in public module
-    "D400", "D415", // First line should end with a period
+    "ANN401", // Dynamically typed expressions (typing.Any) are disallowed
+    "COM812", // Trailing comma missing
+    "D100", "D104", // Missing docstring in public module
+    "D107", // Missing docstring in `__init__`
+    "D400", "D401", "D415", // First line should end with a period
+    "D403", // First word of the docstring should be capitalized
+    "EM101", // Exception must not use a string literal, assign to variable first
+    "ERA001", // Found commented-out code
     "T201", // `print` found
+    "TC001", "TC002", "TC003", // Move application import "" into a type-checking block
+    "TRY003", // Avoid specifying long messages outside the exception class
   ],
 
   // shellcheck
