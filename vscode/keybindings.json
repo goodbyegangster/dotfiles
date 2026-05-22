@@ -27,5 +27,10 @@
   {
     "key": "ctrl+shift+s", 
     "command": "editor.action.sortLinesAscending"
+  },
+  // [Ctrl + Shift + J] Terminal を次の tab に切り替える
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.terminal.focusNext"
   }
 ]

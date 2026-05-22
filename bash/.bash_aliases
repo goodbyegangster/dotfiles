@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC1090
-# shellcheck disable=SC1091
 # shellcheck disable=SC2155
 
 export EDITOR=vim

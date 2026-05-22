@@ -3,5 +3,5 @@ minimum-release-age=4320
 # 利用する registry を Flatt Security 社公開のものにする
 registry=https://npm.flatt.tech/
 
-# NOTE: 現在の設計情報を確認するコマンド
+# NOTE: 現在の設定情報を確認
 # pnpm config get

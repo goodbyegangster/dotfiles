@@ -15,5 +15,5 @@ mise tasks ls
 ```
 
 ```shell
-mise tasks run {}
+mise tasks run <>
 ```

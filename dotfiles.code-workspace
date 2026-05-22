@@ -58,8 +58,9 @@
       "yzhang.markdown-all-in-one", // https://github.com/yzhang-gh/vscode-markdown
       "davidanson.vscode-markdownlint", // https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
       // Mermaid
-      "bierner.markdown-mermaid", // https://github.com/mjbvz/vscode-markdown-mermaid
       "bpruitt-goddard.mermaid-markdown-syntax-highlighting", // https://github.com/bpruitt-goddard/vscode-mermaid-syntax-highlight
+      // OpenAI
+      "openai.chatgpt", // https://marketplace.visualstudio.com/items?itemName=openai.chatgpt
       // PDF
       "tomoki1207.pdf", // https://github.com/tomoki1207/vscode-pdfviewer
       // Playwright
