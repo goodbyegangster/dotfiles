@@ -1,5 +1,5 @@
 {
-  "extensions.autoUpdate": "none",
+  "extensions.autoUpdate": false,
   /**************************************************
   / accessibility.signals
   ***************************************************/

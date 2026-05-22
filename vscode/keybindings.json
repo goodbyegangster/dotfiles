@@ -1,5 +1,8 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
+  /*******************************************
+  / terminal
+  ********************************************/
   // [Ctrl + O] terminal に focus がないとき terminal に focus を移す
   {
     "key": "ctrl+o",
@@ -10,13 +13,63 @@
   {
     "key": "ctrl+o",
     "command": "workbench.action.focusActiveEditorGroup",
+    "when": "panelFocus"
+  },
+  // [Ctrl + Shift + J] Terminal を次の tab に移動する
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.action.terminal.focusNext",
     "when": "terminalFocus"
   },
+  // [Ctrl + Shift + L] Terminal を次の panel view に移動する
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.nextPanelView",
+    "when": "panelFocus"
+  },
+  // [Ctrl + Shift + K] Terminal を前の panel view に移動する
+  {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.previousPanelView",
+    "when": "panelFocus"
+  },
+  /*******************************************
+  / sidebar view
+  ********************************************/
+  // [Ctrl + Shift + ]] sideBar view を次に移動する
+  {
+    "key": "ctrl+shift+]",
+    "command": "workbench.action.nextSideBarView",
+    "when": "sideBarFocus"
+  },
+  // [Ctrl + Shift + [] sideBar view を前に移動する
+  {
+    "key": "ctrl+shift+[",
+    "command": "workbench.action.previousSideBarView",
+    "when": "sideBarFocus"
+  },
+  /*******************************************
+  / secondary sidebar view
+  ********************************************/
+  // [Ctrl + Shift + U] claude の chat panel に移動する
+  {
+    "key": "ctrl+shift+u",
+    "command": "claudeVSCodeSidebarSecondary.focus"
+  },
+  // [Ctrl + Shift + Y] chatgpt の chat panel に移動する
+  {
+    "key": "ctrl+shift+y",
+    "command": "chatgpt.sidebarSecondaryView.focus"
+  },
+  /*******************************************
+  / other
+  ********************************************/
   // [Ctrl + Shift + C] tasks で定義した CopyPathWithLineNumber を実行する
   {
     "key": "ctrl+shift+c",
     "command": "workbench.action.tasks.runTask",
-    "args": "CopyPathWithLineNumber"
+    "args": "CopyPathWithLineNumber",
+    "when": "editorTextFocus"
   },
   // [Ctrl + Shift + R] Reload Window を実行する
   {
@@ -26,18 +79,7 @@
   // [Ctrl + Shift + S] Sort Lines を実行する
   {
     "key": "ctrl+shift+s",
-    "command": "editor.action.sortLinesAscending"
+    "command": "editor.action.sortLinesAscending",
+    "when": "editorTextFocus"
   },
-  // [Ctrl + Shift + J] Terminal を次の tab に切り替える
-  {
-    "key": "ctrl+shift+j",
-    "command": "workbench.action.terminal.focusNext",
-    "when": "terminalFocus"
-  },
-  // [Ctrl + Shift + K] Terminal を次の panel view に移動する
-  {
-    "key": "ctrl+shift+k",
-    "command": "workbench.action.nextPanelView",
-    "when": "panelFocus"
-  }
 ]
