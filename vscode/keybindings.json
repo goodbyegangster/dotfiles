@@ -31,6 +31,13 @@
   // [Ctrl + Shift + J] Terminal を次の tab に切り替える
   {
     "key": "ctrl+shift+j",
-    "command": "workbench.action.terminal.focusNext"
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  // [Ctrl + Shift + K] Terminal を次の panel view に移動する
+  {
+    "key": "ctrl+shift+k",
+    "command": "workbench.action.nextPanelView",
+    "when": "panelFocus"
   }
 ]
