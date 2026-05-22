@@ -1,7 +1,8 @@
 {
   "extensions.autoUpdate": "none",
-  
-  // accessibility.signals
+  /**************************************************
+  / accessibility.signals
+  ***************************************************/
   "accessibility.signals.lineHasBreakpoint": {
     "sound": "off",
     "announcement": "auto"
@@ -124,8 +125,9 @@
     "sound": "off",
     "announcement": "auto"
   },
-
-  // PowerShell
+  /**************************************************
+  / PowerShell
+  ***************************************************/
   "[powershell]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
@@ -134,7 +136,6 @@
     "files.encoding": "utf8bom",
     "files.autoGuessEncoding": true
   },
-
   /**************************************************
   / launch.json
   ***************************************************/

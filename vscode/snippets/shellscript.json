@@ -19,7 +19,7 @@
       "}",
       "",
       "if [[ \"${BASH_SOURCE[0]}\" == \"\\${0}\" ]]; then",
-	    "\tmain \"$@\"",
+      "\tmain \"$@\"",
       "fi"
     ],
     "description": "Generate a entry point"

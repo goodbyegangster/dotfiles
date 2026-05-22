@@ -61,7 +61,9 @@
   },
   "CDK Import": {
     "prefix": "cdk-import",
-    "body": ["import * as ${1:service} from 'aws-cdk-lib/aws-${1:service}';"],
+    "body": [
+      "import * as ${1:service} from 'aws-cdk-lib/aws-${1:service}';"
+    ],
     "description": "Generate a CDK import statement"
   },
   "Snippet interface": {

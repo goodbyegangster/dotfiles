@@ -14,18 +14,18 @@
   },
   // [Ctrl + Shift + C] tasks で定義した CopyPathWithLineNumber を実行する
   {
-    "key": "ctrl+shift+c", 
+    "key": "ctrl+shift+c",
     "command": "workbench.action.tasks.runTask",
-    "args": "CopyPathWithLineNumber" 
+    "args": "CopyPathWithLineNumber"
   },
   // [Ctrl + Shift + R] Reload Window を実行する
   {
-    "key": "ctrl+shift+r", 
+    "key": "ctrl+shift+r",
     "command": "workbench.action.reloadWindow"
   },
   // [Ctrl + Shift + S] Sort Lines を実行する
   {
-    "key": "ctrl+shift+s", 
+    "key": "ctrl+shift+s",
     "command": "editor.action.sortLinesAscending"
   },
   // [Ctrl + Shift + J] Terminal を次の tab に切り替える

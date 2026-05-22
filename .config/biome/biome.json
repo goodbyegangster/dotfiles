@@ -42,7 +42,7 @@
   },
   "css": {},
   "html": {
-    "formatter":{
+    "formatter": {
       "enabled": true
     },
     "experimentalFullSupportEnabled": true
