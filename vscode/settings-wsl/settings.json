@@ -252,6 +252,10 @@
   ***************************************************/
   "git.blame.editorDecoration.enabled": false,
   /**************************************************
+  / GitHub
+  ***************************************************/
+  "editor.inlineSuggest.enabled": false, // https://docs.github.com/en/copilot/how-tos/configure-personal-settings/configure-in-ide#enabling-or-disabling-github-copilot-inline-suggestions
+  /**************************************************
   / Go
   ***************************************************/
   "[go]": {
@@ -288,8 +292,7 @@
     ".config/html/html.htmx-data.json"
   ],
   "html.format.extraLiners": "",
-  // https://code.visualstudio.com/docs/languages/html#_auto-update-tags
-  "editor.linkedEditing": true,
+  "editor.linkedEditing": true, // https://code.visualstudio.com/docs/languages/html#_auto-update-tags
   /**************************************************
   / HTTP
   ***************************************************/
