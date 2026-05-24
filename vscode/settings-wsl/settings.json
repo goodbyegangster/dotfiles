@@ -108,6 +108,11 @@
   "C_Cpp.codeAnalysis.runAutomatically": true,
   "C_Cpp.codeAnalysis.clangTidy.enabled": true,
   /**************************************************
+  / ChatGPT / Codex 
+  ***************************************************/
+  // https://developers.openai.com/codex/ide/settings#settings-reference
+  "chatgpt.commentCodeLensEnabled": false,
+  /**************************************************
   / cSpell
   ***************************************************/
   "cSpell.enabled": true,

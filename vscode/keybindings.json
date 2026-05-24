@@ -7,13 +7,19 @@
   {
     "key": "ctrl+o",
     "command": "workbench.action.terminal.focus",
-    "when": "!terminalFocus"
+    "when": "!terminalFocus && !panelFocus && !auxiliaryBarFocus"
   },
   // [Ctrl + O] terminal に focus　があるとき editor に focus を移す
   {
     "key": "ctrl+o",
     "command": "workbench.action.focusActiveEditorGroup",
-    "when": "panelFocus"
+    "when": "terminalFocus"
+  },
+  // [Ctrl + O] secondary sidebar に focus　があるとき editor に focus を移す
+  {
+    "key": "ctrl+o",
+    "command": "workbench.action.focusActiveEditorGroup",
+    "when": "auxiliaryBarFocus"
   },
   // [Ctrl + Shift + J] Terminal を次の tab に移動する
   {
