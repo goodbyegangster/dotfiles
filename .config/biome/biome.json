@@ -6,7 +6,12 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignoreUnknown": true
+    "ignoreUnknown": true,
+    "includes": [
+      "**",
+      "!node_modules",
+      "!assets/**/*"
+    ]
   },
   "linter": {
     "enabled": true,

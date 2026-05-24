@@ -1,5 +1,14 @@
 {
-  "Snippet interface": {
+  "arrow function": {
+    "prefix": "arrow",
+    "body": [
+      "const ${1:functionName} = (${2}) => {",
+      "  ${0}",
+      "};"
+    ],
+    "description": "Generate an arrow function"
+  },
+  "interface": {
     "prefix": "interface",
     "body": [
       "interface ${1:Name} {",

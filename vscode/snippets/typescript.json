@@ -18,28 +18,6 @@
     ],
     "description": "Generate a CDK App scaffold"
   },
-  "CDK Stack": {
-    "prefix": "cdk-stack",
-    "body": [
-      "import * as cdk from 'aws-cdk-lib';",
-      "import { Construct } from 'constructs';",
-      "",
-      "interface ${1:StackName}Props extends cdk.StackProps {",
-      "  ${2:// add props here}",
-      "}",
-      "",
-      "export class ${1:StackName} extends cdk.Stack {",
-      "  constructor(scope: Construct, id: string, props: ${1:StackName}Props) {",
-      "    super(scope, id, props);",
-      "",
-      "    cdk.Tags.of(this).add('cdk-created-by', cdk.Stack.of(this).stackName);",
-      "",
-      "    ${3}",
-      "  }",
-      "}"
-    ],
-    "description": "Generate a CDK stack scaffold"
-  },
   "CDK Construct": {
     "prefix": "cdk-construct",
     "body": [
@@ -66,7 +44,38 @@
     ],
     "description": "Generate a CDK import statement"
   },
-  "Snippet interface": {
+  "CDK Stack": {
+    "prefix": "cdk-stack",
+    "body": [
+      "import * as cdk from 'aws-cdk-lib';",
+      "import { Construct } from 'constructs';",
+      "",
+      "interface ${1:StackName}Props extends cdk.StackProps {",
+      "  ${2:// add props here}",
+      "}",
+      "",
+      "export class ${1:StackName} extends cdk.Stack {",
+      "  constructor(scope: Construct, id: string, props: ${1:StackName}Props) {",
+      "    super(scope, id, props);",
+      "",
+      "    cdk.Tags.of(this).add('cdk-created-by', cdk.Stack.of(this).stackName);",
+      "",
+      "    ${3}",
+      "  }",
+      "}"
+    ],
+    "description": "Generate a CDK stack scaffold"
+  },
+  "arrow function": {
+    "prefix": "arrow",
+    "body": [
+      "const ${1:functionName} = (${2}) => {",
+      "  ${0}",
+      "};"
+    ],
+    "description": "Generate an arrow function"
+  },
+  "interface": {
     "prefix": "interface",
     "body": [
       "interface ${1:Name} {",
