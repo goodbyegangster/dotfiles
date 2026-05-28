@@ -1,7 +1,7 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
   /*******************************************
-  / terminal
+  / editor / terminal
   ********************************************/
   // [Ctrl + O] terminal に focus がないとき terminal に focus を移す
   {
@@ -42,6 +42,11 @@
   /*******************************************
   / sidebar view
   ********************************************/
+  // [Ctrl + Shift + T] sideBar view の Testing に移動する
+  {
+    "key": "ctrl+shift+T",
+    "command": "workbench.view.testing.focus",
+  },
   // [Ctrl + Shift + ]] sideBar view を次に移動する
   {
     "key": "ctrl+shift+]",
