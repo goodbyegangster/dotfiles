@@ -489,7 +489,7 @@
       "source.organizeImports.biome": "explicit"
     },
   },
-  "typescript.inlayHints.parameterNames.enabled": "literals",
+  "typescript.inlayHints.parameterNames.enabled": "all",
   "[typescriptreact]": {
     "editor.tabSize": 2,
     "editor.insertSpaces": true,

@@ -31,6 +31,7 @@ yq = "latest"
 "npm:@box/cli" = "latest"
 "npm:aws-cdk" = "latest"
 "npm:create-vite" = "latest"
+"npm:html-validate" = "latest"
 "npm:vite" = "latest"
 
 # Tasks
