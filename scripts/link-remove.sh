@@ -21,6 +21,8 @@ function main() {
 	echo -e "${GREEN}Remove symbolic links${RESET}"
 
 	remove_links "${HOME}"
+	remove_links "${HOME}/.agents/skills/"
+	remove_links "${HOME}/.claude/skills/"
 	remove_links "${HOME}/.config/mise"
 	remove_links "${HOME}/.config/pnpm"
 	remove_links "${HOME}/.vscode-server/data/Machine"

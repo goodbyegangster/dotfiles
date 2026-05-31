@@ -42,7 +42,10 @@ function create_link() {
 
 	printf "${GREEN}ln -s %-60s %-60s${RESET}\n" "$source" "$destination"
 	mkdir -p "$(dirname "$destination")"
-	ln --symbolic --force -S ".${NOW}" "$source" "$destination"
+	if [[ -d "$destination" && ! -L "$destination" ]]; then
+		mv "$destination" "${destination}.${NOW}"
+	fi
+	ln --symbolic --force --no-dereference --no-target-directory -S ".${NOW}" "$source" "$destination"
 }
 
 function update_file() {
@@ -109,6 +112,19 @@ function main() {
 		create_link \
 		  "${SCRIPT_DIR}/../.config/pnpm/rc" \
 		  "${HOME}/.config/pnpm/rc"
+
+		# [Skills] skill folders
+		local skills_dir="${SCRIPT_DIR}/../skills"
+		local skill_dir
+		local skill_name
+
+		for skill_dir in "$skills_dir"/*; do
+			[[ -d "$skill_dir" && -f "${skill_dir}/SKILL.md" ]] || continue
+
+			skill_name="$(basename "$skill_dir")"
+			create_link "$skill_dir" "${HOME}/.agents/skills/${skill_name}"
+			create_link "$skill_dir" "${HOME}/.claude/skills/${skill_name}"
+		done
 
 		# [uv] uv.toml
 		create_link \

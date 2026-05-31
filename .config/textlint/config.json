@@ -10,6 +10,8 @@
   "rules": {
     // https://github.com/textlint-ja/textlint-rule-ja-no-mixed-period
     "ja-no-mixed-period": true,
+    // https://github.com/textlint-rule/textlint-rule-period-in-list-item
+    "period-in-list-item": true,
     // https://github.com/textlint-ja/textlint-rule-preset-ja-spacing
     "preset-ja-spacing": {
       "ja-nakaguro-or-halfwidth-space-between-katakana": true,
@@ -32,7 +34,6 @@
         "max": 8,
         "allow": []
       },
-      "max": 8,
       "no-mix-dearu-desumasu": {
         "preferInHeader": "",
         "preferInBody": "である",

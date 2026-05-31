@@ -72,6 +72,8 @@
     "*.j2": "jinja",
     // JSON
     "*.json.default": "json",
+    // JSONC
+    "**/textlint/config.json": "jsonc",
     // Markdown
     "**/skills/*/SKILL.md": "markdown",
     // sql
