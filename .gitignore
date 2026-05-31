@@ -4,18 +4,18 @@
 ### not ignore
 !.gitignore
 !*.code-workspace
+!/.config
 !/bash
 !/git
-!/vscode
 !/mise
-!/.config
 !/scripts
+!/skills
 !/tips
+!/vscode
 !Makefile
 !README.md
 
 ### specific ignore
-projects.txt
-private.txt
-
 node_modules/
+private.txt
+projects.txt

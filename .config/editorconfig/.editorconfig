@@ -1,0 +1,70 @@
+# EditorConfig is awesome: https://editorconfig.org
+root = true
+
+# Default rules for all text files.
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# C
+[*.{c,h}]
+indent_style = space
+indent_size = 2
+
+# Web frontend / config files
+[*.{js,jsx,ts,tsx,json,jsonc,css,scss,html,htm,toml}]
+indent_style = space
+indent_size = 2
+
+# YAML
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Jinja templates
+[*.{j2,html.j2}]
+indent_style = space
+indent_size = 2
+
+# SQL and SQL templates
+[*.{sql,sql.j2}]
+indent_style = space
+indent_size = 4
+
+# Python
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Go / templ
+[*.{go,templ}]
+indent_style = tab
+indent_size = tab
+tab_width = 4
+
+# Shell
+[*.{sh,bash,zsh}]
+indent_style = tab
+indent_size = tab
+tab_width = 4
+
+# Makefile requires hard tabs.
+[Makefile]
+indent_style = tab
+indent_size = tab
+tab_width = 4
+
+# Docker Compose / Docker-related YAML is usually 2 spaces.
+[compose*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+[docker-compose*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Markdown often uses trailing spaces for hard line breaks.
+[*.md]
+trim_trailing_whitespace = false

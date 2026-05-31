@@ -32,6 +32,7 @@ yq = "latest"
 "npm:aws-cdk" = "latest"
 "npm:create-vite" = "latest"
 "npm:html-validate" = "latest"
+"npm:markdownlint-cli2" = "latest"
 "npm:vite" = "latest"
 
 # Tasks

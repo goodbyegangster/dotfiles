@@ -80,10 +80,20 @@ function main() {
 		  "${SCRIPT_DIR}/../.config/biome/biome.json" \
 		  "${HOME}/.config/biome/biome.json"
 
+		# [EditorConfig] .editorconfig
+		create_link \
+		  "${SCRIPT_DIR}/../.config/editorconfig/.editorconfig" \
+		  "${HOME}/.editorconfig"
+
 		# [git] .gitconfig
 		create_link \
 		  "${SCRIPT_DIR}/../git/.gitconfig" \
 		  "${HOME}/.gitconfig"
+
+		# [markdownlint-cli2] .markdownlint-cli2.jsonc
+		create_link \
+		  "${SCRIPT_DIR}/../.config/markdownlint-cli2/.markdownlint-cli2.jsonc" \
+		  "${HOME}/.markdownlint-cli2.jsonc"
 
 		# [mise] config.toml
 		create_link \

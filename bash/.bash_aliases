@@ -155,6 +155,17 @@ fi
 # fi
 
 #####################################################
+# Markdown
+#####################################################
+
+# markdownlint-cli2
+# home directory の config を参照させるための措置
+# > Settings merge with those applied by any versions of this file in a parent directory (up to the current directory).
+function markdownlint-cli2() {
+	command markdownlint-cli2 --config "$HOME/.markdownlint-cli2.jsonc" "$@"
+}
+
+#####################################################
 # Python
 #####################################################
 

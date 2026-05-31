@@ -66,12 +66,14 @@
     "**/target/**": "",
     // html
     "*.html.j2": "jinja-html",
+    // ini
+    "**/pnpm/rc": "ini",
     // jinja
     "*.j2": "jinja",
     // JSON
     "*.json.default": "json",
-    // pnpm config
-    "**/pnpm/rc": "ini",
+    // Markdown
+    "**/skills/*/SKILL.md": "markdown",
     // sql
     "*.sql": "jinja-sql",
     "*.sql.j2": "jinja-sql",
@@ -108,7 +110,7 @@
   "C_Cpp.codeAnalysis.runAutomatically": true,
   "C_Cpp.codeAnalysis.clangTidy.enabled": true,
   /**************************************************
-  / ChatGPT / Codex 
+  / ChatGPT / Codex
   ***************************************************/
   // https://developers.openai.com/codex/ide/settings#settings-reference
   "chatgpt.commentCodeLensEnabled": false,
@@ -362,21 +364,10 @@
   "[markdown]": {
     "editor.defaultFormatter": "davidanson.vscode-markdownlint",
     "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": false,
   },
-  "markdownlint.config": {
-    // Hard tabs https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md010.md
-    "MD010": {
-      "code_blocks": false
-    },
-    // Inline HTML https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md033.md
-    "MD033": {
-      "table_allowed_elements": [
-        "br"
-      ]
-    },
-    // Table column style https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md060.md
-    "MD060": false,
-  },
+  // .config/markdownlint-cli2/markdownlint-cli2.jsonc で管理
+  "markdownlint.configFile": "~/.markdownlint-cli2.jsonc",
   "markdown.extension.toc.levels": "1..2",
   "markdown.extension.toc.omittedFromToc": {},
   "markdown-pdf.executablePath": "/usr/bin/chromium-browser",

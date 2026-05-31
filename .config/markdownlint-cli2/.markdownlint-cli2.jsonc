@@ -1,0 +1,18 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/main/schema/markdownlint-cli2-config-schema.json",
+  "config": {
+    // Hard tabs: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md010.md
+    "MD010": {
+      "code_blocks": false
+    },
+    // Inline HTML: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md033.md
+    "MD033": {
+      "table_allowed_elements": [
+        "br"
+      ]
+    },
+    // Table column style: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md060.md
+    "MD060": false
+  },
+  "globs": []
+}
