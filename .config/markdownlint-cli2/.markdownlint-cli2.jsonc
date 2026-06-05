@@ -5,6 +5,14 @@
     "MD010": {
       "code_blocks": false
     },
+    // Line length: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md013.md
+    "MD013": {
+      "line_length": 120
+    },
+    // Multiple headings with the same content: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md024.md
+    "MD024": {
+      "siblings_only": true
+    },
     // Inline HTML: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md033.md
     "MD033": {
       "table_allowed_elements": [

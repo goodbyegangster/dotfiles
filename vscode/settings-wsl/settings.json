@@ -364,12 +364,13 @@
   / markdown
   ***************************************************/
   "[markdown]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
     "editor.defaultFormatter": "davidanson.vscode-markdownlint",
     "editor.formatOnSave": true,
     "files.trimTrailingWhitespace": false,
   },
-  // .config/markdownlint-cli2/markdownlint-cli2.jsonc で管理
-  "markdownlint.configFile": "~/.markdownlint-cli2.jsonc",
+  "markdownlint.configFile": "~/.markdownlint-cli2.jsonc", // 実際は .config/markdownlint-cli2/markdownlint-cli2.jsonc で管理
   "markdown.extension.toc.levels": "1..2",
   "markdown.extension.toc.omittedFromToc": {},
   "markdown-pdf.executablePath": "/usr/bin/chromium-browser",
