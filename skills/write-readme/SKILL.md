@@ -1,6 +1,6 @@
 ---
 name: write-readme
-description: README.md を作成・編集・見直しするときに利用する。簡潔で明確な README.md を作成し、text lint/markdownlint で検証する。
+description: README.md を作成・編集・見直しするときに利用する。簡潔で明確な README.md を作成し、textlint / markdownlint で検証する。
 ---
 
 # write-readme

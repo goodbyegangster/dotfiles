@@ -7,7 +7,7 @@
     },
     // Line length: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md013.md
     "MD013": {
-      "line_length": 120
+      "line_length": 200
     },
     // Multiple headings with the same content: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md024.md
     "MD024": {

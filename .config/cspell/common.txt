@@ -46,6 +46,7 @@ hadolint
 healthcheck
 hogehoge
 htmx
+httpyac
 hudi
 IAMROLE
 initdb
@@ -77,6 +78,7 @@ openmetadata
 Passw
 pids
 piyopiyo
+PKCE
 PKEY
 pointsize
 projen
