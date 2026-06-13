@@ -1,7 +1,18 @@
 [core]
     editor = vim
     quotepath = false
+
 [credential "https://github.com"]
-	helper = !gh auth git-credential
+    helper = !gh auth git-credential
+
 [credential "https://gist.github.com"]
-	helper = !gh auth git-credential
+    helper = !gh auth git-credential
+
+[include]
+    path = ~/.gitconfig.local
+
+[init]
+    defaultBranch = main
+
+[pull]
+    rebase = false

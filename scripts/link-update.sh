@@ -93,6 +93,13 @@ function main() {
 		  "${SCRIPT_DIR}/../git/.gitconfig" \
 		  "${HOME}/.gitconfig"
 
+		# [git] .gitconfig.local
+		if [ -f "${SCRIPT_DIR}/../git/.gitconfig.local" ]; then
+			create_link \
+			  "${SCRIPT_DIR}/../git/.gitconfig.local" \
+			  "${HOME}/.gitconfig.local"
+		fi
+
 		# [markdownlint-cli2] .markdownlint-cli2.jsonc
 		create_link \
 		  "${SCRIPT_DIR}/../.config/markdownlint-cli2/.markdownlint-cli2.jsonc" \

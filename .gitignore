@@ -6,7 +6,7 @@
 !*.code-workspace
 !/.config
 !/bash
-!/git
+!/git/
 !/mise
 !/scripts
 !/skills
@@ -16,6 +16,7 @@
 !README.md
 
 ### specific ignore
+/git/.gitconfig.local
 node_modules/
 private.txt
 projects.txt
