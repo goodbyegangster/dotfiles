@@ -42,6 +42,7 @@ description = "uv tools の一括インストール"
 run = """
 uv tool install awscurl
 uv tool install awsume
+uv tool install cfn-lint
 uv tool install json-schema-for-humans
 uv tool install parquet-tools
 uv tool install pproxy --python 3.10 --force

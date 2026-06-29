@@ -54,6 +54,7 @@ openpyxl
 pathlib
 pipdeptree
 pipx
+plotly
 psycopg
 pyarrow
 pycache
@@ -80,6 +81,7 @@ shutil
 splitext
 splitlines
 staticmethod
+streamlit
 strftime
 strptime
 tarinfo
