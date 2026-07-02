@@ -5,6 +5,7 @@ autodocstring
 azuretools
 ceintl
 charliermarsh
+CIDR
 CISC
 coredns
 coreutils
@@ -101,6 +102,7 @@ STORAGECLASS
 stylesheet
 subseconds
 Sysnative
+Talend
 textlint
 tfenv
 Threadpool

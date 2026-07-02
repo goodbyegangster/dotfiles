@@ -361,7 +361,7 @@
   "makefile.launchConfigurations": [],
   "makefile.makePath": "/usr/bin/make",
   /**************************************************
-  / markdown
+  / Markdown
   ***************************************************/
   "[markdown]": {
     "editor.tabSize": 2,
@@ -371,9 +371,22 @@
     "files.trimTrailingWhitespace": false,
   },
   "markdownlint.configFile": "~/.markdownlint-cli2.jsonc", // 実際は .config/markdownlint-cli2/markdownlint-cli2.jsonc で管理
-  "markdown.extension.toc.levels": "1..2",
+  // Markdown All in One の toc 作成ルール
+  "markdown.extension.toc.levels": "2..3",
   "markdown.extension.toc.omittedFromToc": {},
   "markdown-pdf.executablePath": "/usr/bin/chromium-browser",
+  /**************************************************
+  / PowerShell
+  / PowerShell 向けの設定は vscode/settings-windows/settings.json で管理されている
+  / 本ファイル記載のものは WSL 上で利用・開発する場合の設定
+  ***************************************************/
+  // https://learn.microsoft.com/en-us/powershell/scripting/dev-cross-plat/vscode/using-vscode#adding-your-own-powershell-paths-to-the-session-menu
+  "powershell.powerShellAdditionalExePaths": {
+    "Mise PowerShell": "~/.local/share/mise/shims/pwsh"
+  },
+  "powershell.powerShellDefaultVersion": "Mise PowerShell",
+  // https://learn.microsoft.com/ja-jp/powershell/utility-modules/psscriptanalyzer/using-scriptanalyzer?view=ps-modules#using-custom-rules-in-visual-studio-code-vs-code
+  "powershell.scriptAnalysis.settingsPath": "~/dotfiles/pwsh/ScriptAnalyzerSettings.psd1",
   /**************************************************
   / Python
   ***************************************************/

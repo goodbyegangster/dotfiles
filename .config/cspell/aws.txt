@@ -5,6 +5,7 @@ arns
 awscli
 awscurl
 AWSume
+AWSVPCEID
 boto
 botocore
 BURSTABLE

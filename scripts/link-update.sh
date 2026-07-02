@@ -170,6 +170,11 @@ function main() {
 		update_file \
 		  "${SCRIPT_DIR}/../vscode/snippets/typescriptreact.json" \
 		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/typescriptreact.json"
+
+		# [PowerShell Advanced Function] Export-PptToPdf.psm1
+		update_file \
+		  "${SCRIPT_DIR}/../pwsh/advanced-function/Export-PptToPdf/Export-PptToPdf.psm1" \
+		  "/mnt/c/Users/${window_user_name}/Documents/WindowsPowerShell/Modules/Export-PptToPdf/Export-PptToPdf.psm1"
 	fi
 }
 

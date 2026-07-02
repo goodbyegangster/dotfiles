@@ -16,6 +16,7 @@
     "preset-ja-spacing": {
       "ja-nakaguro-or-halfwidth-space-between-katakana": true,
       "ja-no-space-around-parentheses": false,
+      "ja-no-space-around-slash": false,
       "ja-no-space-between-full-width": true,
       "ja-space-after-exclamation": true,
       "ja-space-after-question": true,
@@ -50,6 +51,31 @@
     // https://github.com/textlint-ja/textlint-rule-preset-japanese
     "preset-japanese": true,
     // https://github.com/textlint-ja/textlint-rule-preset-ai-writing
-    "@textlint-ja/preset-ai-writing": true
+    "@textlint-ja/preset-ai-writing": true,
+    // 独自ルール: https://github.com/textlint-rule/textlint-rule-pattern
+    "@textlint-rule/pattern": {
+      "patterns": [
+        {
+          "message": "日本語に挟まれたスラッシュの直前には半角スペースを1つ空けてください。",
+          "pattern": "/([^\\x00-\\x7F]+)\\/ *([^\\x00-\\x7F]+)/",
+          "replace": "$1 / $2"
+        },
+        {
+          "message": "日本語に挟まれたスラッシュの直後には半角スペースを1つ空けてください。",
+          "pattern": "/([^\\x00-\\x7F]+) *\\/([^\\x00-\\x7F]+)/",
+          "replace": "$1 / $2"
+        },
+        {
+          "message": "日本語に挟まれたスラッシュの前の半角スペースは1つにしてください。",
+          "pattern": "/([^\\x00-\\x7F]+) {2,}\\/ *([^\\x00-\\x7F]+)/",
+          "replace": "$1 / $2"
+        },
+        {
+          "message": "日本語に挟まれたスラッシュの後の半角スペースは1つにしてください。",
+          "pattern": "/([^\\x00-\\x7F]+) *\\/ {2,}([^\\x00-\\x7F]+)/",
+          "replace": "$1 / $2"
+        },
+      ]
+    }
   }
 }

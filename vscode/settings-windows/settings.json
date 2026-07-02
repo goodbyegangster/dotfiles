@@ -136,6 +136,19 @@
     "files.encoding": "utf8bom",
     "files.autoGuessEncoding": true
   },
+  // formatter 設定: https://learn.microsoft.com/ja-jp/powershell/utility-modules/psscriptanalyzer/rules/readme?view=ps-modules
+  // カッコの配置スタイルを「Stroustrup（モダンな OTBS 風）」にする
+  "powershell.codeFormatting.preset": "Stroustrup",
+  // コマンド名の大文字・小文字を自動で正しい表記に修正する
+  "powershell.codeFormatting.useCorrectCasing": true,
+  // エイリアスを正式名称に自動展開する
+  "powershell.codeFormatting.autoCorrectAliases": true,
+  // パイプ記号「|」のまわりに自動でスペースを入れる
+  "powershell.codeFormatting.addWhitespaceAroundPipe": true,
+  // 演算子（=, +, - など）のまわりに自動でスペースを入れる
+  "powershell.codeFormatting.whitespaceAroundOperator": true,
+  // カンマ「,」やセミコロン「;」の後に自動でスペースを入れる
+  "powershell.codeFormatting.whitespaceAfterSeparator": true,
   /**************************************************
   / launch.json
   ***************************************************/

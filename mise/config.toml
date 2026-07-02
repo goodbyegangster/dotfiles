@@ -19,6 +19,7 @@ pnpm = "latest"
 # sudo apt-get update
 # sudo apt-get install build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev bison flex libicu-dev pkgconf
 postgres = "17"
+powershell-core = "latest"
 sbt = "latest"
 scala = "latest"
 shellcheck = "latest"
@@ -34,6 +35,7 @@ yq = "latest"
 "npm:html-validate" = "latest"
 "npm:markdownlint-cli2" = "latest"
 "npm:vite" = "latest"
+
 
 # Tasks
 # https://mise.jdx.dev/tasks/
