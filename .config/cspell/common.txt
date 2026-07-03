@@ -11,6 +11,7 @@ coredns
 coreutils
 CSIRT
 DAMA-DMBOK
+datacatalog
 dataform
 DATALAKE
 datauser

@@ -33,8 +33,9 @@
             # 引数: (ファイル名, ReadOnly=True, Untitled=False, WithWindow=False)
             $doc = $ppt.Presentations.Open($resolvedInPath, $true, $false, $false)
 
-            # PDF（定数32）として保存
-            $doc.SaveAs($resolvedOutPath, 32)
+            # PDF としてエクスポート
+            # 第2引数 2 = ppFixedFormatTypePDF
+            $doc.ExportAsFixedFormat($resolvedOutPath, 2)
 
             Write-Host "変換成功: $resolvedOutPath" -ForegroundColor Green
         }
