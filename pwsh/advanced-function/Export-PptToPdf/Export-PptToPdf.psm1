@@ -1,12 +1,50 @@
-﻿function Export-PptToPdf {
+﻿#requires -Version 5.1
+Set-StrictMode -Version Latest
+
+<#
+.SYNOPSIS
+PowerPoint プレゼンテーションを PDF に変換します。
+
+.DESCRIPTION
+PowerPoint の COM オブジェクトを使用して、指定された PowerPoint ファイルを PDF としてエクスポートします。
+この関数は Windows 上で PowerPoint がインストールされている環境を前提としています。
+
+.PARAMETER Path
+変換する PowerPoint ファイルのパスを指定します。
+パイプライン入力、およびプロパティ名によるパイプライン入力に対応します。
+
+.PARAMETER OutputPath
+出力する PDF ファイルのパスを指定します。
+省略した場合は、入力ファイルと同じフォルダーに同じベース名の .pdf ファイルを出力します。
+
+.OUTPUTS
+System.String
+変換に成功した PDF ファイルのパスを出力します。
+
+.EXAMPLE
+Export-PptToPdf -Path .\slides.pptx
+
+slides.pptx を slides.pdf に変換します。
+
+.EXAMPLE
+Export-PptToPdf -Path .\slides.pptx -OutputPath .\output\slides.pdf
+
+slides.pptx を指定した出力先の PDF に変換します。
+
+.EXAMPLE
+Get-ChildItem .\*.pptx | Export-PptToPdf
+
+カレントディレクトリの .pptx ファイルをまとめて PDF に変換します。
+#>
+function Export-PptToPdf {
     [CmdletBinding()]
+    [OutputType([string])]
     param (
-        # 必須パラメーター（パイプラインからの入力に対応）
         [Parameter(Mandatory = $true, ValueFromPipeline = $true, ValueFromPipelineByPropertyName = $true)]
+        [Alias('FullName')]
         [ValidateScript({ Test-Path $_ -PathType Leaf })]
         [string]$Path,
 
-        # 任意パラメーター（省略時は入力と同じフォルダーに.pdfで保存）
         [Parameter(Mandatory = $false)]
         [string]$OutputPath
     )
@@ -20,6 +58,11 @@
         }
         else {
             $resolvedOutPath = $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath($OutputPath)
+        }
+
+        $outputDirectory = Split-Path -Path $resolvedOutPath -Parent
+        if (-not (Test-Path -Path $outputDirectory -PathType Container)) {
+            throw "出力先ディレクトリが存在しません: $outputDirectory"
         }
 
         Write-Verbose "変換中: '$resolvedInPath' -> '$resolvedOutPath'"
@@ -37,13 +80,14 @@
             # 第2引数 2 = ppFixedFormatTypePDF
             $doc.ExportAsFixedFormat($resolvedOutPath, 2)
 
-            Write-Host "変換成功: $resolvedOutPath" -ForegroundColor Green
+            Write-Verbose "変換成功: '$resolvedOutPath'"
+            Write-Output $resolvedOutPath
         }
         catch {
-            Write-Error "エラーが発生しました: $_"
+            throw
         }
         finally {
-            # メモリ解放とPowerPointプロセスの確実な終了（ゾンビプロセス化を防ぐ）
+            # メモリ解放と PowerPoint プロセスの確実な終了
             if ($null -ne $doc) {
                 $doc.Close()
                 [System.Runtime.InteropServices.Marshal]::ReleaseComObject($doc) | Out-Null
@@ -52,10 +96,9 @@
                 $ppt.Quit()
                 [System.Runtime.InteropServices.Marshal]::ReleaseComObject($ppt) | Out-Null
             }
-            # ガベージコレクションを強制実行
+            # GC 強制実行
             [GC]::Collect()
             [GC]::WaitForPendingFinalizers()
         }
     }
 }
-

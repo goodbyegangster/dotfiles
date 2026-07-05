@@ -20,6 +20,8 @@ pnpm = "latest"
 # sudo apt-get install build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev bison flex libicu-dev pkgconf
 postgres = "17"
 powershell-core = "latest"
+# https://mise.jdx.dev/lang/rust.html
+rust = { version = "latest", profile = "default", components = "rust-src" }
 sbt = "latest"
 scala = "latest"
 shellcheck = "latest"
@@ -36,6 +38,9 @@ yq = "latest"
 "npm:markdownlint-cli2" = "latest"
 "npm:vite" = "latest"
 
+#
+cargo-binstall = "latest"
+"cargo:sqruff" = { version = "latest", bin = "sqruff" }
 
 # Tasks
 # https://mise.jdx.dev/tasks/

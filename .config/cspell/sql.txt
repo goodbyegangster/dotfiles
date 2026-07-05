@@ -13,6 +13,7 @@ LPAD
 PGPASSWORD
 smallint
 SORTKEY
+sqruff
 sslmode
 STARTSWITH
 stddev

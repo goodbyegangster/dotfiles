@@ -80,7 +80,8 @@
       "scala-lang.scala", // https://github.com/scala/vscode-scala-syntax
       "scalameta.metals", // https://github.com/scalameta/metals
       // SQL
-      "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
+      // "dorzey.vscode-sqlfluff", // https://github.com/sqlfluff/vscode-sqlfluff
+      "Quary.sqruff", // https://github.com/quarylabs/sqruff
       // terraform
       "hashicorp.terraform", // https://github.com/hashicorp/vscode-terraform
       // Tailwind CSS

@@ -68,6 +68,7 @@
     "*.html.j2": "jinja-html",
     // ini
     "**/pnpm/rc": "ini",
+    ".sqruff": "ini",
     // jinja
     "*.j2": "jinja",
     // JSON
@@ -77,7 +78,7 @@
     // Markdown
     "**/skills/*/SKILL.md": "markdown",
     // sql
-    "*.sql": "jinja-sql",
+    "*.sql": "sql",
     "*.sql.j2": "jinja-sql",
     // templ
     "*.templ": "templ",
@@ -189,6 +190,16 @@
       "path": "~/dotfiles/.config/cspell/python-jinja.txt",
       "addWords": true,
     },
+    "powershell": {
+      "name": "powershell",
+      "path": "~/dotfiles/.config/cspell/powershell.txt",
+      "addWords": true,
+    },
+    "rust": {
+      "name": "rust",
+      "path": "~/dotfiles/.config/cspell/rust.txt",
+      "addWords": true,
+    },
     "snowflake": {
       "name": "snowflake",
       "path": "~/dotfiles/.config/cspell/snowflake.txt",
@@ -222,6 +233,10 @@
   "css.validate": false,
   "scss.validate": false,
   "less.validate": false,
+  // Tailwind CSS
+  "tailwindCSS.includeLanguages": {
+    "templ": "html"
+  },
   /**************************************************
   / Dataform
   ***************************************************/
@@ -454,15 +469,15 @@
   "[sql]": {
     "editor.tabSize": 4,
     "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "Quary.sqruff",
   },
   // sqlfluff
   // "sqlfluff.executablePath": "${workspaceFolder}/.venv/bin/sqlfluff",
   // "sqlfluff.config": "~/dotfiles/.config/.sqlfluff/.sqlfluff",
   // "sqlfluff.linter.run": "onSave",
-  // Tailwind CSS
-  "tailwindCSS.includeLanguages": {
-    "templ": "html"
-  },
+  // sqruff
+  "sqruff.executablePath": "~/.local/share/mise/shims/sqruff",
   /**************************************************
   / Terraform
   ***************************************************/

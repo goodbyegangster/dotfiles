@@ -29,12 +29,6 @@ dotfiles の symbolic link を作成または更新する。
 make link-update
 ```
 
-古い backup link を削除する。
-
-```shell
-make link-remove
-```
-
 ## Directory Layout
 
 ```text
@@ -48,6 +42,7 @@ make link-remove
 │   ├── pip/
 │   ├── pnpm/
 │   ├── sqlfluff/
+│   ├── sqruff/
 │   ├── textlint/
 │   └── uv/
 ├── bash/                     # Bash の設定
@@ -59,6 +54,9 @@ make link-remove
 │   └── .gitconfig.local.sample
 ├── mise/                     # mise の設定
 │   └── config.toml
+├── pwsh/                     # PowerShell module と ScriptAnalyzer 設定
+│   ├── advanced-function/
+│   └── ScriptAnalyzerSettings.psd1
 ├── scripts/                  # link 更新と install 用 script
 │   ├── aws/
 │   ├── install/
@@ -67,6 +65,7 @@ make link-remove
 ├── skills/                   # agent 用 skill
 │   ├── code-search/
 │   ├── dependency-review/
+│   ├── pwsh-review/
 │   └── write-readme/
 ├── tips/                     # tool ごとの短いメモ
 │   ├── JavaScript/
