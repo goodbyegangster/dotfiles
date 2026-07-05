@@ -230,8 +230,10 @@ function main() {
 		# [PowerShell] Advanced Function
 		####################################################
 		# ExecutionPolicy 設定
-		powershell.exe -NoProfile -Command 'if ((Get-ExecutionPolicy -Scope CurrentUser) -ne "RemoteSigned") {
-			Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+		powershell.exe -NoProfile -Command '& {
+			if ((Get-ExecutionPolicy -Scope CurrentUser) -ne "RemoteSigned") {
+				Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+			}
 		}'
 
 		local pwsh_modules_dir="/mnt/c/Users/${window_user_name}/Documents/WindowsPowerShell/Modules"
