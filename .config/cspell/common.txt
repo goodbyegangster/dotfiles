@@ -3,6 +3,7 @@ amazonwebservices
 APAC
 autodocstring
 azuretools
+capitalisation
 ceintl
 charliermarsh
 CIDR
@@ -36,6 +37,7 @@ Fivetran
 FKEY
 foxundermoon
 FPGA
+freeword
 fugafuga
 fullname
 GHCN
@@ -45,6 +47,7 @@ goodbyegangster
 gophercises
 grokparsefailure
 hadolint
+HANAKO
 healthcheck
 hogehoge
 htmx
@@ -76,6 +79,7 @@ odbc
 OLAP
 OLTP
 oneshot
+OOUI
 openmetadata
 Passw
 pids
@@ -110,6 +114,7 @@ Threadpool
 tickitdb
 timonwong
 tinyint
+TPCDS
 ulimits
 upto
 venv

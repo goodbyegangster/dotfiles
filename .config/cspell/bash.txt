@@ -1,5 +1,6 @@
 bashdb
 Eeuo
+envsubst
 esac
 fromjson
 mapfile

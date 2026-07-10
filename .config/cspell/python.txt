@@ -60,6 +60,7 @@ pyarrow
 pycache
 pyenv
 pyodbc
+pypi
 pyproject
 pytest
 pytest_report_teststatus

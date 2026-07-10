@@ -77,14 +77,20 @@
     "**/textlint/config.json": "jsonc",
     // Markdown
     "**/skills/*/SKILL.md": "markdown",
+    // Python
+    "*.py.template": "python",
     // sql
     "*.sql": "sql",
     "*.sql.j2": "jinja-sql",
     // templ
     "*.templ": "templ",
+    // toml
+    "*.toml.template": "toml",
     // YAML
     "*.yml.default": "yaml",
     "*.yaml.default": "yaml",
+    "*.yml.template": "yaml",
+    "*.yaml.template": "yaml",
   },
   "files.eol": "\n",
   /**************************************************
@@ -416,7 +422,7 @@
   "python.analysis.autoImportCompletions": true,
   "python.analysis.typeCheckingMode": "standard",
   "python.languageServer": "Pylance",
-  "ruff.lineLength": 80,
+  "ruff.lineLength": 100,
   "ruff.enable": true,
   "ruff.lint.select": [
     "ALL"
@@ -431,10 +437,13 @@
     "D202", // No blank lines allowed after function docstring
     "D400", // First line should end with a period
     "D401", // First line should end with a period
-    "D415", // First line should end with a period
     "D403", // First word of the docstring should be capitalized
+    "D415", // First line should end with a period
     "EM101", // Exception must not use a string literal, assign to variable first
     "ERA001", // Found commented-out code
+    "RUF001", // Checks for ambiguous Unicode characters in strings
+    "RUF002", // Checks for ambiguous Unicode characters in docstring
+    "RUF003", // Checks for ambiguous Unicode characters in comments
     "T201", // `print` found
     "TC001", // Move application import "" into a type-checking block
     "TC002", // Move application import "" into a type-checking block

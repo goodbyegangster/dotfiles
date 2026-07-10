@@ -4,6 +4,7 @@ GLOBALORGADMIN
 ltrim
 ORGADMIN
 SECURITYADMIN
+snowpark
 timeadd
 trunc
 USERADMIN
