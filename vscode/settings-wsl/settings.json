@@ -49,6 +49,8 @@
   "editor.renderWhitespace": "boundary",
   // https://code.visualstudio.com/docs/editing/intellisense#_snippets-in-suggestions
   "editor.snippetSuggestions": "top",
+  "editor.unicodeHighlight.includeComments": false,
+  "editor.unicodeHighlight.includeStrings": false,
   "editor.unicodeHighlight.nonBasicASCII": false,
   /**************************************************
   / explorer
