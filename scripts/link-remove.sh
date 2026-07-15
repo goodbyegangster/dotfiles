@@ -23,8 +23,12 @@ function main() {
 	remove_links "${HOME}"
 	remove_links "${HOME}/.agents/skills/"
 	remove_links "${HOME}/.claude/skills/"
+	remove_links "${HOME}/.config/biome"
 	remove_links "${HOME}/.config/mise"
+	remove_links "${HOME}/.config/pip"
 	remove_links "${HOME}/.config/pnpm"
+	remove_links "${HOME}/.config/ruff"
+	remove_links "${HOME}/.config/uv"
 	remove_links "${HOME}/.vscode-server/data/Machine"
 }
 

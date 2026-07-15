@@ -140,13 +140,6 @@ function main() {
 		  "${HOME}/.config/mise/config.toml"
 
 		####################################################
-		# [pip] pip.conf
-		####################################################
-		create_link \
-		  "${SCRIPT_DIR}/../.config/pip/pip.conf" \
-		  "${HOME}/.config/pip/pip.conf"
-
-		####################################################
 		# [pnpm] rc
 		####################################################
 		create_link \
@@ -174,13 +167,6 @@ function main() {
 			create_link "$skill_dir" "${HOME}/.agents/skills/${skill_name}"
 			create_link "$skill_dir" "${HOME}/.claude/skills/${skill_name}"
 		done
-
-		####################################################
-		# [uv] uv.toml
-		####################################################
-		create_link \
-		  "${SCRIPT_DIR}/../.config/uv/uv.toml" \
-		  "${HOME}/.config/uv/uv.toml"
 
 		####################################################
 		# [VS Code] settings.json (Remote)
@@ -266,6 +252,35 @@ function main() {
 			  "$pwsh_dir" \
 			  "${pwsh_modules_dir}/${pwsh_name}"
 		done
+
+		####################################################
+		# [Python] pip.conf
+		####################################################
+		create_link \
+		  "${SCRIPT_DIR}/../.config/pip/pip.conf" \
+		  "${HOME}/.config/pip/pip.conf"
+
+		####################################################
+		# [Python] pyrightconfig.json
+		####################################################
+		create_link \
+		  "${SCRIPT_DIR}/../.config/pyright/pyrightconfig.json" \
+		  "${HOME}/pyrightconfig.json"
+
+		####################################################
+		# [Python] ruff
+		####################################################
+		create_link \
+		  "${SCRIPT_DIR}/../.config/ruff/.ruff.toml" \
+		  "${HOME}/.config/ruff/.ruff.toml"
+
+		####################################################
+		# [Python] uv.toml
+		####################################################
+		create_link \
+		  "${SCRIPT_DIR}/../.config/uv/uv.toml" \
+		  "${HOME}/.config/uv/uv.toml"
+
 	fi
 }
 

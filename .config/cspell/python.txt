@@ -36,6 +36,7 @@ getenv
 getoption
 getpass
 graphviz
+hashlib
 iloc
 isdir
 isinstance
@@ -62,6 +63,7 @@ pyenv
 pyodbc
 pypi
 pyproject
+pyrightconfig
 pytest
 pytest_report_teststatus
 PYTHONPATH
