@@ -5,6 +5,7 @@ ltrim
 ORGADMIN
 SECURITYADMIN
 snowpark
+Snowsight
 timeadd
 trunc
 USERADMIN
