@@ -20,6 +20,7 @@ dbaeumer
 debugpy
 DENODO
 deque
+dfplus
 direnv
 donjayamanne
 dorzey
@@ -31,6 +32,7 @@ envrc
 errorhandling
 esbenp
 exiasr
+Feedforce
 FGAC
 Filebeat
 Fivetran
