@@ -50,6 +50,10 @@ indent_style = tab
 indent_size = tab
 tab_width = 4
 
+# shfmt https://github.com/patrickvane/shfmt
+binary_next_line = true
+switch_case_indent = true
+
 # Makefile requires hard tabs.
 [Makefile]
 indent_style = tab

@@ -1,23 +1,43 @@
 #!/usr/bin/env bash
+#
+# link-update.sh が作成した古いシンボリックリンクのバックアップを削除する。
+#
+# Requirement Bash Version
+#   GNU Bash 4.4 or later
+#
 set -Eeuo pipefail
 
 readonly GREEN='\033[0;32m'
 readonly RESET='\033[0m'
 
-function remove_links() {
+# 対象ディレクトリ内の古いシンボリックリンクのバックアップを削除する。
+#
+# 引数
+#   $1: 対象ディレクトリ
+remove_links() {
 	local -a files
 	local file
 
 	local target_dir=$1
 
-	mapfile -t files < <(find "$target_dir" -maxdepth 1 -type l -regextype sed -regex ".*[0-9]\{14\}$" | sort)
+	[[ -d "$target_dir" ]] || return 0
+
+	mapfile -t files < <(
+		find "$target_dir" \
+			-maxdepth 1 \
+			-type l \
+			-regextype sed \
+			-regex ".*\.[0-9]\{14\}$" \
+			| sort
+	)
 	for file in "${files[@]}"; do
 		echo "rm ${file}"
+		# 古いバックアップシンボリックリンクを削除する。
 		rm "$file"
 	done
 }
 
-function main() {
+main() {
 	echo -e "${GREEN}Remove symbolic links${RESET}"
 
 	remove_links "${HOME}"

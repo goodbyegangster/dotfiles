@@ -5,6 +5,8 @@ esac
 fromjson
 mapfile
 pipefail
+rcfile
 regextype
+shfmt
 strenv
 wslpath

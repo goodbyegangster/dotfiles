@@ -25,6 +25,7 @@ rust = { version = "latest", profile = "default", components = "rust-src" }
 sbt = "latest"
 scala = "latest"
 shellcheck = "latest"
+shfmt = "latest"
 terraform = "latest"
 usage = "latest"
 uv = "latest"

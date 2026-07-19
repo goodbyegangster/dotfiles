@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# shellcheck disable=SC2155
 set -Eeuo pipefail
 
 readonly GREEN='\033[0;32m'
@@ -145,6 +144,13 @@ function main() {
 		create_link \
 		  "${SCRIPT_DIR}/../.config/pnpm/rc" \
 		  "${HOME}/.config/pnpm/rc"
+
+		####################################################
+		# [shell] .shellcheckrc
+		####################################################
+		create_link \
+		  "${SCRIPT_DIR}/../.config/shellcheck/.shellcheckrc" \
+		  "${HOME}/.shellcheckrc"
 
 		####################################################
 		# [sqruff] .sqruff

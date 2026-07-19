@@ -1,8 +1,11 @@
 [sqruff]
 dialect = snowflake
-templater = jinja
+templater = placeholder
 
 max_line_length = 120
+
+[sqruff:templater:placeholder]
+param_regex = <%\s*(?P<param_name>[A-Za-z_][A-Za-z0-9_]*)\s*%>
 
 [sqruff:indentation]
 indent_unit = space

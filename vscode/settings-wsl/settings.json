@@ -440,10 +440,8 @@
   "shellcheck.enableQuickFix": true,
   "shellcheck.run": "onSave",
   "shellcheck.executablePath": "", // Priority: user defined > bundled shellcheck binary > "shellcheck"
-  "shellcheck.exclude": [],
-  "shellcheck.customArgs": [
-    "-x"
-  ],
+  "shellcheck.exclude": [], // 下位 workspace まで設定が継承されないため、追加設定したい場合は .config ディレクトリ管理の rc ファイルに記載すること
+  "shellcheck.customArgs": [], // 下位 workspace まで設定が継承されないため、追加設定したい場合は .config ディレクトリ管理の rc ファイルに記載すること
   "shellcheck.ignorePatterns": {
     "**/.bashrc": true,
     "**/.profile": true,
