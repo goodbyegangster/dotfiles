@@ -1,14 +1,22 @@
 #!/usr/bin/env bash
+#
+# dotfiles のシンボリックリンク作成と Windows 側設定ファイルの更新を行う。
+#
+# Requirement Bash Version
+#   GNU Bash 4.4 or later
+#
 set -Eeuo pipefail
 
 readonly GREEN='\033[0;32m'
-readonly RED='\033[0;32m'
+readonly RED='\033[0;31m'
 readonly RESET='\033[0m'
 
 readonly NOW=$(date "+%Y%m%d%H%M%S")
-readonly SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd -P)"
+readonly SCRIPT_DIR
 
-function usage() {
+# 使い方を標準出力へ表示する。
+usage() {
 	cat <<-EOF
 		Usage: $(basename "${BASH_SOURCE[0]}") [-h] [-v]
 
@@ -20,147 +28,207 @@ function usage() {
 	EOF
 }
 
-function parse_option() {
+# コマンドラインオプションを解析する。
+parse_option() {
 	while :; do
 		case ${1:-} in
-		-h | --help) usage && exit ;;
-		-v | --verbose) set -x ;;
-		-?*)
-			printf "${RED}%s${RESET}\n" "ERROR: unknown option" >&2
-			usage && exit 1
-			;;
-		*) break ;;
+			-h | --help) usage && exit ;;
+			-v | --verbose) set -x ;;
+			-?*)
+				printf "${RED}%s${RESET}\n" "ERROR: unknown option" >&2
+				usage && exit 1
+				;;
+			*) break ;;
 		esac
 		shift
 	done
 }
 
-function create_link() {
-	local source="$(realpath "$1")"
-	local destination="$2"
+# dotfiles 配下のファイルまたはディレクトリへのシンボリックリンクを作成する。
+#
+# 引数
+#   $1: リンク元パス
+#   $2: リンク先パス
+create_link() {
+	local source
+	local destination=$2
+
+	source="$(realpath "$1")"
 
 	printf "${GREEN}ln -s %-60s %-60s${RESET}\n" "$source" "$destination"
+	# リンク先ディレクトリを作成する。
 	mkdir -p "$(dirname "$destination")"
 	if [[ -d "$destination" && ! -L "$destination" ]]; then
+		# 既存ディレクトリをバックアップへ退避する。
 		mv "$destination" "${destination}.${NOW}"
 	fi
-	ln --symbolic --force --no-dereference --no-target-directory -S ".${NOW}" "$source" "$destination"
+	# 既存パスをバックアップし、シンボリックリンクを作成する。
+	ln \
+		--symbolic \
+		--force \
+		--no-dereference \
+		--no-target-directory \
+		--backup=simple \
+		-S ".${NOW}" \
+		"$source" \
+		"$destination"
 }
 
-function update_file() {
-	local source="$(realpath "$1")"
-	local destination="$2"
+# dotfiles 配下のファイルをコピーして更新する。
+#
+# 引数
+#   $1: コピー元ファイル
+#   $2: コピー先ファイル
+update_file() {
+	local source
+	local destination=$2
+
+	source="$(realpath "$1")"
 
 	printf "${GREEN}cp %-60s %-60s${RESET}\n" "$source" "$destination"
+	# コピー先ディレクトリを作成する。
 	mkdir -p "$(dirname "$destination")"
+	# 既存ファイルを上書きする。
 	cp "$source" "$destination"
 }
 
-function update_directory() {
-	local source="$(realpath "$1")"
-	local destination="$2"
+# dotfiles 配下のディレクトリ内容をコピーして更新する。
+#
+# 引数
+#   $1: コピー元ディレクトリ
+#   $2: コピー先ディレクトリ
+update_directory() {
+	local source
+	local destination=$2
+
+	source="$(realpath "$1")"
 
 	printf "${GREEN}cp -r %-57s %-60s${RESET}\n" "$source" "$destination"
+	# コピー先ディレクトリを作成する。
 	mkdir -p "$destination"
+	# 既存ディレクトリ内へファイルを再帰的に上書きコピーする。
 	cp --recursive "${source}/." "$destination"
 }
 
-function main() {
+# Windows のユーザー名を取得する。
+#
+# 標準出力
+#   Windows のユーザー名
+get_windows_user_name() {
+	local window_user_name
+
+	if ! window_user_name=$(cmd.exe /c "echo %USERNAME%" 2>/dev/null | tr -d '\r'); then
+		printf "${RED}%s${RESET}\n" "ERROR: failed to get Windows user name" >&2
+		return 1
+	fi
+
+	if [[ -z "$window_user_name" ]]; then
+		printf "${RED}%s${RESET}\n" "ERROR: Windows user name is empty" >&2
+		return 1
+	fi
+
+	printf "%s\n" "$window_user_name"
+}
+
+# dotfiles のリンク作成と設定ファイル更新を実行する。
+main() {
 	local input
-	local window_user_name=$(cmd.exe /c "echo %USERNAME%" 2> /dev/null | tr -d '\r')
+	local window_user_name
 
 	parse_option "$@"
 
 	read -erp "Do you want to update? [Y,n]: " input
 	if [[ "$input" == "Y" ]]; then
-		####################################################
-		# [Linux] .bash_aliases
-		####################################################
-		create_link \
-		  "${SCRIPT_DIR}/../bash/.bash_aliases" \
-		  "${HOME}/.bash_aliases"
+		window_user_name="$(get_windows_user_name)"
 
 		####################################################
-		# [Linux] .bashrc
+		# [Linux] .bash_aliases をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../bash/.bashrc" \
-		  "${HOME}/.bashrc"
+			"${SCRIPT_DIR}/../bash/.bash_aliases" \
+			"${HOME}/.bash_aliases"
 
 		####################################################
-		# [Linux] .profile
+		# [Linux] .bashrc をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../bash/.profile" \
-		  "${HOME}/.profile"
+			"${SCRIPT_DIR}/../bash/.bashrc" \
+			"${HOME}/.bashrc"
 
 		####################################################
-		# [biome] biome.json
+		# [Linux] .profile をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/biome/biome.json" \
-		  "${HOME}/.config/biome/biome.json"
+			"${SCRIPT_DIR}/../bash/.profile" \
+			"${HOME}/.profile"
 
 		####################################################
-		# [EditorConfig] .editorconfig
+		# [biome] biome.json をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/editorconfig/.editorconfig" \
-		  "${HOME}/.editorconfig"
+			"${SCRIPT_DIR}/../.config/biome/biome.json" \
+			"${HOME}/.config/biome/biome.json"
 
 		####################################################
-		# [git] .gitconfig
+		# [EditorConfig] .editorconfig をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../git/.gitconfig" \
-		  "${HOME}/.gitconfig"
+			"${SCRIPT_DIR}/../.config/editorconfig/.editorconfig" \
+			"${HOME}/.editorconfig"
 
 		####################################################
-		# [git] .gitconfig.local
+		# [git] .gitconfig をリンクする
 		####################################################
-		if [ -f "${SCRIPT_DIR}/../git/.gitconfig.local" ]; then
+		create_link \
+			"${SCRIPT_DIR}/../git/.gitconfig" \
+			"${HOME}/.gitconfig"
+
+		####################################################
+		# [git] .gitconfig.local をリンクする
+		####################################################
+		if [[ -f "${SCRIPT_DIR}/../git/.gitconfig.local" ]]; then
 			create_link \
-			  "${SCRIPT_DIR}/../git/.gitconfig.local" \
-			  "${HOME}/.gitconfig.local"
+				"${SCRIPT_DIR}/../git/.gitconfig.local" \
+				"${HOME}/.gitconfig.local"
 		fi
 
 		####################################################
-		# [markdownlint-cli2] .markdownlint-cli2.jsonc
+		# [markdownlint-cli2] .markdownlint-cli2.jsonc をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/markdownlint-cli2/.markdownlint-cli2.jsonc" \
-		  "${HOME}/.markdownlint-cli2.jsonc"
+			"${SCRIPT_DIR}/../.config/markdownlint-cli2/.markdownlint-cli2.jsonc" \
+			"${HOME}/.markdownlint-cli2.jsonc"
 
 		####################################################
-		# [mise] config.toml
+		# [mise] config.toml をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../mise/config.toml" \
-		  "${HOME}/.config/mise/config.toml"
+			"${SCRIPT_DIR}/../mise/config.toml" \
+			"${HOME}/.config/mise/config.toml"
 
 		####################################################
-		# [pnpm] rc
+		# [pnpm] rc をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/pnpm/rc" \
-		  "${HOME}/.config/pnpm/rc"
+			"${SCRIPT_DIR}/../.config/pnpm/rc" \
+			"${HOME}/.config/pnpm/rc"
 
 		####################################################
-		# [shell] .shellcheckrc
+		# [shell] .shellcheckrc をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/shellcheck/.shellcheckrc" \
-		  "${HOME}/.shellcheckrc"
+			"${SCRIPT_DIR}/../.config/shellcheck/.shellcheckrc" \
+			"${HOME}/.shellcheckrc"
 
 		####################################################
-		# [sqruff] .sqruff
+		# [sqruff] .sqruff をリンクする
 		####################################################
 		# create_link \
 		#   "${SCRIPT_DIR}/../.config/sqruff/.sqruff" \
 		#   "${HOME}/.sqruff"
 
 		####################################################
-		# [Skills] skill folders
+		# [Skills] skill ディレクトリをリンクする
 		####################################################
 		local skills_dir="${SCRIPT_DIR}/../skills"
 		local skill_dir
@@ -175,35 +243,35 @@ function main() {
 		done
 
 		####################################################
-		# [VS Code] settings.json (Remote)
+		# [VS Code] settings.json (Remote) をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../vscode/settings-wsl/settings.json" \
-		  "${HOME}/.vscode-server/data/Machine/settings.json"
+			"${SCRIPT_DIR}/../vscode/settings-wsl/settings.json" \
+			"${HOME}/.vscode-server/data/Machine/settings.json"
 
 		####################################################
-		# [VS Code] settings.json (User)
+		# [VS Code] settings.json (User) をコピーする
 		####################################################
 		update_file \
-		  "${SCRIPT_DIR}/../vscode/settings-windows/settings.json" \
-		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/settings.json"
+			"${SCRIPT_DIR}/../vscode/settings-windows/settings.json" \
+			"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/settings.json"
 
 		####################################################
-		# [VS Code] tasks
+		# [VS Code] tasks.json をコピーする
 		####################################################
 		update_file \
-		  "${SCRIPT_DIR}/../vscode/tasks.json" \
-		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/tasks.json"
+			"${SCRIPT_DIR}/../vscode/tasks.json" \
+			"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/tasks.json"
 
 		####################################################
-		# [VS Code] key shortcut
+		# [VS Code] keybindings.json をコピーする
 		####################################################
 		update_file \
-		  "${SCRIPT_DIR}/../vscode/keybindings.json" \
-		  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/keybindings.json"
+			"${SCRIPT_DIR}/../vscode/keybindings.json" \
+			"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/keybindings.json"
 
 		####################################################
-		# [VS Code] snippet
+		# [VS Code] スニペットをコピーする
 		####################################################
 		local snippets_dir="${SCRIPT_DIR}/../vscode/snippets"
 		local snippet_file
@@ -214,14 +282,14 @@ function main() {
 
 			snippet_name="$(basename "$snippet_file")"
 			update_file \
-			  "$snippet_file" \
-			  "/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/${snippet_name}"
+				"$snippet_file" \
+				"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/${snippet_name}"
 		done
 
 		####################################################
-		# [PowerShell] Advanced Function
+		# [PowerShell] Advanced Function を設定する
 		####################################################
-		# ExecutionPolicy 設定
+		# ExecutionPolicy を更新する。
 		powershell.exe -NoProfile -Command '& {
 			if ((Get-ExecutionPolicy -Scope CurrentUser) -ne "RemoteSigned") {
 				Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
@@ -231,7 +299,7 @@ function main() {
 		local pwsh_modules_dir="/mnt/c/Users/${window_user_name}/Documents/WindowsPowerShell/Modules"
 		local pwsh_modules_dir_win="C:\\Users\\${window_user_name}\\Documents\\WindowsPowerShell\\Modules"
 
-		# PSModulePath に module 配置先ディレクトリを追加
+		# PSModulePath に module 配置先ディレクトリを追加する。
 		# shellcheck disable=SC2016
 		powershell.exe -NoProfile -Command '& {
 			param([string]$ModulePath)
@@ -255,37 +323,37 @@ function main() {
 
 			pwsh_name="$(basename "$pwsh_dir")"
 			update_directory \
-			  "$pwsh_dir" \
-			  "${pwsh_modules_dir}/${pwsh_name}"
+				"$pwsh_dir" \
+				"${pwsh_modules_dir}/${pwsh_name}"
 		done
 
 		####################################################
-		# [Python] pip.conf
+		# [Python] pip.conf をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/pip/pip.conf" \
-		  "${HOME}/.config/pip/pip.conf"
+			"${SCRIPT_DIR}/../.config/pip/pip.conf" \
+			"${HOME}/.config/pip/pip.conf"
 
 		####################################################
-		# [Python] pyrightconfig.json
+		# [Python] pyrightconfig.json をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/pyright/pyrightconfig.json" \
-		  "${HOME}/pyrightconfig.json"
+			"${SCRIPT_DIR}/../.config/pyright/pyrightconfig.json" \
+			"${HOME}/pyrightconfig.json"
 
 		####################################################
-		# [Python] ruff
+		# [Python] ruff 設定をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/ruff/.ruff.toml" \
-		  "${HOME}/.config/ruff/.ruff.toml"
+			"${SCRIPT_DIR}/../.config/ruff/.ruff.toml" \
+			"${HOME}/.config/ruff/.ruff.toml"
 
 		####################################################
-		# [Python] uv.toml
+		# [Python] uv.toml をリンクする
 		####################################################
 		create_link \
-		  "${SCRIPT_DIR}/../.config/uv/uv.toml" \
-		  "${HOME}/.config/uv/uv.toml"
+			"${SCRIPT_DIR}/../.config/uv/uv.toml" \
+			"${HOME}/.config/uv/uv.toml"
 
 	fi
 }
