@@ -1,37 +1,55 @@
 #!/usr/bin/env bash
+#
+# eksctl を GitHub Releases の tarball からインストールする。
+#
+# Requirement Bash Version
+#   GNU Bash 4.4 or later
+#
 set -Eeuo pipefail
 
-# NOTES
-# eksctl is available to install from official releases as described below.
-# We recommend that you install eksctl from only the official GitHub releases.
-# You may opt to use a third-party installer, but please be advised that AWS does not maintain nor support these methods of installation.
-# Use them at your own discretion.
-# https://github.com/eksctl-io/eksctl?tab=readme-ov-file#installation
+EKSCTL_TMPDIR=""
 
-function install_eksctl() {
+# 一時ディレクトリを削除する。
+cleanup() {
+	if [[ -n "$EKSCTL_TMPDIR" ]]; then
+		# ダウンロード用の一時ディレクトリを削除する。
+		rm -rf "$EKSCTL_TMPDIR"
+	fi
+}
+
+# eksctl をインストールする。
+install_eksctl() {
+	local -r arch=amd64
+	local platform
+
+	# 公式 GitHub Releases からのインストールが推奨されている。
+	# https://github.com/eksctl-io/eksctl?tab=readme-ov-file#installation
 	# https://github.com/eksctl-io/eksctl?tab=readme-ov-file#for-unix
 	if ! command -v eksctl &>/dev/null; then
-		readonly ARCH=amd64
-		readonly PLATFORM="$(uname -s)_${ARCH}"
+		platform="$(uname -s)_${arch}"
 
-		readonly TMP_DIR=$(mktemp -d)
-		trap 'rm -rf "$TMP_DIR"' EXIT
+		EKSCTL_TMPDIR=$(mktemp -d)
+		trap cleanup EXIT
 
-		pushd "$TMP_DIR" >/dev/null
+		pushd "$EKSCTL_TMPDIR" >/dev/null
 
-		curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_${PLATFORM}.tar.gz"
+		# eksctl の tarball と checksums をダウンロードする。
+		curl -sLO \
+			"https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_${platform}.tar.gz"
 		curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" \
-		  | grep "$PLATFORM" \
-		  | sha256sum --check
+			| grep "$platform" \
+			| sha256sum --check
 
-		tar -xzf "eksctl_${PLATFORM}.tar.gz"
+		tar -xzf "eksctl_${platform}.tar.gz"
+		# eksctl を /usr/local/bin へインストールする。
 		sudo install -m 0755 eksctl /usr/local/bin/eksctl
 
 		popd >/dev/null
 	fi
 }
 
-function main() {
+# eksctl のインストールを実行する。
+main() {
 	install_eksctl
 }
 

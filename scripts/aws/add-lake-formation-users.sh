@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-set -Eeuo pipefail
-
-###################################################################################################
-# Lake Formation 向け IAM ユーザーの作成 or 削除
+#
+# Lake Formation 向け IAM ユーザーの作成または削除を行う。
 #
 # 下記ページに記載されているユーザー種類毎に、必要となる権限を付与した IAM ユーザーを作成する
 # Lake Formation personas and IAM permissions reference - Personas suggested permissions
@@ -11,115 +9,202 @@ set -Eeuo pipefail
 # 備考
 # - ワークフロー・ロールのパスロール・ポリシーは付与させていない
 # - Athena Query の Result 出力先として「S3://aws-athena-query-results-*」を指定しており、バケット名が異なる場合はコード側を修正する
-###################################################################################################
+#
+# Requirement Bash Version
+#   GNU Bash 4.4 or later
+#
+set -Eeuo pipefail
 
-function usage() {
+readonly ATHENA_QUERY_RESULT_BUCKET="aws-athena-query-results-*"
+readonly POLICY_TYPES="admin read_only_admin engineer analyst scientist"
+
+ACCOUNT_ID=""
+PASSWORD="${LAKE_FORMATION_USER_PASSWORD:-}"
+PROFILE=""
+SHOULD_DELETE=0
+TYPE=""
+USERNAME=""
+
+# 使い方を標準出力へ表示する。
+usage() {
 	cat <<-EOF
 		Usage:
-			$(basename "${BASH_SOURCE[0]}") [-h] [-v] [-d] -p <aws profile> -t <policy type> -u <iam user name>
+		  $(basename "${BASH_SOURCE[0]}") [-h] [-v] [-d] -p <aws profile> -u <iam user name>
+		  $(basename "${BASH_SOURCE[0]}") [-h] [-v] -p <aws profile> -t <policy type> \\
+		    -u <iam user name> [-P <password>]
 
-		Lake Formation 向け IAM ユーザーの作成 or 削除
+		Lake Formation 向け IAM ユーザーの作成または削除を行う。
 
 		Available options:
 
 		-h, --help
 		-v, --verbose
-		-d, --delete  削除したい場合に指定
-		-p, --profile  利用する AWS プロファイル名
-		-t, --type  ユーザーの権限タイプを右より指定 [admin, read_only_admin, engineer, analyst, scientist]
-		-u, --user-name  IAM ユーザー名
+		-d, --delete    IAM ユーザーを削除する
+		-p, --profile   利用する AWS プロファイル名
+		-t, --type      ユーザーの権限タイプ [admin, read_only_admin, engineer, analyst, scientist]
+		-u, --user-name IAM ユーザー名
+		-P, --password  ログインパスワード
+
+		Environment variables:
+
+		LAKE_FORMATION_USER_PASSWORD
+		  --password 未指定時のログインパスワード
 	EOF
 	exit
 }
 
-function msg() {
-	echo >&2 -e "${1:-}"
+# メッセージを標準エラー出力へ表示する。
+#
+# 引数
+#   $1: 表示するメッセージ
+msg() {
+	printf "%b\n" "${1:-}" >&2
 }
 
-function die() {
+# エラーメッセージを表示して終了する。
+#
+# 引数
+#   $1: 表示するメッセージ
+#   $2: 終了ステータス
+die() {
 	local msg=$1
 	local code=${2:-1}
+
 	msg "$msg"
 	exit "$code"
 }
 
-function parse_args() {
-	ACCOUNT_ID=$(aws --profile private sts get-caller-identity | jq -r '.Account')
-	ATHENA_QUERY_RESULT_BUCKET="aws-athena-query-results-*"
-	should_delete=0
+# AWS IAM コマンドを指定 profile で実行する。
+aws_iam() {
+	aws --profile "${PROFILE}" iam "$@"
+}
 
+# 管理ポリシーを IAM ユーザーへアタッチする。
+#
+# 引数
+#   $1: 管理ポリシー ARN
+attach_user_policy() {
+	local policy_arn=$1
+
+	# IAM ユーザーへ管理ポリシーをアタッチする。
+	aws_iam attach-user-policy \
+		--user-name "${USERNAME}" \
+		--policy-arn "$policy_arn"
+}
+
+# inline policy を IAM ユーザーへ追加する。
+#
+# 引数
+#   $1: policy 名
+#   $2: policy document
+put_user_policy() {
+	local policy_name=$1
+	local policy_document=$2
+
+	# IAM ユーザーへ inline policy を追加する。
+	aws_iam put-user-policy \
+		--user-name "${USERNAME}" \
+		--policy-name "$policy_name" \
+		--policy-document "$policy_document"
+}
+
+# コマンドライン引数を解析する。
+parse_args() {
 	while :; do
 		case "${1-}" in
-		-h | --help) usage ;;
-		-v | --verbose) set -x ;;
-		-p | --profile)
-			PROFILE="${2:-}"
-			shift
-			;;
-		-t | --type)
-			TYPE="${2:-}"
-			validate_type
-			shift
-			;;
-		-u | --user-name)
-			USERNAME="${2:-}"
-			shift
-			;;
-		-d | --delete) should_delete=1 ;;
-		-?*) die "Unknown option: $1" ;;
-		*) break ;;
+			-h | --help) usage ;;
+			-v | --verbose) set -x ;;
+			-d | --delete) SHOULD_DELETE=1 ;;
+			-p | --profile)
+				PROFILE="${2:-}"
+				shift
+				;;
+			-P | --password)
+				PASSWORD="${2:-}"
+				shift
+				;;
+			-t | --type)
+				TYPE="${2:-}"
+				validate_type
+				shift
+				;;
+			-u | --user-name)
+				USERNAME="${2:-}"
+				shift
+				;;
+			-?*) die "Unknown option: $1" ;;
+			*) break ;;
 		esac
 		shift
 	done
 
-	[[ -z "${PROFILE:-}" ]] && die "Missing required parameter: --profile"
-	[[ -z "${USERNAME:-}" ]] && die "Missing required parameter: --user-name"
+	[[ -z "${PROFILE}" ]] && die "Missing required parameter: --profile"
+	[[ -z "${USERNAME}" ]] && die "Missing required parameter: --user-name"
 
-	if [[ ${should_delete} -eq 0 ]]; then
-		[[ -z "${TYPE:-}" ]] && die "Missing required parameter: --type"
+	if [[ "${SHOULD_DELETE}" -eq 0 ]]; then
+		[[ -z "${TYPE}" ]] && die "Missing required parameter: --type"
+		[[ -z "${PASSWORD}" ]] && die "Missing required parameter: --password"
 	fi
 
-	return 0
+	ACCOUNT_ID="$(aws --profile "${PROFILE}" sts get-caller-identity --query Account --output text)"
 }
 
-function validate_type() {
-	POLICY_TYPES="admin read_only_admin engineer analyst scientist"
-	echo "${POLICY_TYPES}" | grep -w "${TYPE}" 1>/dev/null || die "Cold not match. ${TYPE} in ${POLICY_TYPES}"
+# 権限タイプが許可値に含まれることを検証する。
+validate_type() {
+	case " ${POLICY_TYPES} " in
+		*" ${TYPE} "*) ;;
+		*) die "Could not match. ${TYPE} in ${POLICY_TYPES}" ;;
+	esac
 }
 
-function create_user() {
-	aws --profile "${PROFILE}" iam create-user --user-name "${USERNAME}" 1>/dev/null
-	aws --profile "${PROFILE}" iam create-login-profile --user-name "${USERNAME}" --password P@ssw0rd 1>/dev/null
+# IAM ユーザーを作成し、権限タイプに応じた policy を付与する。
+create_user() {
+	# IAM ユーザーとログインプロファイルを作成する。
+	aws_iam create-user --user-name "${USERNAME}" 1>/dev/null
+	aws_iam create-login-profile \
+		--user-name "${USERNAME}" \
+		--password "${PASSWORD}" \
+		--password-reset-required \
+		1>/dev/null
 
 	case "${TYPE}" in
-	admin)
-		create_user_admin
-		;;
-	read_only_admin)
-		create_user_read_only_admin
-		;;
-	engineer)
-		create_user_engineer
-		;;
-	analyst)
-		create_user_analyst
-		;;
-	scientist)
-		create_user_scientist
-		;;
+		admin)
+			create_user_admin
+			;;
+		read_only_admin)
+			create_user_read_only_admin
+			;;
+		engineer)
+			create_user_engineer
+			;;
+		analyst)
+			create_user_analyst
+			;;
+		scientist)
+			create_user_scientist
+			;;
 	esac
 
 	msg "create user ${USERNAME}: ${TYPE}"
 }
 
-function create_user_admin() {
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AWSLakeFormationDataAdmin
-	# service-role 向けポリシーのため、IAM ユーザーにはアタッチ不要
-	# aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/aws-service-role/LakeFormationDataAccessServiceRolePolicy
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AWSLakeFormationCrossAccountManager
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AmazonAthenaFullAccess
+# admin 向け policy を付与する。
+create_user_admin() {
+	local policy
+	local service_role_arn
+
+	attach_user_policy "arn:aws:iam::aws:policy/AWSLakeFormationDataAdmin"
+	# service-role 向けポリシーのため、IAM ユーザーにはアタッチ不要。
+	# arn:aws:iam::aws:policy/aws-service-role/LakeFormationDataAccessServiceRolePolicy
+	attach_user_policy "arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess"
+	attach_user_policy "arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess"
+	attach_user_policy "arn:aws:iam::aws:policy/AWSLakeFormationCrossAccountManager"
+	attach_user_policy "arn:aws:iam::aws:policy/AmazonAthenaFullAccess"
+
+	service_role_arn="arn:aws:iam::${ACCOUNT_ID}:role/aws-service-role"
+	service_role_arn="${service_role_arn}/lakeformation.amazonaws.com"
+	service_role_arn="${service_role_arn}/AWSServiceRoleForLakeFormationDataAccess"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -140,13 +225,14 @@ function create_user_admin() {
 						"Action": [
 							"iam:PutRolePolicy"
 						],
-						"Resource": "arn:aws:iam::${ACCOUNT_ID}:role/aws-service-role/lakeformation.amazonaws.com/AWSServiceRoleForLakeFormationDataAccess"
+						"Resource": "${service_role_arn}"
 					}
 				]
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-admin --policy-document "${policy}"
+	put_user_policy "pol-lf-admin" "$policy"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -166,7 +252,8 @@ function create_user_admin() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-admin-cross-account --policy-document "${policy}"
+	put_user_policy "pol-lf-admin-cross-account" "$policy"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -185,18 +272,21 @@ function create_user_admin() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-athena-result-bucket --policy-document "${policy}"
+	put_user_policy "pol-athena-result-bucket" "$policy"
 }
 
-function create_user_read_only_admin() {
+# read_only_admin 向け policy を付与する。
+create_user_read_only_admin() {
+	local policy
+
 	policy=$(
 		cat <<-EOF
-			{  
+			{
 				"Version":"2012-10-17",
-				"Statement":[  
-					{  
+				"Statement":[
+					{
 						"Effect":"Allow",
-						"Action":[  
+						"Action":[
 							"lakeformation:GetEffectivePermissionsForPath",
 							"lakeformation:ListPermissions",
 							"lakeformation:ListDataCellsFilter",
@@ -233,9 +323,9 @@ function create_user_read_only_admin() {
 						],
 						"Resource":"*"
 					},
-					{  
+					{
 						"Effect":"Deny",
-						"Action":[  
+						"Action":[
 							"lakeformation:PutDataLakeSettings"
 						],
 						"Resource":"*"
@@ -244,12 +334,16 @@ function create_user_read_only_admin() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-read-only-admin --policy-document "${policy}"
+	put_user_policy "pol-lf-read-only-admin" "$policy"
 }
 
-function create_user_engineer() {
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AmazonAthenaFullAccess
+# engineer 向け policy を付与する。
+create_user_engineer() {
+	local policy
+
+	attach_user_policy "arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess"
+	attach_user_policy "arn:aws:iam::aws:policy/AmazonAthenaFullAccess"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -283,7 +377,8 @@ function create_user_engineer() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-data-engineer --policy-document "${policy}"
+	put_user_policy "pol-lf-data-engineer" "$policy"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -308,7 +403,8 @@ function create_user_engineer() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-data-engineer-lf --policy-document "${policy}"
+	put_user_policy "pol-lf-data-engineer-lf" "$policy"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -331,30 +427,17 @@ function create_user_engineer() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-data-engineer-tbac --policy-document "${policy}"
-	policy=$(
-		cat <<-EOF
-			{
-				"Version": "2012-10-17",
-				"Statement": [
-					{
-						"Effect": "Allow",
-						"Action": [
-							"s3:Put*",
-							"s3:Get*",
-							"s3:List*"
-						],
-						"Resource": "arn:aws:s3:::${ATHENA_QUERY_RESULT_BUCKET}"
-					}
-				]
-			}
-		EOF
-	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-athena-result-bucket --policy-document "${policy}"
+	put_user_policy "pol-lf-data-engineer-tbac" "$policy"
+
+	put_athena_result_bucket_policy
 }
 
-function create_user_analyst() {
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AmazonAthenaFullAccess
+# analyst 向け policy を付与する。
+create_user_analyst() {
+	local policy
+
+	attach_user_policy "arn:aws:iam::aws:policy/AmazonAthenaFullAccess"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -374,7 +457,7 @@ function create_user_analyst() {
 							"lakeformation:ListLFTags",
 							"lakeformation:GetLFTag",
 							"lakeformation:SearchTablesByLFTags",
-							"lakeformation:SearchDatabasesByLFTags"    
+							"lakeformation:SearchDatabasesByLFTags"
 						],
 						"Resource": "*"
 					}
@@ -382,7 +465,8 @@ function create_user_analyst() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-data-analyst --policy-document "${policy}"
+	put_user_policy "pol-lf-data-analyst" "$policy"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -407,31 +491,18 @@ function create_user_analyst() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-data-analyst-lf --policy-document "${policy}"
-	policy=$(
-		cat <<-EOF
-			{
-				"Version": "2012-10-17",
-				"Statement": [
-					{
-						"Effect": "Allow",
-						"Action": [
-							"s3:Put*",
-							"s3:Get*",
-							"s3:List*"
-						],
-						"Resource": "arn:aws:s3:::${ATHENA_QUERY_RESULT_BUCKET}"
-					}
-				]
-			}
-		EOF
-	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-athena-result-bucket --policy-document "${policy}"
+	put_user_policy "pol-lf-data-analyst-lf" "$policy"
+
+	put_athena_result_bucket_policy
 }
 
-function create_user_scientist() {
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AmazonAthenaFullAccess
-	aws --profile "${PROFILE}" iam attach-user-policy --user-name "${USERNAME}" --policy-arn arn:aws:iam::aws:policy/AmazonSageMakerFullAccess
+# scientist 向け policy を付与する。
+create_user_scientist() {
+	local policy
+
+	attach_user_policy "arn:aws:iam::aws:policy/AmazonAthenaFullAccess"
+	attach_user_policy "arn:aws:iam::aws:policy/AmazonSageMakerFullAccess"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -451,7 +522,7 @@ function create_user_scientist() {
 							"lakeformation:ListLFTags",
 							"lakeformation:GetLFTag",
 							"lakeformation:SearchTablesByLFTags",
-							"lakeformation:SearchDatabasesByLFTags"    
+							"lakeformation:SearchDatabasesByLFTags"
 						],
 						"Resource": "*"
 					}
@@ -459,7 +530,8 @@ function create_user_scientist() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-data-scientist --policy-document "${policy}"
+	put_user_policy "pol-lf-data-scientist" "$policy"
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -484,7 +556,15 @@ function create_user_scientist() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-lf-data-scientist-lf --policy-document "${policy}"
+	put_user_policy "pol-lf-data-scientist-lf" "$policy"
+
+	put_athena_result_bucket_policy
+}
+
+# Athena query result bucket 向け policy を付与する。
+put_athena_result_bucket_policy() {
+	local policy
+
 	policy=$(
 		cat <<-EOF
 			{
@@ -503,25 +583,55 @@ function create_user_scientist() {
 			}
 		EOF
 	)
-	aws --profile "${PROFILE}" iam put-user-policy --user-name "${USERNAME}" --policy-name pol-athena-result-bucket --policy-document "${policy}"
+	put_user_policy "pol-athena-result-bucket" "$policy"
 }
 
-function delete_user() {
-	for attached_user_policy in $(aws --profile "${PROFILE}" iam list-attached-user-policies --user "${USERNAME}" | jq -r '.AttachedPolicies[].PolicyArn'); do
-		aws --profile "${PROFILE}" iam detach-user-policy --user-name "${USERNAME}" --policy-arn "${attached_user_policy}"
+# IAM ユーザーと関連する policy を削除する。
+delete_user() {
+	local -a attached_user_policies
+	local -a inline_policies
+	local attached_user_policy
+	local inline_policy
+
+	mapfile -t attached_user_policies < <(
+		aws_iam list-attached-user-policies \
+			--user-name "${USERNAME}" \
+			| jq -r '.AttachedPolicies[].PolicyArn'
+	)
+	for attached_user_policy in "${attached_user_policies[@]}"; do
+		[[ -n "$attached_user_policy" ]] || continue
+		# IAM ユーザーから管理ポリシーをデタッチする。
+		aws_iam detach-user-policy \
+			--user-name "${USERNAME}" \
+			--policy-arn "$attached_user_policy"
 	done
-	for inline_policy in $(aws --profile "${PROFILE}" iam list-user-policies --user "${USERNAME}" | jq -r '.PolicyNames[]'); do
-		aws --profile "${PROFILE}" iam delete-user-policy --user-name "${USERNAME}" --policy-name "${inline_policy}"
+
+	mapfile -t inline_policies < <(
+		aws_iam list-user-policies \
+			--user-name "${USERNAME}" \
+			| jq -r '.PolicyNames[]'
+	)
+	for inline_policy in "${inline_policies[@]}"; do
+		[[ -n "$inline_policy" ]] || continue
+		# IAM ユーザーから inline policy を削除する。
+		aws_iam delete-user-policy \
+			--user-name "${USERNAME}" \
+			--policy-name "$inline_policy"
 	done
-	aws --profile "${PROFILE}" iam delete-login-profile --user-name "${USERNAME}" || msg "Login Profile cannot be found"
-	aws --profile "${PROFILE}" iam delete-user --user-name "${USERNAME}"
+
+	# IAM ユーザーのログインプロファイルを削除する。
+	aws_iam delete-login-profile --user-name "${USERNAME}" \
+		|| msg "Login Profile cannot be found"
+	# IAM ユーザーを削除する。
+	aws_iam delete-user --user-name "${USERNAME}"
 	msg "delete user ${USERNAME}"
 }
 
-function main() {
+# 引数に応じて IAM ユーザーの作成または削除を実行する。
+main() {
 	parse_args "$@"
 
-	if [[ ${should_delete} -eq 0 ]]; then
+	if [[ "${SHOULD_DELETE}" -eq 0 ]]; then
 		create_user
 	else
 		delete_user
