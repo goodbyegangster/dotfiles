@@ -5,6 +5,7 @@ ltrim
 ORGADMIN
 SECURITYADMIN
 snowpark
+Snowpipe
 Snowsight
 timeadd
 trunc
