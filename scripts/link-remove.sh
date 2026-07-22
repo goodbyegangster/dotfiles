@@ -49,6 +49,7 @@ main() {
 	remove_links "${HOME}/.config/pnpm"
 	remove_links "${HOME}/.config/ruff"
 	remove_links "${HOME}/.config/uv"
+	remove_links "${HOME}/.config"
 	remove_links "${HOME}/.vscode-server/data/Machine"
 }
 

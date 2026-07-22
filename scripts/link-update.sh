@@ -163,11 +163,11 @@ main() {
 			"${HOME}/.profile"
 
 		####################################################
-		# [biome] biome.json をリンクする
+		# [container] hadolint.yml をリンクする
 		####################################################
 		create_link \
-			"${SCRIPT_DIR}/../.config/biome/biome.json" \
-			"${HOME}/.config/biome/biome.json"
+			"${SCRIPT_DIR}/../.config/hadolint/hadolint.yaml" \
+			"${HOME}/.config/hadolint.yaml"
 
 		####################################################
 		# [EditorConfig] .editorconfig をリンクする
@@ -193,7 +193,21 @@ main() {
 		fi
 
 		####################################################
-		# [markdownlint-cli2] .markdownlint-cli2.jsonc をリンクする
+		# [javascript / typescript] biome.json をリンクする
+		####################################################
+		create_link \
+			"${SCRIPT_DIR}/../.config/biome/biome.json" \
+			"${HOME}/.config/biome/biome.json"
+
+		####################################################
+		# [javascript / typescript] rc(pnpm) をリンクする
+		####################################################
+		create_link \
+			"${SCRIPT_DIR}/../.config/pnpm/rc" \
+			"${HOME}/.config/pnpm/rc"
+
+		####################################################
+		# [markdown] .markdownlint-cli2.jsonc をリンクする
 		####################################################
 		create_link \
 			"${SCRIPT_DIR}/../.config/markdownlint-cli2/.markdownlint-cli2.jsonc" \
@@ -205,13 +219,6 @@ main() {
 		create_link \
 			"${SCRIPT_DIR}/../mise/config.toml" \
 			"${HOME}/.config/mise/config.toml"
-
-		####################################################
-		# [pnpm] rc をリンクする
-		####################################################
-		create_link \
-			"${SCRIPT_DIR}/../.config/pnpm/rc" \
-			"${HOME}/.config/pnpm/rc"
 
 		####################################################
 		# [shell] .shellcheckrc をリンクする
