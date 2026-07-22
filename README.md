@@ -2,11 +2,19 @@
 
 ## Overview
 
-WSL と Windows 開発環境で使う設定ファイル、導入 script、作業メモを管理する。
+WSL と Windows の開発環境で使う設定ファイルを管理する。
+
+Bash、Git、mise、PowerShell、VS Code、各種 formatter/linter の設定を含む。
+設定ファイルを配置するための script も含む。
 
 ## Requirements
 
-初回セットアップでは、必要に応じて次の公式ドキュメントを参照する。
+主な操作では次の command を使う。
+
+- Bash 4.4 以上
+- GNU Make
+
+初回セットアップでは、必要に応じて次のドキュメントを参照する。
 
 - [Windows ターミナル](https://learn.microsoft.com/ja-jp/windows/terminal/)
 - [PowerToys](https://learn.microsoft.com/ja-jp/windows/powertoys/install#install-with-microsoft-store)
@@ -23,10 +31,16 @@ WSL と Windows 開発環境で使う設定ファイル、導入 script、作業
 make
 ```
 
-dotfiles の symbolic link を作成または更新する。
+設定ファイルの symbolic link を作成または更新する。
 
 ```shell
 make link-update
+```
+
+古い symbolic link の backup を削除する。
+
+```shell
+make link-remove
 ```
 
 ## Directory Layout
@@ -34,50 +48,14 @@ make link-update
 ```text
 ./
 ├── .config/                  # CLI tool と formatter/linter の設定
-│   ├── biome/
-│   ├── cspell/
-│   ├── editorconfig/
-│   ├── html/
-│   ├── markdownlint-cli2/
-│   ├── pip/
-│   ├── pnpm/
-│   ├── sqlfluff/
-│   ├── sqruff/
-│   ├── textlint/
-│   └── uv/
 ├── bash/                     # Bash の設定
-│   ├── .bash_aliases
-│   ├── .bashrc
-│   └── .profile
 ├── git/                      # Git の設定
-│   ├── .gitconfig
-│   └── .gitconfig.local.sample
 ├── mise/                     # mise の設定
-│   └── config.toml
 ├── pwsh/                     # PowerShell module と ScriptAnalyzer 設定
-│   ├── advanced-function/
-│   └── ScriptAnalyzerSettings.psd1
 ├── scripts/                  # link 更新と install 用 script
-│   ├── aws/
-│   ├── install/
-│   ├── link-remove.sh
-│   └── link-update.sh
 ├── skills/                   # agent 用 skill
-│   ├── code-search/
-│   ├── dependency-review/
-│   ├── pwsh-review/
-│   └── write-readme/
 ├── tips/                     # tool ごとの短いメモ
-│   ├── JavaScript/
-│   ├── PowerShell/
-│   ├── Python/
-│   └── mise/
 ├── vscode/                   # VS Code の設定、task、snippet
-│   ├── settings-windows/
-│   ├── settings-wsl/
-│   ├── snippets/
-│   ├── keybindings.json
-│   └── tasks.json
 ├── .gitignore
 ├── Makefile
 ├── README.md
@@ -89,6 +67,5 @@ make link-update
 - [mise](./tips/mise/mise.md)
 - [PowerShell](./tips/PowerShell/PowerShell.md)
 - [uv](./tips/Python/uv.md)
-- [Poetry](./tips/Python/Poetry.md)
 - [pnpm](./tips/JavaScript/pnpm.md)
 - [Biome](./tips/JavaScript/Biome.md)
