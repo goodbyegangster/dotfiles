@@ -78,7 +78,7 @@ README.md 全体は、明示的な指示がない限り 120 行以内を目安�
 
 ### Usage
 
-- example は、原則として 2 つまでとする。
+- example は、原則として 2 つまでとする
 
 ### `Directory Layout` の表現方法
 

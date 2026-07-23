@@ -82,7 +82,7 @@ Python のコードをレビューし、可読性、保守性、不要な複雑�
 #### 引数
 
 - `self` と `cls` を除く引数が 3 つ以上ある場合、引数を keyword-only 必須とする
-- override、protocol、callback、外部APIとの互換性が必要な場合、既存の signature を優先する
+- override、protocol、callback、外部 API との互換性が必要な場合、既存の signature を優先する
 
 #### 戻り値
 
