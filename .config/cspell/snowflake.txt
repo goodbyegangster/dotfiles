@@ -2,11 +2,13 @@ ACCOUNTADMIN
 DATEADD
 GLOBALORGADMIN
 ltrim
+Openflow
 ORGADMIN
 SECURITYADMIN
 snowpark
 Snowpipe
 Snowsight
+sysdate
 timeadd
 trunc
 USERADMIN

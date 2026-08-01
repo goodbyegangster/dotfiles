@@ -18,13 +18,14 @@ uv python install x.x.x
 
 ## 仮想環境の作成
 
-カレントディレクトリを root として作成。
+### カレントディレクトリを project root として作成
 
 ```sh
 uv init --python x.x.x
+uv sync
 ```
 
-hogehoge ディレクトリを作成。
+### hogehoge ディレクトリを新規作成し、project root とする
 
 ```sh
 uv init hogehoge --python x.x.x
