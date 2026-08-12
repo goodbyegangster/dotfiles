@@ -398,6 +398,9 @@
   "markdown.extension.toc.levels": "2..3",
   "markdown.extension.toc.omittedFromToc": {},
   "markdown-pdf.executablePath": "/usr/bin/chromium-browser",
+  "markdown-pdf.styles": [
+    "~/dotfiles/.config/markdown-pdf/markdown-pdf.css"
+  ],
   /**************************************************
   / PowerShell
   / PowerShell 向けの設定は vscode/settings-windows/settings.json で管理されている

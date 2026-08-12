@@ -93,6 +93,20 @@ if command -v gh &> /dev/null; then
 fi
 
 #####################################################
+# OpenAI
+#####################################################
+
+# Codex
+# 共有設定は ~/.codex/dotfiles.config.toml として管理し、project trust state は
+# ~/.codex/config.toml に残す。Codex は config.toml 内の profile 指定を廃止したため、
+# 通常起動時だけ --profile dotfiles を付与する。
+if [[ -e "$HOME/.codex/dotfiles.config.toml" ]]; then
+	function codex() {
+		command codex --profile dotfiles "$@"
+	}
+fi
+
+#####################################################
 # Google Cloud
 #####################################################
 

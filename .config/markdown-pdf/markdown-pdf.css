@@ -1,0 +1,35 @@
+/*
+ * markdown-pdf の PDF 出力用スタイル。
+ *
+ * VS Code / WSL 上の markdown-pdf は Chromium で印刷するため、
+ * PDF の余白やフォントはブラウザ印刷の挙動と Linux 側のフォント環境に依存する。
+ */
+
+/* 印刷ページ自体の背景色。通常の body 背景だけでは余白領域に色が乗らない場合がある。 */
+@page {
+  background-color: #f6f8fa;
+}
+
+/* PDF 全体の背景色と、Linux でも読みやすい日本語フォントの優先順位。 */
+html,
+body {
+  background-color: #f6f8fa;
+  color: #24292f;
+  font-family: "IPAPGothic", "IPA Pゴシック", "IPAゴシック", "Noto Sans CJK JP",
+    "Yu Gothic", "Meiryo", sans-serif;
+}
+
+/* markdown-pdf が生成する本文コンテナにも同じ見た目を明示する。 */
+.markdown-body {
+  background-color: #f6f8fa;
+  color: #24292f;
+  font-family: "IPAPGothic", "IPA Pゴシック", "IPAゴシック", "Noto Sans CJK JP",
+    "Yu Gothic", "Meiryo", sans-serif;
+}
+
+/* コード部分は本文背景より少し濃くし、等幅フォントを使う。 */
+.markdown-body pre,
+.markdown-body code {
+  background-color: #eaeef2;
+  font-family: "DejaVu Sans Mono", "Noto Sans Mono CJK JP", monospace;
+}
