@@ -1,5 +1,2 @@
 model = "gpt-5.6-sol"
 model_reasoning_effort = "medium"
-
-[projects."/home/kawata/work/datacatalog-in-snowflake"]
-trust_level = "trusted"
