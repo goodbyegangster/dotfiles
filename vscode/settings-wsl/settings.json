@@ -8,6 +8,7 @@
   },
   "workbench.editor.enablePreview": true,
   "workbench.editorLargeFileConfirmation": 3072,
+  "workbench.panel.defaultLocation": "right",
   "workbench.startupEditor": "none",
   /**************************************************
   / terminal
