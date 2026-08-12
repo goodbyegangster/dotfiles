@@ -33,6 +33,7 @@ yq = "latest"
 
 # Node.js 動作の CLI tool
 "npm:@box/cli" = "latest"
+"npm:@google/clasp" = "latest"
 "npm:aws-cdk" = "latest"
 "npm:create-vite" = "latest"
 "npm:html-validate" = "latest"
