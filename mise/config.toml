@@ -30,6 +30,7 @@ terraform = "latest"
 usage = "latest"
 uv = "latest"
 yq = "latest"
+"aqua:go-task/task" = "latest"
 
 # Node.js 動作の CLI tool
 "npm:@box/cli" = "latest"
