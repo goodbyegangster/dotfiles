@@ -65,6 +65,7 @@ JSONata
 Kimball
 kubeconfig
 lifecycle
+LIGHTDASH
 mechatroner
 memlock
 microdnf

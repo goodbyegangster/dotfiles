@@ -7,8 +7,10 @@
 #
 set -Eeuo pipefail
 
+readonly DOCKER_COMPOSE_VERSION="v5.4.0"
+
 # Docker rootless mode と必要パッケージをインストールする。
-install() {
+install_docker() {
 	local -a conflict_packages=(
 		docker.io
 		docker-compose
@@ -47,9 +49,49 @@ install() {
 	fi
 }
 
+# Docker Compose CLI プラグインをユーザーディレクトリへインストールする。
+install_docker_compose() {
+	local architecture
+	local cli_plugins_dir
+	local compose_url
+	local temporary_file
+
+	if docker compose version &>/dev/null; then
+		return
+	fi
+
+	case "$(uname -m)" in
+		x86_64 | amd64)
+			architecture="x86_64"
+			;;
+		aarch64 | arm64)
+			architecture="aarch64"
+			;;
+		*)
+			printf '未対応のアーキテクチャです: %s\n' "$(uname -m)" >&2
+			return 1
+			;;
+	esac
+
+	cli_plugins_dir="${DOCKER_CONFIG:-${HOME}/.docker}/cli-plugins"
+	compose_url="https://github.com/docker/compose/releases/download/"
+	compose_url+="${DOCKER_COMPOSE_VERSION}/docker-compose-linux-${architecture}"
+
+	mkdir -p -- "${cli_plugins_dir}"
+	temporary_file="$(mktemp "${cli_plugins_dir}/docker-compose.tmp.XXXXXX")"
+	trap 'rm -f -- "${temporary_file}"' RETURN
+
+	# Docker Compose の実行ファイルをダウンロードして配置する。
+	curl -fSL "${compose_url}" --output "${temporary_file}"
+	chmod 0755 "${temporary_file}"
+	mv -- "${temporary_file}" "${cli_plugins_dir}/docker-compose"
+	trap - RETURN
+}
+
 # Docker rootless mode のインストールを実行する。
 main() {
-	install
+	install_docker
+	install_docker_compose
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
