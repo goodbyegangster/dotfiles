@@ -97,12 +97,11 @@ fi
 #####################################################
 
 # Codex
-# 共有設定は ~/.codex/dotfiles.config.toml として管理し、project trust state は
-# ~/.codex/config.toml に残す。Codex は config.toml 内の profile 指定を廃止したため、
-# 通常起動時だけ --profile dotfiles を付与する。
-if [[ -e "$HOME/.codex/dotfiles.config.toml" ]]; then
-	function codex() {
-		command codex --profile dotfiles "$@"
+# 共有設定は ~/.codex/config.toml として管理し、private な設定は
+# ~/.codex/private.config.toml から読み込む。
+if [[ -e "$HOME/.codex/private.config.toml" ]]; then
+	codex() {
+		command codex --profile private "$@"
 	}
 fi
 

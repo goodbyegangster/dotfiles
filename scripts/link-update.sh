@@ -163,11 +163,18 @@ main() {
 			"${HOME}/.profile"
 
 		####################################################
-		# [codex] 共有設定を profile としてリンクする
+		# [codex] 共有設定をリンクする
 		####################################################
 		create_link \
 			"${SCRIPT_DIR}/../.config/codex/config.toml" \
-			"${HOME}/.codex/dotfiles.config.toml"
+			"${HOME}/.codex/config.toml"
+
+		# private 設定がある場合は profile としてリンクする。
+		if [[ -f "${SCRIPT_DIR}/../.config/codex/private.config.toml" ]]; then
+			create_link \
+				"${SCRIPT_DIR}/../.config/codex/private.config.toml" \
+				"${HOME}/.codex/private.config.toml"
+		fi
 
 		####################################################
 		# [container] hadolint.yml をリンクする

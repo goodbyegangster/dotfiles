@@ -17,6 +17,7 @@
 !README.md
 
 ### specific ignore
+/.config/codex/private.config.toml
 /git/.gitconfig.local
 node_modules/
 private.txt
