@@ -84,8 +84,10 @@ OLTP
 oneshot
 OOUI
 openmetadata
+PAGILA
 Passw
 PDCA
+pgadmin
 pids
 piyopiyo
 PKCE

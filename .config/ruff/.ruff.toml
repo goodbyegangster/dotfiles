@@ -16,6 +16,7 @@ ignore = [
   "D400", # First line should end with a period
   "D401", # First line should end with a period
   "D403", # First word of the docstring should be capitalized
+  "D413", # Checks for missing blank lines after the last section of a multiline docstring.
   "D415", # First line should end with a period
   "EM101", # Exception must not use a string literal, assign to variable first
   "ERA001", # Found commented-out code
