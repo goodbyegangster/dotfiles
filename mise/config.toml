@@ -21,6 +21,7 @@ pnpm = "latest"
 # sudo apt-get install build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev bison flex libicu-dev pkgconf
 postgres = "17"
 powershell-core = "latest"
+ruby = "3.4.5"
 # https://mise.jdx.dev/lang/rust.html
 rust = { version = "latest", profile = "default", components = "rust-src" }
 sbt = "latest"
@@ -36,6 +37,7 @@ yq = "latest"
 # Node.js 動作の CLI tool
 "npm:@box/cli" = "latest"
 "npm:@google/clasp" = "latest"
+"npm:@mermaid-js/mermaid-cli" = "latest"
 "npm:aws-cdk" = "latest"
 "npm:create-vite" = "latest"
 "npm:html-validate" = "latest"
@@ -70,6 +72,7 @@ go install github.com/a-h/templ/cmd/templ@latest
 go install github.com/air-verse/air@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 go install github.com/posener/complete/v2/gocomplete@latest
+go install github.com/rhysd/actionlint/cmd/actionlint@latest
 """
 
 [settings]

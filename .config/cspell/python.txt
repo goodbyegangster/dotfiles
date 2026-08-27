@@ -37,6 +37,7 @@ getoption
 getpass
 graphviz
 hashlib
+htmlcov
 iloc
 isdir
 isinstance

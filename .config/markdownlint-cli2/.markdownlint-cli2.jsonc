@@ -17,6 +17,9 @@
     "MD028": false,
     // Inline HTML: https://github.com/DavidAnson/markdownlint/blob/v0.40.0/doc/md033.md
     "MD033": {
+      "allowed_elements": [
+        "div"
+      ],
       "table_allowed_elements": [
         "br"
       ]
