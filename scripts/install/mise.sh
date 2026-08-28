@@ -33,9 +33,16 @@ install_mise() {
 	fi
 }
 
+# mise を最新バージョンへ upgrade する。
+upgrade_mise() {
+	sudo apt-get update -y
+	sudo apt-get install -y --only-upgrade mise
+}
+
 # mise のインストールを実行する。
 main() {
 	install_mise
+	upgrade_mise
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
