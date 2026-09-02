@@ -36,6 +36,7 @@ yq = "latest"
 
 # Node.js 動作の CLI tool
 "npm:@box/cli" = "latest"
+"npm:@dataform/cli" = "latest"
 "npm:@google/clasp" = "latest"
 "npm:@mermaid-js/mermaid-cli" = "latest"
 "npm:aws-cdk" = "latest"

@@ -224,6 +224,11 @@
       "path": "~/dotfiles/.config/cspell/sql.txt",
       "addWords": true,
     },
+    "terraform": {
+      "name": "terraform",
+      "path": "~/dotfiles/.config/cspell/terraform.txt",
+      "addWords": true,
+    },
     "custom": true,
     "internal-terms": true,
   },

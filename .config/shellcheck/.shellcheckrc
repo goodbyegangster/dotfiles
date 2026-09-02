@@ -1,2 +1,5 @@
+source-path=SCRIPTDIR # source 先をスクリプト自身のディレクトリから解決する
+external-sources=true # source された外部ファイルも解析対象にする（shellcheck -x 相当）
+
 disable=SC1090  # Can't follow non-constant source. Use a directive to specify location
 disable=SC2155  # Declare and assign separately to avoid masking return values.
