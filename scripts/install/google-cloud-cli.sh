@@ -37,9 +37,16 @@ install() {
 	fi
 }
 
+# Google Cloud CLI を最新バージョンへ upgrade する。
+upgrade() {
+	sudo apt-get update -y
+	sudo apt-get install -y --only-upgrade google-cloud-cli
+}
+
 # Google Cloud CLI のインストールを実行する。
 main() {
 	install
+	upgrade
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
