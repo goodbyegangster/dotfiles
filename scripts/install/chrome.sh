@@ -19,6 +19,11 @@ cleanup() {
 
 # Google Chrome をインストールする。
 install() {
+	if [[ "$(uname -s)" != "Linux" ]]; then
+		echo "skip: Google Chrome installation is supported only on Linux" >&2
+		return 0
+	fi
+
 	if ! command -v google-chrome &>/dev/null; then
 		CHROME_TMPDIR=$(mktemp -d)
 		chmod 755 "$CHROME_TMPDIR"

@@ -17,13 +17,24 @@ get_user_input() {
 
 # dbt Cloud CLI をインストールする。
 install() {
-	local archive_file="dbt_${VERSION}_linux_amd64.tar.gz"
+	local platform
+	local archive_file
 	local download_url
 
+	case "$(uname -s)" in
+		Linux) platform="linux_amd64" ;;
+		Darwin) platform="darwin_all" ;;
+		*)
+			echo "unsupported platform: $(uname -s)" >&2
+			exit 1
+			;;
+	esac
+
+	archive_file="dbt_${VERSION}_${platform}.tar.gz"
 	download_url="https://github.com/dbt-labs/dbt-cli/releases/download"
 	download_url="${download_url}/v${VERSION}/${archive_file}"
 
-	# https://docs.getdbt.com/docs/cloud/cloud-cli-installation?install=linux
+	# https://docs.getdbt.com/docs/cloud/cloud-cli-installation
 	pushd "${HOME}" >/dev/null
 	wget "$download_url"
 	# dbt Cloud CLI を /usr/local/bin へ展開する。

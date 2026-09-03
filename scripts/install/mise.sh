@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 #
-# mise を apt repository からインストールする。
+# mise を Linux では apt repository、macOS では mise.run のインストーラーからインストールする。
 #
 # Requirement Bash Version
 #   GNU Bash 4.4 or later
 #
 set -Eeuo pipefail
 
-# mise をインストールする。
-install_mise() {
+# mise をインストールする(Linux)。
+install_mise_linux() {
 	local apt_source
 
 	# https://mise.jdx.dev/installing-mise.html#apt
@@ -33,16 +33,49 @@ install_mise() {
 	fi
 }
 
-# mise を最新バージョンへ upgrade する。
-upgrade_mise() {
+# mise をインストールする(macOS)。
+install_mise_macos() {
+	# Homebrew は公式リリースバイナリとは別にビルドされるため、
+	# mise.run のインストーラーを利用する。
+	# https://mise.jdx.dev/installing-mise.html#macos
+	if ! command -v mise &>/dev/null; then
+		curl https://mise.run | sh
+	fi
+}
+
+# mise を最新バージョンへ upgrade する(Linux)。
+upgrade_mise_linux() {
 	sudo apt-get update -y
 	sudo apt-get install -y --only-upgrade mise
 }
 
+# mise を最新バージョンへ upgrade する(macOS)。
+upgrade_mise_macos() {
+	local mise_bin="mise"
+
+	if ! command -v mise &>/dev/null; then
+		mise_bin="${HOME}/.local/bin/mise"
+	fi
+
+	"$mise_bin" self-update --yes
+}
+
 # mise のインストールを実行する。
 main() {
-	install_mise
-	upgrade_mise
+	case "$(uname -s)" in
+		Linux)
+			install_mise_linux
+			upgrade_mise_linux
+			;;
+		Darwin)
+			install_mise_macos
+			upgrade_mise_macos
+			;;
+		*)
+			echo "unsupported platform: $(uname -s)" >&2
+			exit 1
+			;;
+	esac
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
