@@ -84,6 +84,7 @@
       "Quary.sqruff", // https://github.com/quarylabs/sqruff
       // terraform
       "hashicorp.terraform", // https://github.com/hashicorp/vscode-terraform
+      "hashicorp.hcl", // https://github.com/hashicorp/vscode-hcl
       // Tailwind CSS
       "bradlc.vscode-tailwindcss", // https://github.com/tailwindlabs/tailwindcss-intellisense
       // TOML

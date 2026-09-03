@@ -491,6 +491,10 @@
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file"
   },
+  "hcl": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+  },
   /**************************************************
   / TOML
   ***************************************************/
