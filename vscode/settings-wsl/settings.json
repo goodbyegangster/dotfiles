@@ -169,6 +169,11 @@
       "path": "~/dotfiles/.config/cspell/go.txt",
       "addWords": true,
     },
+    "google-cloud": {
+      "name": "google-cloud",
+      "path": "~/dotfiles/.config/cspell/google-cloud.txt",
+      "addWords": true,
+    },
     "javascript": {
       "name": "javascript",
       "path": "~/dotfiles/.config/cspell/javascript.txt",
