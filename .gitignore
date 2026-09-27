@@ -18,6 +18,7 @@
 
 ### specific ignore
 /.config/codex/private.config.toml
+/.config/secrets/
 /git/.gitconfig.local
 node_modules/
 private.txt

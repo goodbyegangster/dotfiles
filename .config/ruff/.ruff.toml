@@ -23,6 +23,8 @@ ignore = [
   "RUF001", # Checks for ambiguous Unicode characters in strings
   "RUF002", # Checks for ambiguous Unicode characters in docstring
   "RUF003", # Checks for ambiguous Unicode characters in comments
+  "S104", # Checks for hardcoded bindings to all network interfaces (0.0.0.0).
+  "S201", # Checks for uses of debug=True in Flask.
   "T201", # `print` found
   "TC001", # Move application import "" into a type-checking block
   "TC002", # Move application import "" into a type-checking block

@@ -144,3 +144,11 @@ fi
 if [ -f "$HOME/.local/bin/env" ]; then
     . "$HOME/.local/bin/env"
 fi
+
+# ----------------------------------------------------------------
+# Secrets
+# ----------------------------------------------------------------
+# Google Developer Knowledge API の MCP Server を利用するための API Key
+if [ -f "$HOME/dotfiles/.config/secrets/google-developer-knowledge.env" ]; then
+    source "$HOME/dotfiles/.config/secrets/google-developer-knowledge.env"
+fi

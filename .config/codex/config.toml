@@ -3,3 +3,13 @@ model_reasoning_effort = "medium"
 
 [mcp_servers.lightdash-docs]
 url = "https://docs.lightdash.com/mcp"
+
+[mcp_servers.google_developer_knowledge]
+url = "https://developerknowledge.googleapis.com/mcp"
+
+[mcp_servers.google_developer_knowledge.env_http_headers]
+X-Goog-Api-Key = "GOOGLE_DEVELOPER_KNOWLEDGE_API_KEY"
+
+[mcp_servers.terraform]
+command = "docker"
+args = ["run", "-i", "--rm", "hashicorp/terraform-mcp-server"]
