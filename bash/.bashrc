@@ -141,6 +141,12 @@ if [ -f "$HOME/.bash_aliases.local" ]; then
     . "$HOME/.bash_aliases.local"
 fi
 
+# ~/.local/bin を PATH に追加 (.profile と重複しないよう制御)
+case ":$PATH:" in
+    *":$HOME/.local/bin:"*) ;;
+    *) PATH="$HOME/.local/bin:$PATH" ;;
+esac
+
 if [ -f "$HOME/.local/bin/env" ]; then
     . "$HOME/.local/bin/env"
 fi

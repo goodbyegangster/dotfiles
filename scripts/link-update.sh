@@ -220,6 +220,10 @@ main() {
 			"${SCRIPT_DIR}/../.config/biome/biome.json" \
 			"${HOME}/.config/biome/biome.json"
 
+		create_link \
+			"${SCRIPT_DIR}/../.config/biome/.gitignore" \
+			"${HOME}/.config/biome/.gitignore"
+
 		####################################################
 		# [javascript / typescript] rc(pnpm) をリンクする
 		####################################################

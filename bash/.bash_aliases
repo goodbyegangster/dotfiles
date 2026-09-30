@@ -52,6 +52,21 @@ if command -v eksctl &> /dev/null; then
 fi
 
 #####################################################
+# clasp
+#####################################################
+_clasp_complete() {
+	if (( COMP_CWORD == 1 )); then
+		local commands
+		commands=$(clasp --help |
+		sed -n '/^Commands:/,$ s/^  \([a-z][a-z-]*\).*/\1/p')
+		mapfile -t COMPREPLY < <(
+			compgen -W "$commands" -- "${COMP_WORDS[COMP_CWORD]}"
+		)
+	fi
+}
+complete -F _clasp_complete clasp
+
+#####################################################
 # direnv
 #####################################################
 
