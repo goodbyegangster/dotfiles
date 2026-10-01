@@ -13,10 +13,6 @@ link-update: ## Create or update symbolic links.
 link-remove: ## Remove old backup links.
 	@bash ./scripts/link-remove.sh
 
-.PHONY: install-mise
-install-mise: ## install mise (minimal setup).
-	@bash ./scripts/install/mise.sh
-
 .PHONY: run-install-scripts
 run-install-scripts: ## Execute the installation scripts.
 	@bash ./scripts/install/_install.sh

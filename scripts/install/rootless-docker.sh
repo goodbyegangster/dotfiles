@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Docker rootless mode をインストールし、ユーザーサービスとして有効化する。
+# WSL に Docker rootless mode をインストールし、ユーザーサービスとして有効化する。
 #
 # Requirement Bash Version
 #   GNU Bash 4.4 or later
@@ -8,6 +8,13 @@
 set -Eeuo pipefail
 
 readonly DOCKER_COMPOSE_VERSION="v5.4.0"
+
+# 実行環境が WSL 上の Linux かを判定する。
+is_wsl() {
+	[[ "$(uname -s)" == "Linux" ]] \
+		&& [[ -r /proc/sys/kernel/osrelease ]] \
+		&& grep -qi 'microsoft' /proc/sys/kernel/osrelease
+}
 
 # Docker rootless mode と必要パッケージをインストールする。
 install_docker() {
@@ -90,6 +97,11 @@ install_docker_compose() {
 
 # Docker rootless mode のインストールを実行する。
 main() {
+	if ! is_wsl; then
+		printf 'skip: Docker rootless mode installation is supported only on WSL\n' >&2
+		return 0
+	fi
+
 	install_docker
 	install_docker_compose
 }
