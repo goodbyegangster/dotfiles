@@ -1,3 +1,5 @@
 alltrue
 tflint
+tfstate
+tfvars
 toset
