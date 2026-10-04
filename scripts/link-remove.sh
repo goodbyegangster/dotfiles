@@ -42,6 +42,7 @@ main() {
 
 	remove_links "${HOME}"
 	remove_links "${HOME}/.agents/skills/"
+	remove_links "${HOME}/.codex/"
 	remove_links "${HOME}/.claude/skills/"
 	remove_links "${HOME}/.config/biome"
 	remove_links "${HOME}/.config/mise"
