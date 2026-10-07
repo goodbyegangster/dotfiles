@@ -16,15 +16,3 @@ X-Goog-Api-Key = "GOOGLE_DEVELOPER_KNOWLEDGE_API_KEY"
 [mcp_servers.terraform]
 command = "docker"
 args = ["run", "-i", "--rm", "hashicorp/terraform-mcp-server"]
-
-[projects."/Users/goodbyegangster/Documents/ChatGPT/mac new commer"]
-trust_level = "trusted"
-
-[projects."/Users/goodbyegangster/dotfiles"]
-trust_level = "trusted"
-
-[tui]
-screen_reader_detection_done = true
-
-[tui.model_availability_nux]
-"gpt-6.1-sol" = 1

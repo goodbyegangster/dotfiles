@@ -107,12 +107,7 @@ if command -v gh &> /dev/null; then
 	# macOS と WSL で Google Chrome の起動方法を切り替える。
 	case "$(uname -s)" in
 		Darwin) export GH_BROWSER="open -a 'Google Chrome'" ;;
-		Linux)
-			if [[ -n "${WSL_DISTRO_NAME:-}" || -n "${WSL_INTEROP:-}" ||
-				"$(uname -r)" == *[Mm]icrosoft* ]]; then
-				export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
-			fi
-			;;
+		Linux) export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'" ;;
 	esac
 fi
 
