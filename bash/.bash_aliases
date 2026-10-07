@@ -104,7 +104,16 @@ fi
 # https://cli.github.com/manual/gh_completion
 if command -v gh &> /dev/null; then
 	eval "$(gh completion -s bash)"
-	export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
+	# macOS と WSL で Google Chrome の起動方法を切り替える。
+	case "$(uname -s)" in
+		Darwin) export GH_BROWSER="open -a 'Google Chrome'" ;;
+		Linux)
+			if [[ -n "${WSL_DISTRO_NAME:-}" || -n "${WSL_INTEROP:-}" ||
+				"$(uname -r)" == *[Mm]icrosoft* ]]; then
+				export GH_BROWSER="'/mnt/c/Program Files/Google/Chrome/Application/chrome.exe'"
+			fi
+			;;
+	esac
 fi
 
 #####################################################
@@ -126,7 +135,11 @@ fi
 
 # Google Cloud CLI
 # Check install path with: gcloud info --format="value(installation.sdk_root)"
-export GCLOUD_HOME="/usr/lib/google-cloud-sdk"
+case "$(uname -s)" in
+	Darwin) export GCLOUD_HOME="${HOME}/google-cloud-sdk" ;;
+	Linux) export GCLOUD_HOME="/usr/lib/google-cloud-sdk" ;;
+esac
+
 if [[ -f "$GCLOUD_HOME/path.bash.inc" ]]; then
 	source "$GCLOUD_HOME/path.bash.inc"
 fi

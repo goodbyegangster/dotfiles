@@ -21,7 +21,7 @@ run_install_script() {
 			-type f \
 			-name "*.sh" \
 			! -name "_install.sh" \
-			-printf "%f\n" \
+			-exec basename {} \; \
 			| sed 's/[.]sh$//' \
 			| sort
 	)

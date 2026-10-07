@@ -16,10 +16,6 @@ jq = "latest"
 kubectl = "latest"
 node = "25"
 pnpm = "latest"
-# postgreSQL
-# sudo apt-get update
-# sudo apt-get install build-essential libssl-dev libreadline-dev zlib1g-dev libcurl4-openssl-dev uuid-dev bison flex libicu-dev pkgconf
-postgres = "17"
 powershell-core = "latest"
 ruby = "3.4.5"
 # https://mise.jdx.dev/lang/rust.html
@@ -78,6 +74,9 @@ go install github.com/rhysd/actionlint/cmd/actionlint@latest
 """
 
 [settings]
+# mise 本体を自動更新する
+auto_update = true
+
 # https://mise.jdx.dev/configuration/settings.html#idiomatic_version_file_enable_tools
 idiomatic_version_file_enable_tools = [
   "go",

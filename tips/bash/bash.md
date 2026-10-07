@@ -2,6 +2,8 @@
 
 ## macOS
 
+### Bash を標準の shell で利用
+
 Homebrew で最新の Bash をインストールする。
 
 ```sh
@@ -26,4 +28,12 @@ chsh -s "$BREW_BASH"
 ```sh
 echo "$SHELL"
 bash --version
+```
+
+### 補完
+
+`bash-completion@2` をインストールする。
+
+```sh
+brew install bash-completion@2
 ```

@@ -40,6 +40,13 @@
     }
   },
   "terminal.integrated.defaultProfile.windows": "PowerShell",
+  // macOS 向け
+  "terminal.integrated.profiles.osx": {
+    "Homebrew Bash": {
+      "path": "/opt/homebrew/bin/bash"
+    }
+  },
+  "terminal.integrated.defaultProfile.osx": "Homebrew Bash",
   /**************************************************
   / editor
   ***************************************************/
@@ -106,6 +113,7 @@
   // "aws.codeWhisperer.importRecommendation": false,
   // "aws.codeWhisperer.includeSuggestionsWithCodeReferences": false,
   "aws.telemetry": false,
+  "aws.cloudformation.telemetry.enabled": false,
   /**************************************************
   / dbt Power User
   **************************************************/
@@ -628,5 +636,5 @@
         }
       }
     ]
-  }
+  },
 }
