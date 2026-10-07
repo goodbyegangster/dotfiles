@@ -1,45 +1,53 @@
 # dotfiles
 
-## Overview
+## Initial setup
 
-WSL と Windows の開発環境で使う設定ファイルを管理する。
+### Common
 
-Bash、Git、mise、PowerShell、VS Code、各種 formatter/linter の設定を含む。
-設定ファイルを配置するための script も含む。
+- [Visual Studio Code](https://code.visualstudio.com/download)
 
-## Requirements
-
-主な操作では次の command を使う。
-
-- Bash 4.4 以上
-- GNU Make
-
-初回セットアップでは、必要に応じて次のドキュメントを参照する。
+### Windows
 
 - [Windows ターミナル](https://learn.microsoft.com/ja-jp/windows/terminal/)
 - [PowerToys](https://learn.microsoft.com/ja-jp/windows/powertoys/install#install-with-microsoft-store)
 - [WSL](https://learn.microsoft.com/ja-jp/windows/wsl/install)
 - [GitHub CLI](https://github.com/cli/cli?tab=readme-ov-file#installation)
-- [Visual Studio Code](https://code.visualstudio.com/download)
 - [VS Code Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
+
+### macOS
+
+- [Homebrew](https://brew.sh/ja/)
+- [Bash](./tips/bash/bash.md)
+- [Ghostty](https://ghostty.org/download)
+- [GitHub CLI](https://github.com/cli/cli?tab=readme-ov-file#installation)
 
 ## Usage
 
-利用できる task を表示する。
+### mise setup
 
-```shell
-make
+下記より mise を選択してインストール。
+
+```sh
+make run-install-scripts
 ```
+
+mise 管理のモジュールをインストール。
+
+```sh
+mise install
+```
+
+### update link
 
 設定ファイルの symbolic link を作成または更新する。
 
-```shell
+```sh
 make link-update
 ```
 
 古い symbolic link の backup を削除する。
 
-```shell
+```sh
 make link-remove
 ```
 
@@ -67,5 +75,5 @@ make link-remove
 - [mise](./tips/mise/mise.md)
 - [PowerShell](./tips/PowerShell/PowerShell.md)
 - [uv](./tips/Python/uv.md)
-- [pnpm](./tips/JavaScript/pnpm.md)
-- [Biome](./tips/JavaScript/Biome.md)
+- [pnpm](./tips/TypeScript/pnpm.md)
+- [Biome](./tips/TypeScript/Biome.md)

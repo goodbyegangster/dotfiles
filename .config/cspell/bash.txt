@@ -1,4 +1,5 @@
 bashdb
+chsh
 Eeuo
 envsubst
 esac
