@@ -25,5 +25,5 @@ chsh -s "$BREW_BASH"
 
 ```sh
 echo "$SHELL"
-echo "$BASH_VERSION"
+bash --version
 ```
