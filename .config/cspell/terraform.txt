@@ -1,4 +1,6 @@
 alltrue
+chdir
+commitish
 tflint
 tfstate
 tfvars
