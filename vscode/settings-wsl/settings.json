@@ -13,6 +13,8 @@
   /**************************************************
   / terminal
   ***************************************************/
+  "terminal.integrated.scrollback": 5000,
+  // Windows (WSL) 向け
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
       "source": "PowerShell",
@@ -38,7 +40,6 @@
     }
   },
   "terminal.integrated.defaultProfile.windows": "PowerShell",
-  "terminal.integrated.scrollback": 5000,
   /**************************************************
   / editor
   ***************************************************/

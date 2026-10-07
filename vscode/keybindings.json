@@ -44,7 +44,7 @@
   ********************************************/
   // [Ctrl + Shift + T] sideBar view の Testing に移動する
   {
-    "key": "ctrl+shift+T",
+    "key": "ctrl+shift+t",
     "command": "workbench.view.testing.focus",
   },
   // [Ctrl + Shift + ]] sideBar view を次に移動する

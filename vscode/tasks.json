@@ -6,6 +6,10 @@
       "label": "CopyPathWithLineNumber",
       "type": "shell",
       "command": "printf '%s' '${file}:${lineNumber}' | iconv -f UTF-8 -t UTF-16LE | clip.exe",
+      // macOS では pbcopy を使う
+      "osx": {
+        "command": "printf '%s' '${file}:${lineNumber}' | pbcopy"
+      },
       "problemMatcher": [],
       "presentation": {
         "reveal": "silent",

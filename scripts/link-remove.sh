@@ -26,8 +26,7 @@ remove_links() {
 		find "$target_dir" \
 			-maxdepth 1 \
 			-type l \
-			-regextype sed \
-			-regex ".*\.[0-9]\{14\}$" \
+			-name '*.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' \
 			| sort
 	)
 	for file in "${files[@]}"; do
@@ -52,6 +51,8 @@ main() {
 	remove_links "${HOME}/.config/uv"
 	remove_links "${HOME}/.config"
 	remove_links "${HOME}/.vscode-server/data/Machine"
+	remove_links "${HOME}/Library/Application Support/Code/User"
+	remove_links "${HOME}/Library/Application Support/Code/User/snippets"
 }
 
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then

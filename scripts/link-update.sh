@@ -62,16 +62,12 @@ create_link() {
 		# 既存ディレクトリをバックアップへ退避する。
 		mv "$destination" "${destination}.${NOW}"
 	fi
-	# 既存パスをバックアップし、シンボリックリンクを作成する。
-	ln \
-		--symbolic \
-		--force \
-		--no-dereference \
-		--no-target-directory \
-		--backup=simple \
-		-S ".${NOW}" \
-		"$source" \
-		"$destination"
+	# 既存パスをバックアップする。
+	if [[ -e "$destination" || -L "$destination" ]]; then
+		mv "$destination" "${destination}.${NOW}"
+	fi
+	# シンボリックリンクを作成する。
+	ln -s "$source" "$destination"
 }
 
 # dotfiles 配下のファイルをコピーして更新する。
@@ -107,7 +103,21 @@ update_directory() {
 	# コピー先ディレクトリを作成する。
 	mkdir -p "$destination"
 	# 既存ディレクトリ内へファイルを再帰的に上書きコピーする。
-	cp --recursive "${source}/." "$destination"
+	cp -R "${source}/." "$destination"
+}
+
+# 実行環境を判定する。
+#
+# 標準出力
+#   macos / wsl / linux
+detect_os() {
+	if [[ "$(uname -s)" == "Darwin" ]]; then
+		printf "%s\n" "macos"
+	elif grep -qi microsoft /proc/version 2>/dev/null; then
+		printf "%s\n" "wsl"
+	else
+		printf "%s\n" "linux"
+	fi
 }
 
 # Windows のユーザー名を取得する。
@@ -134,12 +144,18 @@ get_windows_user_name() {
 main() {
 	local input
 	local window_user_name
+	local os
 
 	parse_option "$@"
 
+	os="$(detect_os)"
+
 	read -erp "Do you want to update? [Y,n]: " input
 	if [[ "$input" == "Y" ]]; then
-		window_user_name="$(get_windows_user_name)"
+		# Windows 側の設定は WSL のときのみ更新する。
+		if [[ "$os" == "wsl" ]]; then
+			window_user_name="$(get_windows_user_name)"
+		fi
 
 		####################################################
 		# [LLM] AGENTS.md をリンクする
@@ -275,42 +291,55 @@ main() {
 		done
 
 		####################################################
-		# [tmux] .tmux.conf をリンクする
+		# [VS Code] settings.json (Windows) をリンクする
 		####################################################
-		create_link \
-		  "${SCRIPT_DIR}/../.config/tmux/.tmux.conf" \
-		  "${HOME}/.tmux.conf"
+		if [[ "$os" == "wsl" ]]; then
+			update_file \
+				"${SCRIPT_DIR}/../vscode/settings-windows/settings.json" \
+				"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/settings.json"
+		fi
 
 		####################################################
-		# [VS Code] settings.json (Remote) をリンクする
+		# [VS Code] settings.json を配置する
 		####################################################
-		create_link \
-			"${SCRIPT_DIR}/../vscode/settings-wsl/settings.json" \
-			"${HOME}/.vscode-server/data/Machine/settings.json"
+		if [[ "$os" == "wsl" ]]; then
+			create_link \
+				"${SCRIPT_DIR}/../vscode/settings/settings.json" \
+				"${HOME}/.vscode-server/data/Machine/settings.json"
+		elif [[ "$os" == "macos" ]]; then
+			create_link \
+				"${SCRIPT_DIR}/../vscode/settings/settings.json" \
+				"${HOME}/Library/Application Support/Code/User/settings.json"
+		fi
 
 		####################################################
-		# [VS Code] settings.json (User) をコピーする
+		# [VS Code] tasks.json を配置する
 		####################################################
-		update_file \
-			"${SCRIPT_DIR}/../vscode/settings-windows/settings.json" \
-			"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/settings.json"
+		if [[ "$os" == "wsl" ]]; then
+			update_file \
+				"${SCRIPT_DIR}/../vscode/tasks.json" \
+				"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/tasks.json"
+		elif [[ "$os" == "macos" ]]; then
+			create_link \
+				"${SCRIPT_DIR}/../vscode/tasks.json" \
+				"${HOME}/Library/Application Support/Code/User/tasks.json"
+		fi
 
 		####################################################
-		# [VS Code] tasks.json をコピーする
+		# [VS Code] keybindings.json を配置する
 		####################################################
-		update_file \
-			"${SCRIPT_DIR}/../vscode/tasks.json" \
-			"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/tasks.json"
+		if [[ "$os" == "wsl" ]]; then
+			update_file \
+				"${SCRIPT_DIR}/../vscode/keybindings.json" \
+				"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/keybindings.json"
+		elif [[ "$os" == "macos" ]]; then
+			create_link \
+				"${SCRIPT_DIR}/../vscode/keybindings.json" \
+				"${HOME}/Library/Application Support/Code/User/keybindings.json"
+		fi
 
 		####################################################
-		# [VS Code] keybindings.json をコピーする
-		####################################################
-		update_file \
-			"${SCRIPT_DIR}/../vscode/keybindings.json" \
-			"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/keybindings.json"
-
-		####################################################
-		# [VS Code] スニペットをコピーする
+		# [VS Code] スニペットを配置する
 		####################################################
 		local snippets_dir="${SCRIPT_DIR}/../vscode/snippets"
 		local snippet_file
@@ -320,51 +349,59 @@ main() {
 			[[ -f "$snippet_file" ]] || continue
 
 			snippet_name="$(basename "$snippet_file")"
-			update_file \
-				"$snippet_file" \
-				"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/${snippet_name}"
+			if [[ "$os" == "wsl" ]]; then
+				update_file \
+					"$snippet_file" \
+					"/mnt/c/Users/${window_user_name}/AppData/Roaming/Code/User/snippets/${snippet_name}"
+			elif [[ "$os" == "macos" ]]; then
+				create_link \
+					"$snippet_file" \
+					"${HOME}/Library/Application Support/Code/User/snippets/${snippet_name}"
+			fi
 		done
 
 		####################################################
-		# [PowerShell] Advanced Function を設定する
+		# [PowerShell] Advanced Function を設定する (Windows のみ)
 		####################################################
-		# ExecutionPolicy を更新する。
-		powershell.exe -NoProfile -Command '& {
-			if ((Get-ExecutionPolicy -Scope CurrentUser) -ne "RemoteSigned") {
-				Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
-			}
-		}'
+		if [[ "$os" == "wsl" ]]; then
+			# ExecutionPolicy を更新する。
+			powershell.exe -NoProfile -Command '& {
+				if ((Get-ExecutionPolicy -Scope CurrentUser) -ne "RemoteSigned") {
+					Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+				}
+			}'
 
-		local pwsh_modules_dir="/mnt/c/Users/${window_user_name}/Documents/WindowsPowerShell/Modules"
-		local pwsh_modules_dir_win="C:\\Users\\${window_user_name}\\Documents\\WindowsPowerShell\\Modules"
+			local pwsh_modules_dir="/mnt/c/Users/${window_user_name}/Documents/WindowsPowerShell/Modules"
+			local pwsh_modules_dir_win="C:\\Users\\${window_user_name}\\Documents\\WindowsPowerShell\\Modules"
 
-		# PSModulePath に module 配置先ディレクトリを追加する。
-		# shellcheck disable=SC2016
-		powershell.exe -NoProfile -Command '& {
-			param([string]$ModulePath)
+			# PSModulePath に module 配置先ディレクトリを追加する。
+			# shellcheck disable=SC2016
+			powershell.exe -NoProfile -Command '& {
+				param([string]$ModulePath)
 
-			$userPath = [Environment]::GetEnvironmentVariable("PSModulePath", "User")
-			$paths = @($ModulePath)
+				$userPath = [Environment]::GetEnvironmentVariable("PSModulePath", "User")
+				$paths = @($ModulePath)
 
-			if ($userPath) {
-				$paths += $userPath -split ";" | Where-Object { $_ -and $_ -ne $ModulePath }
-			}
+				if ($userPath) {
+					$paths += $userPath -split ";" | Where-Object { $_ -and $_ -ne $ModulePath }
+				}
 
-			[Environment]::SetEnvironmentVariable("PSModulePath", ($paths -join ";"), "User")
-		}' "$pwsh_modules_dir_win"
+				[Environment]::SetEnvironmentVariable("PSModulePath", ($paths -join ";"), "User")
+			}' "$pwsh_modules_dir_win"
 
-		local pwshs_dir="${SCRIPT_DIR}/../pwsh/advanced-function"
-		local pwsh_dir
-		local pwsh_name
+			local pwshs_dir="${SCRIPT_DIR}/../pwsh/advanced-function"
+			local pwsh_dir
+			local pwsh_name
 
-		for pwsh_dir in "$pwshs_dir"/*; do
-			[[ -d "$pwsh_dir" ]] || continue
+			for pwsh_dir in "$pwshs_dir"/*; do
+				[[ -d "$pwsh_dir" ]] || continue
 
-			pwsh_name="$(basename "$pwsh_dir")"
-			update_directory \
-				"$pwsh_dir" \
-				"${pwsh_modules_dir}/${pwsh_name}"
-		done
+				pwsh_name="$(basename "$pwsh_dir")"
+				update_directory \
+					"$pwsh_dir" \
+					"${pwsh_modules_dir}/${pwsh_name}"
+			done
+		fi
 
 		####################################################
 		# [Python] pip.conf をリンクする

@@ -29,8 +29,6 @@
       "denoland.vscode-deno", // https://github.com/denoland/vscode_deno
       // Dependency Analytics
       "redhat.fabric8-analytics", // https://github.com/fabric8-analytics/fabric8-analytics-vscode-extension
-      // dbt
-      "innoverio.vscode-dbt-power-user", // https://github.com/AltimateAI/vscode-dbt-power-user
       // Docker
       "ms-azuretools.vscode-docker", // https://github.com/microsoft/vscode-docker
       // EditorConfig
@@ -47,8 +45,6 @@
       "anweber.vscode-httpyac", // https://github.com/anweber/httpyac
       // JavaScript, TypeScript
       "crystal-spider.jsdoc-generator", // https://github.com/Crystal-Spider/jsdoc-generator
-      // (unused) eslint
-      // "dbaeumer.vscode-eslint", // https://github.com/microsoft/vscode-eslint
       // jinja2
       "samuelcolvin.jinjahtml", // https://github.com/samuelcolvin/jinjahtml-vscode
       // Live Server
@@ -69,8 +65,6 @@
       "ms-playwright.playwright", // https://marketplace.visualstudio.com/items?itemName=ms-playwright.playwright
       // PowerShell
       "ms-vscode.powershell", // https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell
-      // prettier
-      "esbenp.prettier-vscode", // https://github.com/prettier/prettier-vscode
       // Python
       "ms-python.vscode-pylance", // https://github.com/microsoft/pylance-release
       "charliermarsh.ruff", // https://github.com/astral-sh/ruff-vscode
