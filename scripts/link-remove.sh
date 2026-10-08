@@ -14,16 +14,25 @@ readonly RESET='\033[0m'
 #
 # 引数
 #   $1: 対象ディレクトリ
+#   $2: 実行方法 (command / sudo、省略時は command)
 remove_links() {
 	local -a files
 	local file
 
 	local target_dir=$1
+	local privilege=${2:-command}
 
+	case "$privilege" in
+		command | sudo) ;;
+		*)
+			printf "ERROR: execution method must be command or sudo: %s\n" "$privilege" >&2
+			return 1
+			;;
+	esac
 	[[ -d "$target_dir" ]] || return 0
 
 	mapfile -t files < <(
-		find "$target_dir" \
+		"$privilege" find "$target_dir" \
 			-maxdepth 1 \
 			-type l \
 			-name '*.[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]' \
@@ -32,24 +41,24 @@ remove_links() {
 	for file in "${files[@]}"; do
 		echo "rm ${file}"
 		# 古いバックアップシンボリックリンクを削除する。
-		rm "$file"
+		"$privilege" rm "$file"
 	done
 }
 
 main() {
 	echo -e "${GREEN}Remove symbolic links${RESET}"
 
+	remove_links "/etc/codex" sudo
 	remove_links "${HOME}"
 	remove_links "${HOME}/.agents/skills/"
-	remove_links "${HOME}/.codex/"
 	remove_links "${HOME}/.claude/skills/"
+	remove_links "${HOME}/.config"
 	remove_links "${HOME}/.config/biome"
 	remove_links "${HOME}/.config/mise"
 	remove_links "${HOME}/.config/pip"
 	remove_links "${HOME}/.config/pnpm"
 	remove_links "${HOME}/.config/ruff"
 	remove_links "${HOME}/.config/uv"
-	remove_links "${HOME}/.config"
 	remove_links "${HOME}/.vscode-server/data/Machine"
 	remove_links "${HOME}/Library/Application Support/Code/User"
 	remove_links "${HOME}/Library/Application Support/Code/User/snippets"

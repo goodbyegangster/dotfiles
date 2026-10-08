@@ -20,6 +20,7 @@
 - [Bash](./tips/bash/bash.md)
 - [Ghostty](https://ghostty.org/download)
 - [GitHub CLI](https://github.com/cli/cli?tab=readme-ov-file#installation)
+- [Docker](./tips/docker/docker.md)
 
 ## Usage
 

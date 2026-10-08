@@ -112,19 +112,6 @@ if command -v gh &> /dev/null; then
 fi
 
 #####################################################
-# OpenAI
-#####################################################
-
-# Codex
-# 共有設定は ~/.codex/config.toml として管理し、private な設定は
-# ~/.codex/private.config.toml から読み込む。
-if [[ -e "$HOME/.codex/private.config.toml" ]]; then
-	codex() {
-		command codex --profile private "$@"
-	}
-fi
-
-#####################################################
 # Google Cloud
 #####################################################
 

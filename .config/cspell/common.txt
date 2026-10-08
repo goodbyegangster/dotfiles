@@ -3,6 +3,7 @@ amazonwebservices
 APAC
 autodocstring
 azuretools
+buildx
 capitalisation
 ceintl
 charliermarsh

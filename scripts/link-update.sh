@@ -49,25 +49,34 @@ parse_option() {
 # 引数
 #   $1: リンク元パス
 #   $2: リンク先パス
+#   $3: 実行方法 (command / sudo、省略時は command)
 create_link() {
 	local source
 	local destination=$2
+	local privilege=${3:-command}
 
+	case "$privilege" in
+		command | sudo) ;;
+		*)
+			printf "ERROR: execution method must be command or sudo: %s\n" "$privilege" >&2
+			return 1
+			;;
+	esac
 	source="$(realpath "$1")"
 
-	printf "${GREEN}ln -s %-60s %-60s${RESET}\n" "$source" "$destination"
+	printf "${GREEN}ln -s %-80s %-80s${RESET}\n" "$source" "$destination"
 	# リンク先ディレクトリを作成する。
-	mkdir -p "$(dirname "$destination")"
+	"$privilege" mkdir -p "$(dirname "$destination")"
 	if [[ -d "$destination" && ! -L "$destination" ]]; then
 		# 既存ディレクトリをバックアップへ退避する。
-		mv "$destination" "${destination}.${NOW}"
+		"$privilege" mv "$destination" "${destination}.${NOW}"
 	fi
 	# 既存パスをバックアップする。
 	if [[ -e "$destination" || -L "$destination" ]]; then
-		mv "$destination" "${destination}.${NOW}"
+		"$privilege" mv "$destination" "${destination}.${NOW}"
 	fi
 	# シンボリックリンクを作成する。
-	ln -s "$source" "$destination"
+	"$privilege" ln -s "$source" "$destination"
 }
 
 # dotfiles 配下のファイルをコピーして更新する。
@@ -190,14 +199,8 @@ main() {
 		####################################################
 		create_link \
 			"${SCRIPT_DIR}/../.config/codex/config.toml" \
-			"${HOME}/.codex/config.toml"
-
-		# private 設定がある場合は profile としてリンクする。
-		if [[ -f "${SCRIPT_DIR}/../.config/codex/private.config.toml" ]]; then
-			create_link \
-				"${SCRIPT_DIR}/../.config/codex/private.config.toml" \
-				"${HOME}/.codex/private.config.toml"
-		fi
+			"/etc/codex/config.toml" \
+			sudo
 
 		####################################################
 		# [container] hadolint.yml をリンクする
