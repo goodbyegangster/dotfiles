@@ -594,6 +594,16 @@
     "!Transform mapping",
     "!Ref scalar",
   ],
+  // Disabling schema validation
+  // https://github.com/redhat-developer/vscode-yaml#disabling-schema-validation
+  "yaml.disableSchemaDetection": [
+    "**/.github/workflows/*.yml",
+    "**/.github/workflows/*.yaml",
+    "**/.gitea/workflows/*.yml",
+    "**/.gitea/workflows/*.yaml",
+    "**/.forgejo/workflows/*.yml",
+    "**/.forgejo/workflows/*.yaml"
+  ],
   "redhat.telemetry.enabled": false,
   /**************************************************
   / launch.json

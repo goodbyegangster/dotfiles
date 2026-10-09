@@ -73,6 +73,7 @@ make link-remove
 
 ## Related Documentation
 
+- [textlint](./.config/textlint/README.md)
 - [mise](./tips/mise/mise.md)
 - [PowerShell](./tips/PowerShell/PowerShell.md)
 - [uv](./tips/Python/uv.md)
