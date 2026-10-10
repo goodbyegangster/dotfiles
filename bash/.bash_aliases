@@ -97,6 +97,16 @@ if command -v gocomplete &> /dev/null; then
 fi
 
 #####################################################
+# git
+#####################################################
+
+# completion
+# https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+if [[ -f "$HOME/dotfiles/git/completion/git-completion.bash" ]]; then
+	source "$HOME/dotfiles/git/completion/git-completion.bash"
+fi
+
+#####################################################
 # GitHub
 #####################################################
 
